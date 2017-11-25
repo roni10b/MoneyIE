@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:id="@+id/home_activity"
+    tools:context="io.money.moneyie.activities.HomeActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/appSilver">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/home_toolbar_sandwich_btn"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/sandwich" />
+
+            <TextView
+                android:id="@+id/home_toolbar_app_name"
+                android:layout_width="250dp"
+                android:layout_height="45dp"
+                android:text="@string/expense"
+                android:textSize="35sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+
+            <ImageView
+                android:id="@+id/home_toolbar_statistics_icon_btn"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/statistics_icon" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/dlContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tbHeader">
+
+        <FrameLayout
+            android:id="@+id/home_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/home_drawer_menu"
+            android:layout_width="175dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#1C1C1C"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#1eFFFFFF"/>
+
+            <Button
+                android:id="@+id/home_income_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:drawableLeft="@drawable/income_ic"
+                android:drawableStart="@drawable/income_ic"
+                android:fontFamily="sans-serif"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="25dp"
+                android:drawablePadding="5dp"
+                android:background="@drawable/drawer_button_design"
+                android:text="@string/income" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#1eFFFFFF"/>
+
+            <Button
+                android:id="@+id/home_outcome_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/expense_icon"
+                android:drawableStart="@drawable/expense_icon"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="25dp"
+                android:drawablePadding="5dp"
+                android:background="@drawable/drawer_button_design"
+                android:text="@string/expense" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#1eFFFFFF"/>
+
+            <Button
+                android:id="@+id/home_statistics_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:drawableLeft="@drawable/statistics_ic"
+                android:drawableStart="@drawable/statistics_ic"
+                android:fontFamily="sans-serif"
+                android:background="@drawable/drawer_button_design"
+                android:text="@string/statistics"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="25dp"
+                android:drawablePadding="5dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#1eFFFFFF"/>
+
+            <Button
+                android:id="@+id/home_myProfile_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:drawableLeft="@drawable/myprof_icon"
+                android:drawableStart="@drawable/myprof_icon"
+                android:fontFamily="sans-serif"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="25dp"
+                android:drawablePadding="5dp"
+                android:background="@drawable/drawer_button_design"
+                android:text="@string/my_profile" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#1eFFFFFF"/>
+
+            <Button
+                android:id="@+id/home_alarms_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="25dp"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/alarm_icon"
+                android:drawableStart="@drawable/alarm_icon"
+                android:fontFamily="sans-serif"
+                android:background="@drawable/drawer_button_design"
+                android:text="@string/reminders" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#1eFFFFFF"/>
+
+            <Button
+                android:id="@+id/home_add_friend_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:drawableStart="@drawable/add_friend_icon"
+                android:drawableLeft="@drawable/add_friend_icon"
+                android:fontFamily="sans-serif"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="25dp"
+                android:drawablePadding="5dp"
+                android:background="@drawable/drawer_button_design"
+                android:text="@string/add_friend" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#1eFFFFFF"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#1eFFFFFF"/>
+
+            <Button
+                android:id="@+id/home_logout_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="25dp"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/logout_icon"
+                android:drawableStart="@drawable/logout_icon"
+                android:fontFamily="sans-serif"
+                android:background="@drawable/drawer_button_design"
+                android:text="@string/log_out" />
+        </LinearLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

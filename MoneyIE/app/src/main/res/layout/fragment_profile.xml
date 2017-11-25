@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_profile"
+    android:focusable="true"
+    android:layout_margin="5dp"
+    android:focusableInTouchMode="true">
+    <requestFocus/>
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/name"
+        android:textColor="@color/appSilver"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/profile_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/email_two_dots"
+        android:gravity="center"
+        android:textColor="@color/appSilver"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"/>
+
+    <View
+        android:id="@+id/profile_l0"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/appSilver"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/profile_l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/profile_salary_question"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:src="@drawable/question_mark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/salary"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textColor="@color/appSilver"
+            android:gravity="center"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/profile_l2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/profile_salary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="18sp"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            android:hint="@string/amount"
+            android:maxLength="9"
+            android:textColor="@color/appSilver"
+            android:textColorHint="@color/appSilver"
+            android:textCursorDrawable="@drawable/cursor_color_silver"
+            />
+
+        <EditText
+            android:id="@+id/profile_choose_date"
+            android:layout_width="0dp"
+            android:textSize="18sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="@color/appSilver"
+            android:textColorHint="@color/appSilver"
+            android:textCursorDrawable="@drawable/cursor_color_silver"
+            android:focusable="false" />
+
+
+        <ImageView
+            android:id="@+id/profile_add_salary_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ok_button" />
+
+        <ImageView
+            android:id="@+id/profile_delete_salary_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/delete_button" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/appSilver"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Language"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textColor="@color/appSilver"
+            android:gravity="left"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/change_language_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/appSilver"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/profile_add_type_question"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:src="@drawable/question_mark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/create_your_own_types"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textColor="@color/appSilver"
+            android:gravity="center"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/profile_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="3"
+            android:maxLines="1"
+            android:maxLength="10"
+            android:hint="@string/your_type"
+            android:textColor="@color/appSilver"
+            android:textColorHint="@color/appSilver"
+            android:textCursorDrawable="@drawable/cursor_color_silver"
+            android:textSize="18sp"/>
+
+        <RadioGroup
+            android:id="@+id/profile_radiogr_kind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="2">
+
+            <RadioButton
+                android:id="@+id/profile_income_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/appSilver"
+                android:checked="true"
+                android:text="@string/income"/>
+            <RadioButton
+                android:id="@+id/profile_outcome_radio"
+                android:layout_weight="3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/appSilver"
+                android:text="@string/expense"/>
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/profile_save_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ok_button" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/appSilver"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/profile_eye"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:src="@drawable/eye_visible" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/your_types"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textColor="@color/appSilver"
+            android:gravity="center"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/profile_no_types"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/appSilver"
+        android:text="@string/no_added_types"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

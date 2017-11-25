@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "455924462797",
+    "firebase_url": "https://moneyio-3fcaf.firebaseio.com",
+    "project_id": "moneyio-3fcaf",
+    "storage_bucket": "moneyio-3fcaf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455924462797:android:3d0b9567c68139dd",
+        "android_client_info": {
+          "package_name": "io.money.moneyio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "455924462797-gpvk0lausq5pko5p6et590cpk952s4va.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.money.moneyio",
+            "certificate_hash": "adb2f30c971e85406c51269c7e38bba64dfeb736"
+          }
+        },
+        {
+          "client_id": "455924462797-e024m84sp5rodg3kmg6a9us1p7fnu9lj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn64p55iKmpnV-o3vxa8_HhaBLJDyvvCM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "455924462797-e024m84sp5rodg3kmg6a9us1p7fnu9lj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

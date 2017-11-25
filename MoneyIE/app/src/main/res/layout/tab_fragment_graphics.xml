@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/graphics_text_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:visibility="gone"
+            android:text="@string/from"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_gravity="center"
+            android:textColor="#000000"/>
+
+        <EditText
+            android:id="@+id/graphics_date_edit"
+            android:focusable="false"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:drawableLeft="@drawable/calendar_icon"
+            android:drawableStart="@drawable/calendar_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"/>
+
+        <Spinner
+            android:id="@+id/statistics_spinner_menu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/graphics_text_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:visibility="gone"
+            android:text="@string/to"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_gravity="center"
+            android:textColor="#000000"/>
+
+        <EditText
+            android:id="@+id/graphics_date_edit1"
+            android:focusable="false"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="-2dp"
+            android:drawableLeft="@drawable/calendar_icon"
+            android:drawableStart="@drawable/calendar_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="30dp">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/outcome_icon" />
+
+                    <TextView
+                        android:id="@+id/statistics_expense_bar"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:textColor="#000000"
+                        android:gravity="center|left"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/ststistics_plusminus"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ie_progres"/>
+
+                    <TextView
+                        android:id="@+id/statistics_overall_bar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:textColor="#000000"
+                        android:gravity="center|left"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/income_icon"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:id="@+id/statistics_income_bar"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:textColor="#000000"
+                        android:gravity="center|left"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#1e000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/graphics_activity_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/you_have_no_activity_for_this_period"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:textColor="@color/appSilver"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/statistics_question_pie"
+                android:layout_height="20dp"
+                android:layout_width="20dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/question_mark" />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/statistics_income_expense_year_pie"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"/>
+
+            <ImageView
+                android:id="@+id/statistics_question_combined"
+                android:layout_height="20dp"
+                android:layout_width="20dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/question_mark" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/statistics_income_expense_year_combined"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"/>
+
+            <ImageView
+                android:id="@+id/statistics_question_horizontal_bar"
+                android:layout_height="20dp"
+                android:layout_width="20dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/question_mark" />
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/statistics_income_expense_year_horizontal_bar_chart"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -17,6 +17,7 @@ import io.money.moneyie.R;
 import io.money.moneyie.model.Alarm;
 import io.money.moneyie.model.Type;
 import io.money.moneyie.model.PlannedFlow;
+import io.money.moneyie.model.utilities.Utilities;
 
 public class DatabaseHelperSQLite extends SQLiteOpenHelper {
 
@@ -249,24 +250,7 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
             out.add(new Type(c.getString(0), c.getString(1), c.getInt(2)));
         }
 
-        Resources t = context.getResources();
-
-        String [] names = {t.getString(R.string.Alcohol), t.getString(R.string.Bar), t.getString(R.string.Balling),
-                t.getString(R.string.Bike), t.getString(R.string.Books), t.getString(R.string.Boy), t.getString(R.string.Burger),
-                t.getString(R.string.Business), t.getString(R.string.Car), t.getString(R.string.CarRepair),
-                t.getString(R.string.Cinema), t.getString(R.string.Clothes), t.getString(R.string.Coffee),
-                t.getString(R.string.Concert), t.getString(R.string.Couple), t.getString(R.string.Bitcoin),
-                t.getString(R.string.Dividends), t.getString(R.string.Codding), t.getString(R.string.Electricity),
-                t.getString(R.string.FirstAid), t.getString(R.string.Food), t.getString(R.string.Fuel), t.getString(R.string.Games),
-                t.getString(R.string.Gift), t.getString(R.string.Girl), t.getString(R.string.HairStyle),
-                t.getString(R.string.Holiday), t.getString(R.string.Home), t.getString(R.string.Love),
-                t.getString(R.string.Lunch), t.getString(R.string.Makeup), t.getString(R.string.Music),
-                t.getString(R.string.Pet), t.getString(R.string.Phone), t.getString(R.string.PhoneApps),
-                t.getString(R.string.Race), t.getString(R.string.Repair), t.getString(R.string.Services),
-                t.getString(R.string.Sallary), t.getString(R.string.Savings), t.getString(R.string.Shoes),
-                t.getString(R.string.Shopping), t.getString(R.string.Skiing), t.getString(R.string.Sport),
-                t.getString(R.string.Theatre), t.getString(R.string.Trip), t.getString(R.string.TV),
-                t.getString(R.string.Wedding), t.getString(R.string.Tabacco)};
+        String [] names = Utilities.getTypeNames(context);
 
         // true = outcome, false = income
         out.add(new Type("true", names[0], R.drawable.alcohol));

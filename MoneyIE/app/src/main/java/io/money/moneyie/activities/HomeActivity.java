@@ -49,6 +49,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private static String[] PERMISSIONS= {
             Manifest.permission.INTERNET,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.GET_ACCOUNTS,
+            Manifest.permission.READ_CONTACTS
     };
     private Button btnOutcome, btnIncome, btnProfile, btnStatistics, btnAlarms, btnAddFriend, btnLogOut;
     private ImageView sandwichButton, statisticsButton;
@@ -56,7 +58,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private DatabaseHelperFirebase fdb;
     private TextView currentFragment;
     private Fragment_Income_Expense fragment_incomeExpense;
-    private List<MoneyFlow> firebaseData;
     private Bundle bundle;
 
     @Override
@@ -79,8 +80,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public static void verifyPermissions(Activity activity) {
         int permissionInternet = ActivityCompat.checkSelfPermission(activity, Manifest.permission.INTERNET);
         int permissionWrite = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permissionAcc = ActivityCompat.checkSelfPermission(activity, Manifest.permission.GET_ACCOUNTS);
+        int permissionCon = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_CONTACTS);
 
-        if (permissionInternet != PackageManager.PERMISSION_GRANTED || permissionWrite != PackageManager.PERMISSION_GRANTED) {
+        if (permissionInternet != PackageManager.PERMISSION_GRANTED || permissionWrite != PackageManager.PERMISSION_GRANTED
+                || permissionAcc != PackageManager.PERMISSION_GRANTED || permissionCon != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
                     activity,
                     PERMISSIONS,
@@ -110,7 +114,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         ShowcaseConfig config = new ShowcaseConfig();
         config.setDelay(250);
 
-        MaterialShowcaseSequence sequence = new MaterialShowcaseSequence(this);
+        MaterialShowcaseSequence sequence = new MaterialShowcaseSequence(this, "userID");
         sequence.setConfig(config);
 
         sequence.addSequenceItem(sandwichButton,
@@ -140,7 +144,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initialiseElements(){
         fdb = DatabaseHelperFirebase.getInstance(this);
-        firebaseData = fdb.getData();
         fragment_incomeExpense = new Fragment_Income_Expense();
         bundle = new Bundle();
         bundle.putBoolean("isExpense", true);

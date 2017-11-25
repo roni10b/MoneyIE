@@ -84,7 +84,7 @@
     <string name="add_new_reminder">Add new reminder</string>
     <string name="name">Name: </string>
     <string name="amount">Amount</string>
-    <string name="no_added_types">*No added types.</string>
+    <string name="no_added_types">No added types.</string>
     <string name="text">Text</string>
     <string name="money_io">MoneyIO</string>
     <string name="sorry_internet_problem_please_try_again">Sorry, internet problem. Please try again.</string>

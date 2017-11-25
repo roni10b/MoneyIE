@@ -1,5 +1,7 @@
 package io.money.moneyie.fragments;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,7 +9,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -31,8 +35,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -52,7 +55,6 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
 
     private View view;
     private DatabaseHelperSQLite db;
-    private FirebaseUser user;
     private TextView email, name, noTypes;
     private EditText salary, type, dayOfSalary;
     private RadioGroup radioGroup;
@@ -66,6 +68,8 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
     private ImageView okImg, deleteImg, saveType, imgEye, imgQuestionSalary, imgQuestionType;
     private LinearLayout layout;
     private Spinner changeLanguage;
+    private String UserEmailId;
+
 
     @Nullable
     @Override
@@ -85,9 +89,31 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         setSpinnerChangeLanguage();
         return view;
     }
+//////////
 
+    private String getEmailID(Context context) {
+        AccountManager accountManager = AccountManager.get(context);
+        Account account = getAccount(accountManager);
+        if (account == null) {
+            return null;
+        } else {
+            return account.name;
+        }
+    }
+
+    private static Account getAccount(AccountManager accountManager) {
+        Account[] accounts = accountManager.getAccountsByType("com.google");
+        Account account;
+        if (accounts.length > 0) {
+            account = accounts[0];
+        } else {
+            account = null;
+        }
+        return account;
+    }
+////////////
     private void startRecycler() {
-        final List<Type> types = DatabaseHelperSQLite.getInstance(view.getContext()).getUserTypes(user.getUid());
+        final List<Type> types = DatabaseHelperSQLite.getInstance(view.getContext()).getUserTypes("");
         typeFilter = new ArrayList<>();
         for (int i = 0; i < types.size(); i++) {
             if (types.get(i).getPictureId() == R.drawable.custom_type) {
@@ -128,7 +154,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                 .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        db.deleteType(user.getUid(), typeFilter.get(position).getExpense(), typeFilter.get(position).getType());
+                        db.deleteType("", typeFilter.get(position).getExpense(), typeFilter.get(position).getType());
                         typeFilter.remove(position);
                         recyclerView.removeViewAt(position);
                         adapter.notifyItemRemoved(position);
@@ -158,7 +184,6 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         recyclerView = view.findViewById(R.id.recycler_profile);
         db = DatabaseHelperSQLite.getInstance(view.getContext());
         monthYearPicker = new MonthYearPicker(view.getContext());
-        user = FirebaseAuth.getInstance().getCurrentUser();
         email = view.findViewById(R.id.profile_email);
         name = view.findViewById(R.id.profile_name);
         salary = view.findViewById(R.id.profile_salary);
@@ -175,6 +200,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         imgQuestionType = view.findViewById(R.id.profile_add_type_question);
         imgQuestionSalary = view.findViewById(R.id.profile_salary_question);
         changeLanguage = view.findViewById(R.id.change_language_spinner);
+        UserEmailId = getEmailID(view.getContext().getApplicationContext());
         setTextValues();
     }
 
@@ -272,9 +298,20 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
     }
 
     private void setTextValues() {
-        email.setText(getString(R.string.email_two_dots) + " " + user.getEmail());
-        name.setText(getString(R.string.hello) + " " + user.getDisplayName());
-        plannedFlow = db.getUserPlanned(user.getUid());
+        email.setText(getString(R.string.email_two_dots) + " " + UserEmailId);
+        Cursor c = getActivity().getApplication().getContentResolver().query(ContactsContract.Profile.CONTENT_URI, null, null, null, null);
+        if(c != null && c.getCount()>0) {
+            c.moveToFirst();
+            name.setText(getString(R.string.hello) + " " + c.getString(c.getColumnIndex("display_name")));
+            c.close();
+        } else {
+            name.setText(getString(R.string.hello));
+        }
+
+        //name.setText(getString(R.string.hello) + " " + user.getDisplayName());
+        //plannedFlow = db.getUserPlanned(user.getUid());
+
+        plannedFlow = db.getUserPlanned("");
         if(plannedFlow == null){
             salary.setText("");
             dayOfSalary.setText(R.string.pay_day_ );
@@ -292,7 +329,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                     if(plannedFlow != null){
                         db.deletePlanned(plannedFlow.getUserID(), plannedFlow.getDate(), plannedFlow.getType(), plannedFlow.getAmount());
                     }
-                    boolean isAdded = db.addPlanned(user.getUid(), payDay, getString(R.string.Salary),Float.parseFloat(salary.getText().toString()));
+                    boolean isAdded = db.addPlanned("", payDay, getString(R.string.Salary),Float.parseFloat(salary.getText().toString()));
                     if(isAdded){
                         Toast.makeText(view.getContext(), R.string.saved, Toast.LENGTH_SHORT).show();
                         setTextValues();
@@ -367,7 +404,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                     return;
                 }
 
-                boolean ch = db.addType(user.getUid(), checked.equalsIgnoreCase(getString(R.string.income))? getString(R.string.FALSE) : getString(R.string.TRUE), typeNew, R.drawable.custom_type);
+                boolean ch = db.addType("", checked.equalsIgnoreCase(getString(R.string.income))? getString(R.string.FALSE) : getString(R.string.TRUE), typeNew, R.drawable.custom_type);
                 if(ch) {
                     Toast.makeText(view.getContext(), R.string.type_added, Toast.LENGTH_SHORT).show();
                     startRecycler();

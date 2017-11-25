@@ -86,7 +86,7 @@ public class FragmentTab_Month extends Fragment {
                 }
                 end = calendar.getTimeInMillis();
 
-                filteredArr = DatabaseHelperFirebase.filterData(start, end, position);
+                filteredArr = fdb.filterData(start, end, position);
                 spinnerPosition = position;
 
                 startRecycler(filteredArr);

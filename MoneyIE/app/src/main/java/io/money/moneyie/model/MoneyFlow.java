@@ -24,6 +24,15 @@ public class MoneyFlow {
         this.uid = uid;
     }
 
+    public MoneyFlow(String uid, String expense, String type, String comment, double sum, long calendar) {
+        this.expense = expense;
+        this.type = type;
+        this.calendar = calendar;
+        this.comment = comment;
+        this.sum = sum;
+        this.uid = uid;
+    }
+
 
     public String getExpense() {
         return expense;

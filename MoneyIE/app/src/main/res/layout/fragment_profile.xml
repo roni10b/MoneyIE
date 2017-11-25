@@ -261,6 +261,8 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/appSilver"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:text="@string/no_added_types"/>
 
 

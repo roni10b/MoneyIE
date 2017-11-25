@@ -29,7 +29,8 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
 
     public HistoryRecyclerViewAdapter(Context context, List<MoneyFlow> data) {
         inflater = LayoutInflater.from(context);
-        uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        uid = "";
         this.context = context;
         this.data = data;
     }

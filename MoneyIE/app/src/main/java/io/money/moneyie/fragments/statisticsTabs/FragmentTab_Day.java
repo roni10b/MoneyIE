@@ -74,7 +74,7 @@ public class FragmentTab_Day extends Fragment {
                 start = calendar.getTimeInMillis();
                 end = start + 1000*60*60*24;
                 calendar = Calendar.getInstance();
-                filteredArr = DatabaseHelperFirebase.filterData(start, end, position);
+                filteredArr = fdb.filterData(start, end, position);
                 spinnerPosition = position;
                 startRecycler(filteredArr);
             }

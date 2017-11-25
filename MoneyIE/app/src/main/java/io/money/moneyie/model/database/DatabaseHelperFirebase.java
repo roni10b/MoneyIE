@@ -1,7 +1,9 @@
 package io.money.moneyie.model.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.SystemClock;
@@ -21,6 +23,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import io.money.moneyie.model.AddFriend;
+import io.money.moneyie.model.Alarm;
 import io.money.moneyie.model.MoneyFlow;
 import io.money.moneyie.model.utilities.Utilities;
 
@@ -81,93 +84,57 @@ public class DatabaseHelperFirebase extends SQLiteOpenHelper {
         return instance;
     }
 
-
-
-    //
-    //
-    //
     //spinnerPos -> 2 = my stats, 1 = friends stats, 0 = combined stats
-    public static List<MoneyFlow> filterData(long start, long end, int spinnerPos){
+    public List<MoneyFlow> filterData(long start, long end, int spinnerPos){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String myRawQuery = "SELECT * FROM " + TABLE_IE +
+                " WHERE " + T_IE_COL_3 + " BETWEEN " + start + " AND " + end +
+                " ORDER BY " + T_IE_COL_3 + " DESC;";
+        Cursor c = db.rawQuery(myRawQuery, null);
 
         String uid = "";
         List<MoneyFlow> filteredArr = new ArrayList<>();
 
-        for (MoneyFlow f: data) {
-            switch (spinnerPos) {
-                case 2:
-                        if(start <= f.getCalendar() && f.getCalendar() <= end && f.getUid().equals(uid)){
-                        filteredArr.add(f);
-                    }
-                    break;
-                case 1:
-                    if(start <= f.getCalendar() && f.getCalendar() <= end && !f.getUid().equals(uid)){
-                    filteredArr.add(f);
-                    }
-                    break;
-                case 0:
-                    if(start <= f.getCalendar() && f.getCalendar() <= end){
-                    filteredArr.add(f);
-                    }
-                    break;
-            }
+        for (int i = 0; i < c.getCount(); i++){
+            c.moveToPosition(i);
+            filteredArr.add(new MoneyFlow(uid, c.getString(0), c.getString(1), c.getString(3), c.getDouble(4), c.getLong(2)));
         }
 
-        Collections.sort(filteredArr, new Comparator<MoneyFlow>() {
-            @Override
-            public int compare(MoneyFlow o1, MoneyFlow o2) {
-                return (o1.getCalendar() > o2.getCalendar())? -1 : 1;
-            }
-        });
+        c.close();
+
         return Collections.unmodifiableList(filteredArr);
     }
 
 
-    public static List<MoneyFlow> filterData(long start, long end) {
+    public List<MoneyFlow> filterData(long start, long end) {
 
         return filterData(start, end, 0);
     }
 
-
     public void addData(String userId, MoneyFlow moneyFlow){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T_IE_COL_1, moneyFlow.getExpense());
+        contentValues.put(T_IE_COL_2, moneyFlow.getType());
+        contentValues.put(T_IE_COL_3, moneyFlow.getCalendar());
+        contentValues.put(T_IE_COL_4, moneyFlow.getComment());
+        contentValues.put(T_IE_COL_5, moneyFlow.getSum());
+
+        //long b =
+        db.insert(TABLE_IE, null, contentValues);
+        //return (b != -1);
+
        // this.base.child(usersIE).child(userId).push().setValue(moneyFlow);
     }
 
-    private ChildEventListener userEvent = new ChildEventListener() {
-        @Override
-        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-            MoneyFlow t = dataSnapshot.getValue(MoneyFlow.class);
-            data.add(t);
-        }
-
-        @Override
-        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-        }
-
-        @Override
-        public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-        }
-
-        @Override
-        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
-    };
-
-
-    private void readDatabase(String friendId) {
-        data = new ArrayList<>();
-
-        //base.child(usersIE).child(firebaseAuth.getCurrentUser().getUid()).removeEventListener(userEvent);
-
-        //base.child(usersIE).child(firebaseAuth.getCurrentUser().getUid()).addChildEventListener(userEvent);
-    }
+//    private void readDatabase(String friendId) {
+//        data = new ArrayList<>();
+//
+//        //base.child(usersIE).child(firebaseAuth.getCurrentUser().getUid()).removeEventListener(userEvent);
+//
+//        //base.child(usersIE).child(firebaseAuth.getCurrentUser().getUid()).addChildEventListener(userEvent);
+//    }
 
     public List<MoneyFlow> getData() {
         return Collections.unmodifiableList(data);

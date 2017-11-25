@@ -220,7 +220,8 @@
                 android:drawableStart="@drawable/logout_icon"
                 android:fontFamily="sans-serif"
                 android:background="@drawable/drawer_button_design"
-                android:text="@string/log_out" />
+                android:text="@string/log_out"
+                android:visibility="invisible"/>
         </LinearLayout>
 
     </android.support.v4.widget.DrawerLayout>

@@ -89,7 +89,7 @@ public class FragmentTab_Period extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 spinnerPosition = position;
-                filteredArr = DatabaseHelperFirebase.filterData(start, end, spinnerPosition);
+                filteredArr = fdb.filterData(start, end, spinnerPosition);
                 startRecycler(filteredArr);
             }
 

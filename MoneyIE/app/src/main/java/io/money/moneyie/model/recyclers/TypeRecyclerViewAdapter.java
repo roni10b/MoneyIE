@@ -2,16 +2,19 @@ package io.money.moneyie.model.recyclers;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import io.money.moneyie.R;
 import io.money.moneyie.model.Type;
+import io.money.moneyie.model.utilities.Utilities;
 
 //This is recycler view adapter which loads the types of Income/Expense in the fragments Fragment_Income and Fragment_Expense
 public class TypeRecyclerViewAdapter extends RecyclerView.Adapter<TypeRecyclerViewAdapter.MyViewHolder>{
@@ -20,11 +23,13 @@ public class TypeRecyclerViewAdapter extends RecyclerView.Adapter<TypeRecyclerVi
     private ArrayList<Type> types;
     private LayoutInflater inflater;
     private ItemClickListener mClickListener;
+    private String[] typeNames;
 
     public TypeRecyclerViewAdapter(Context context, ArrayList<Type> types) {
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.types = types;
+        typeNames = Utilities.getTypeNames(context);
     }
 
     @Override
@@ -43,7 +48,12 @@ public class TypeRecyclerViewAdapter extends RecyclerView.Adapter<TypeRecyclerVi
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final Type type = types.get(position);
         holder.image.setImageResource(type.getPictureId());
-        holder.text.setText(type.getType());
+
+        if (TextUtils.isDigitsOnly(type.getType()) && (Integer.parseInt(type.getType()) < typeNames.length)){
+            holder.text.setText(typeNames[Integer.parseInt(type.getType())]);
+        } else {
+            holder.text.setText(type.getType());
+        }
     }
 
     @Override

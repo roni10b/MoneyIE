@@ -73,11 +73,8 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
                                         + T_ALARMS_COL_4 +  ", " + T_ALARMS_COL_4 +
                                         "));";
 
-    private Context context;
-
     private DatabaseHelperSQLite(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        this.context = context;
     }
 
     @Override
@@ -250,63 +247,61 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
             out.add(new Type(c.getString(0), c.getString(1), c.getInt(2)));
         }
 
-        String [] names = Utilities.getTypeNames(context);
-
         // true = outcome, false = income
-        out.add(new Type("true", names[0], R.drawable.alcohol));
-        out.add(new Type("true", names[1], R.drawable.bar));
-        out.add(new Type("true", names[2], R.drawable.balling));
-        out.add(new Type("true", names[3], R.drawable.bike));
-        out.add(new Type("true", names[4], R.drawable.books));
-        out.add(new Type("true", names[5], R.drawable.boy));
-        out.add(new Type("true", names[6], R.drawable.burger));
-        out.add(new Type("true", names[7], R.drawable.bussiness));
-        out.add(new Type("false", names[7], R.drawable.bussiness));
-        out.add(new Type("true", names[8], R.drawable.car2));
-        out.add(new Type("true", names[9], R.drawable.car_repear));
-        out.add(new Type("true", names[10], R.drawable.cinema));
-        out.add(new Type("true", names[11], R.drawable.clothes));
-        out.add(new Type("true", names[12], R.drawable.coffee));
-        out.add(new Type("true", names[13], R.drawable.concert));
-        out.add(new Type("true", names[14], R.drawable.couple));
-        out.add(new Type("false", names[15], R.drawable.bitcoint));
-        out.add(new Type("false", names[16], R.drawable.dividents));
-        out.add(new Type("false", names[17], R.drawable.work));
-        out.add(new Type("true", names[18], R.drawable.electricity));
-        out.add(new Type("true", names[19], R.drawable.first_aid));
-        out.add(new Type("true", names[20], R.drawable.food));
-        out.add(new Type("true", names[21], R.drawable.fuel));
-        out.add(new Type("true", names[22], R.drawable.games));
-        out.add(new Type("false", names[22], R.drawable.games));
-        out.add(new Type("true", names[23], R.drawable.gift));
-        out.add(new Type("false", names[23], R.drawable.gift));
-        out.add(new Type("true", names[24], R.drawable.girl));
-        out.add(new Type("true", names[25], R.drawable.hairdresser));
-        out.add(new Type("true", names[26], R.drawable.holiday));
-        out.add(new Type("true", names[27], R.drawable.home));
-        out.add(new Type("true", names[28], R.drawable.love));
-        out.add(new Type("true", names[29], R.drawable.lunch));
-        out.add(new Type("true", names[30], R.drawable.makeup));
-        out.add(new Type("true", names[31], R.drawable.music));
-        out.add(new Type("true", names[32], R.drawable.pet));
-        out.add(new Type("true", names[32], R.drawable.pet2));
-        out.add(new Type("true", names[33], R.drawable.phone));
-        out.add(new Type("false", names[33], R.drawable.phone));
-        out.add(new Type("true", names[35], R.drawable.race));
-        out.add(new Type("false", names[35], R.drawable.race));
-        out.add(new Type("true", names[36], R.drawable.repear));
-        out.add(new Type("false", names[37], R.drawable.self_employment));
-        out.add(new Type("false", names[38], R.drawable.salary));
-        out.add(new Type("false", names[39], R.drawable.saved_money));
-        out.add(new Type("true", names[40], R.drawable.shoes));
-        out.add(new Type("true", names[41], R.drawable.shopping2));
-        out.add(new Type("true", names[42], R.drawable.skiing));
-        out.add(new Type("true", names[43], R.drawable.sport));
-        out.add(new Type("true", names[44], R.drawable.theatre));
-        out.add(new Type("true", names[45], R.drawable.trip));
-        out.add(new Type("true", names[46], R.drawable.tv));
-        out.add(new Type("true", names[47], R.drawable.wedding));
-        out.add(new Type("true", names[48], R.drawable.weed));
+        out.add(new Type("true", "0", R.drawable.alcohol));
+        out.add(new Type("true", "1", R.drawable.bar));
+        out.add(new Type("true", "2", R.drawable.balling));
+        out.add(new Type("true", "3", R.drawable.bike));
+        out.add(new Type("true", "4", R.drawable.books));
+        out.add(new Type("true", "5", R.drawable.boy));
+        out.add(new Type("true", "6", R.drawable.burger));
+        out.add(new Type("true", "7", R.drawable.bussiness));
+        out.add(new Type("false", "7", R.drawable.bussiness));
+        out.add(new Type("true", "8", R.drawable.car2));
+        out.add(new Type("true", "9", R.drawable.car_repear));
+        out.add(new Type("true", "10", R.drawable.cinema));
+        out.add(new Type("true", "11", R.drawable.clothes));
+        out.add(new Type("true", "12", R.drawable.coffee));
+        out.add(new Type("true", "13", R.drawable.concert));
+        out.add(new Type("true", "14", R.drawable.couple));
+        out.add(new Type("false", "15", R.drawable.bitcoint));
+        out.add(new Type("false", "16", R.drawable.dividents));
+        out.add(new Type("false", "17", R.drawable.work));
+        out.add(new Type("true", "18", R.drawable.electricity));
+        out.add(new Type("true", "19", R.drawable.first_aid));
+        out.add(new Type("true", "20", R.drawable.food));
+        out.add(new Type("true", "21", R.drawable.fuel));
+        out.add(new Type("true", "22", R.drawable.games));
+        out.add(new Type("false", "22", R.drawable.games));
+        out.add(new Type("true", "23", R.drawable.gift));
+        out.add(new Type("false", "23", R.drawable.gift));
+        out.add(new Type("true", "24", R.drawable.girl));
+        out.add(new Type("true", "25", R.drawable.hairdresser));
+        out.add(new Type("true", "26", R.drawable.holiday));
+        out.add(new Type("true", "27", R.drawable.home));
+        out.add(new Type("true", "28", R.drawable.love));
+        out.add(new Type("true", "29", R.drawable.lunch));
+        out.add(new Type("true", "30", R.drawable.makeup));
+        out.add(new Type("true", "31", R.drawable.music));
+        out.add(new Type("true", "32", R.drawable.pet));
+        out.add(new Type("true", "32", R.drawable.pet2));
+        out.add(new Type("true", "33", R.drawable.phone));
+        out.add(new Type("false", "33", R.drawable.phone));
+        out.add(new Type("true", "35", R.drawable.race));
+        out.add(new Type("false", "35", R.drawable.race));
+        out.add(new Type("true", "36", R.drawable.repear));
+        out.add(new Type("false", "37", R.drawable.self_employment));
+        out.add(new Type("false", "38", R.drawable.salary));
+        out.add(new Type("false", "39", R.drawable.saved_money));
+        out.add(new Type("true", "40", R.drawable.shoes));
+        out.add(new Type("true", "41", R.drawable.shopping2));
+        out.add(new Type("true", "42", R.drawable.skiing));
+        out.add(new Type("true", "43", R.drawable.sport));
+        out.add(new Type("true", "44", R.drawable.theatre));
+        out.add(new Type("true", "45", R.drawable.trip));
+        out.add(new Type("true", "46", R.drawable.tv));
+        out.add(new Type("true", "47", R.drawable.wedding));
+        out.add(new Type("true", "48", R.drawable.weed));
 
         c.close();
         return Collections.unmodifiableList(out);

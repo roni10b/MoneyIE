@@ -1,7 +1,9 @@
 package io.money.moneyie.model.utilities;
 
 
+import android.content.Context;
 import android.graphics.Color;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
@@ -195,7 +197,7 @@ public abstract class GraphicUtilities {
     }
 
     //setting data to the horizontal bar chart
-    public static void horizontalBarChart(HorizontalBarChart horizontalBarChart, List<MoneyFlow> filteredArr, ImageView questionImg){
+    public static void horizontalBarChart(HorizontalBarChart horizontalBarChart, List<MoneyFlow> filteredArr, ImageView questionImg, Context context){
 
         if (filteredArr.size() == 0) {
             horizontalBarChart.setVisibility(View.GONE);
@@ -212,7 +214,7 @@ public abstract class GraphicUtilities {
         });
 
         ArrayList<BarEntry> horizontalBarChartArr = new ArrayList<>();
-        final List<String> names = new ArrayList<String>();
+        final List<String> names = new ArrayList<>();
 
         for (int i = 0; i < filteredArr.size(); i++) {
             if (filteredArr.get(i).getExpense().equalsIgnoreCase("ex")) {
@@ -229,11 +231,17 @@ public abstract class GraphicUtilities {
             return;
         }
         //filter the names and values of the expenses
+        String[] typeNames = Utilities.getTypeNames(context);
         int i = 0;
         ArrayList<Float> values = new ArrayList<>();
         for (Iterator<Map.Entry<String, Float>> iterator = structuredData.entrySet().iterator(); iterator.hasNext();) {
             Map.Entry<String, Float> entry = iterator.next();
-            names.add(entry.getKey());
+
+            if (TextUtils.isDigitsOnly(entry.getKey()) && (Integer.parseInt(entry.getKey()) < typeNames.length)){
+                names.add(typeNames[Integer.parseInt(entry.getKey())]);
+            } else {
+                names.add(entry.getKey());
+            }
             values.add(entry.getValue());
         }
 

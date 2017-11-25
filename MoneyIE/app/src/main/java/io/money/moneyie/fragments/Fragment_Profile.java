@@ -19,6 +19,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,8 +90,8 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         setSpinnerChangeLanguage();
         return view;
     }
-//////////
 
+    @Nullable
     private String getEmailID(Context context) {
         AccountManager accountManager = AccountManager.get(context);
         Account account = getAccount(accountManager);
@@ -111,7 +112,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         }
         return account;
     }
-////////////
+
     private void startRecycler() {
         final List<Type> types = DatabaseHelperSQLite.getInstance(view.getContext()).getUserTypes("");
         typeFilter = new ArrayList<>();
@@ -298,9 +299,18 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
     }
 
     private void setTextValues() {
+        Cursor c = null;
+        try {
+            c = getActivity().getApplication().getContentResolver().query(ContactsContract.Profile.CONTENT_URI, null, null, null, null);
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            name.setVisibility(View.GONE);
+            email.setVisibility(View.GONE);
+        }
+
         email.setText(getString(R.string.email_two_dots) + " " + UserEmailId);
-        Cursor c = getActivity().getApplication().getContentResolver().query(ContactsContract.Profile.CONTENT_URI, null, null, null, null);
-        if(c != null && c.getCount()>0) {
+
+         if(c != null && c.getCount()>0) {
             c.moveToFirst();
             name.setText(getString(R.string.hello) + " " + c.getString(c.getColumnIndex("display_name")));
             c.close();
@@ -401,6 +411,10 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
 
                 if (!Utilities.checkString(typeNew)){
                     Toast.makeText(getContext(), R.string.invalid_type, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isDigitsOnly(typeNew)) {
+                    Toast.makeText(getContext(), R.string.digit_type_error, Toast.LENGTH_SHORT).show();
                     return;
                 }
 

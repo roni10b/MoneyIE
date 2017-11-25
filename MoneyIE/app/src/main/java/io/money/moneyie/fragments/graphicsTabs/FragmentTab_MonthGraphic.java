@@ -205,7 +205,7 @@ public class FragmentTab_MonthGraphic extends Fragment {
     private void incomeExpenseDay() {
         GraphicUtilities.dataFilerForCurrentTab(income, expense, overall, filteredArr, plusMinus);
         GraphicUtilities.pieChart(pieChart, filteredArr, questionPie);
-        GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionHorizontal);
+        GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionHorizontal, view.getContext());
 
         if (filteredArr.isEmpty()) {
             activityText.setVisibility(View.VISIBLE);

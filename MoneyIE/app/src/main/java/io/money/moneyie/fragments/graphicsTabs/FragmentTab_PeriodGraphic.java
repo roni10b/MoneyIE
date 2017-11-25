@@ -192,7 +192,7 @@ public class FragmentTab_PeriodGraphic extends Fragment {
     //start the charts and set them visible/gone
     private void incomeExpensePeriod() {
         GraphicUtilities.dataFilerForCurrentTab(income, expense, overall, filteredArr, plusMinus);
-        GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionHorizontal);
+        GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionHorizontal, view.getContext());
         if (filteredArr.isEmpty()) {
             activityText.setVisibility(View.VISIBLE);
         } else {

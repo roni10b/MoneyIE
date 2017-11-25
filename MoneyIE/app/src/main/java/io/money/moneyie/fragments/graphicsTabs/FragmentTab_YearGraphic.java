@@ -204,7 +204,7 @@ public class FragmentTab_YearGraphic extends Fragment {
         GraphicUtilities.dataFilerForCurrentTab(income, expense, overall, filteredArr, plusMinus);
         GraphicUtilities.pieChart(pieChart, filteredArr, questionPie);
         GraphicUtilities.combinedBarChart(chart, filteredArr, questionHorizontal);
-        GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionCombined);
+        GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionCombined, view.getContext());
 
         if (filteredArr.isEmpty()) {
             activityText.setVisibility(View.VISIBLE);

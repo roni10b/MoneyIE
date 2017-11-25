@@ -187,14 +187,17 @@
                 android:fontFamily="sans-serif"
                 android:gravity="start|center_vertical"
                 android:paddingLeft="25dp"
+                android:visibility="invisible"
                 android:drawablePadding="5dp"
                 android:background="@drawable/drawer_button_design"
                 android:text="@string/add_friend" />
 
 
             <View
+                android:id="@+id/home_view_friend"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
+                android:visibility="invisible"
                 android:background="#1eFFFFFF"/>
 
             <View
@@ -203,8 +206,10 @@
                 android:layout_weight="4"/>
 
             <View
+                android:id="@+id/home_view_logout"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
+                android:visibility="invisible"
                 android:background="#1eFFFFFF"/>
 
             <Button

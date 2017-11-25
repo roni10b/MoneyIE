@@ -189,4 +189,5 @@
     <string name="Wedding">Wedding</string>
     <string name="TV">TV</string>
     <string name="Tabacco">Tabacco</string>
+    <string name="digit_type_error">Types cannot contain only digits</string>
 </resources>

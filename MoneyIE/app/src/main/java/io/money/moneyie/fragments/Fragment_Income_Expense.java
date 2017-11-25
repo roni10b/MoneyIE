@@ -55,7 +55,7 @@ public class Fragment_Income_Expense extends Fragment implements View.OnClickLis
 
     private void startRecycler() {
         DatabaseHelperSQLite db = DatabaseHelperSQLite.getInstance(view.getContext());
-        final List<Type> types = db.getUserTypes("moneyie");
+        final List<Type> types = db.getUserTypes("");
         ArrayList<Type> typeFilter = new ArrayList<>();
 
         if (!isExpense) {

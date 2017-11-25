@@ -4,6 +4,7 @@ package io.money.moneyie.model.recyclers;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import io.money.moneyie.R;
 import io.money.moneyie.model.MoneyFlow;
+import io.money.moneyie.model.utilities.Utilities;
 
 //This is recycler view adapter which loads the users histroy data in the fragment Fragment_DataHistory
 public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecyclerViewAdapter.MyHolder>{
@@ -26,6 +28,7 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
     private List<MoneyFlow> data;
     private LayoutInflater inflater;
     private String uid;
+    private String[] typeNames;
 
     public HistoryRecyclerViewAdapter(Context context, List<MoneyFlow> data) {
         inflater = LayoutInflater.from(context);
@@ -33,6 +36,7 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
         uid = "";
         this.context = context;
         this.data = data;
+        typeNames = Utilities.getTypeNames(context);
     }
 
     class MyHolder extends RecyclerView.ViewHolder {
@@ -62,8 +66,13 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
     public void onBindViewHolder(MyHolder holder, int position) {
         MoneyFlow moneyFlow = data.get(position);
 
+        if (TextUtils.isDigitsOnly(moneyFlow.getType()) && (Integer.parseInt(moneyFlow.getType()) < typeNames.length)){
+            holder.type.setText(typeNames[Integer.parseInt(moneyFlow.getType())]);
+        } else {
+            holder.type.setText(moneyFlow.getType());
+        }
+
         holder.comment.setText(moneyFlow.getComment());
-        holder.type.setText(moneyFlow.getType());
         holder.price.setText(String.format("%.2f", moneyFlow.getSum()) + " " + context.getString(R.string.leva));
         holder.date.setText(new SimpleDateFormat("d-MMM-yy' / 'HH:mm").format(new Date(moneyFlow.getCalendar())));
 

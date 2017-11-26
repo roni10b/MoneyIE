@@ -26,9 +26,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
-import java.util.List;
 import java.util.Locale;
 
 import io.money.moneyie.R;
@@ -38,7 +38,6 @@ import io.money.moneyie.fragments.Fragment_Reminders;
 import io.money.moneyie.fragments.Fragment_Income_Expense;
 import io.money.moneyie.fragments.Fragment_Profile;
 import io.money.moneyie.fragments.Fragment_Statistics;
-import io.money.moneyie.model.MoneyFlow;
 import io.money.moneyie.model.database.DatabaseHelperFirebase;
 import uk.co.deanwild.materialshowcaseview.MaterialShowcaseSequence;
 import uk.co.deanwild.materialshowcaseview.ShowcaseConfig;
@@ -60,6 +59,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private TextView currentFragment;
     private Fragment_Income_Expense fragment_incomeExpense;
     private Bundle bundle;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +76,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         refreshLanguage();
         clickToolbarHideDrawerListener();
         verifyPermissions(this);
+        banterAdd();
     }
 
     public static void verifyPermissions(Activity activity) {
@@ -94,6 +95,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     REQUEST_PERMISSION
             );
         }
+    }
+
+    private void banterAdd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     private void changeLanguage (){
@@ -169,6 +175,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         statisticsButton.setOnClickListener(this);
         btnAddFriend = findViewById(R.id.home_add_friend_btn);
         btnAddFriend.setOnClickListener(this);
+        mAdView = findViewById(R.id.adView);
     }
 
     private void removeActionBar() {

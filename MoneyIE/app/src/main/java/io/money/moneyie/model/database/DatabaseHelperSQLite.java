@@ -178,11 +178,11 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
         db.execSQL(myRawQuery);
     }
 
-    public List<Alarm> getUserAlarms(String userID) {
+    public List<Alarm> getUserAlarms() {
         SQLiteDatabase db = this.getWritableDatabase();
         String myRawQuery = "SELECT " +
                 T_ALARMS_COL_2 + ", " + T_ALARMS_COL_3 + ", " + T_ALARMS_COL_4 + ", " + T_ALARMS_COL_5
-                + " FROM " + TABLE_ALARMS + " WHERE " + T_ALARMS_COL_1 + " = \"" + userID + "\";";
+                + " FROM " + TABLE_ALARMS + ";";
         Cursor c = db.rawQuery(myRawQuery, null);
         c.moveToFirst();
         ArrayList<Alarm> out = new ArrayList<>();

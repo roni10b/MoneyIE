@@ -19,15 +19,11 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         DatabaseHelperSQLite db = DatabaseHelperSQLite.getInstance(context);
-
-        if (firebaseAuth.getCurrentUser() != null) {
-            String userID = firebaseAuth.getCurrentUser().getUid();
-            List<Alarm> alarms = db.getUserAlarms(userID);
+        List<Alarm> alarms = db.getUserAlarms();
 
             //set all alarms
-            AlarmUtilities.setAlarms(context, alarms);
-        }
+        AlarmUtilities.setAlarms(context, alarms);
+
     }
 }

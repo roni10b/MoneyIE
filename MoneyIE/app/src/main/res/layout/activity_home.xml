@@ -49,7 +49,6 @@
     </android.support.v7.widget.Toolbar>
 
 
-
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/dlContent"
         android:layout_width="match_parent"
@@ -61,7 +60,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_home_footer"/>
         </FrameLayout>
+
 
         <LinearLayout
             android:id="@+id/home_drawer_menu"
@@ -74,160 +81,162 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#1eFFFFFF"/>
+                android:background="#1eFFFFFF" />
 
             <Button
                 android:id="@+id/home_income_btn"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="#FFFFFF"
+                android:background="@drawable/drawer_button_design"
                 android:drawableLeft="@drawable/income_ic"
+                android:drawablePadding="5dp"
                 android:drawableStart="@drawable/income_ic"
                 android:fontFamily="sans-serif"
                 android:gravity="start|center_vertical"
                 android:paddingLeft="25dp"
-                android:drawablePadding="5dp"
-                android:background="@drawable/drawer_button_design"
-                android:text="@string/income" />
+                android:text="@string/income"
+                android:textColor="#FFFFFF" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#1eFFFFFF"/>
+                android:background="#1eFFFFFF" />
 
             <Button
                 android:id="@+id/home_outcome_btn"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:background="@drawable/drawer_button_design"
                 android:drawableLeft="@drawable/expense_icon"
+                android:drawablePadding="5dp"
                 android:drawableStart="@drawable/expense_icon"
-                android:textColor="#FFFFFF"
                 android:fontFamily="sans-serif"
                 android:gravity="start|center_vertical"
                 android:paddingLeft="25dp"
-                android:drawablePadding="5dp"
-                android:background="@drawable/drawer_button_design"
-                android:text="@string/expense" />
+                android:text="@string/expense"
+                android:textColor="#FFFFFF" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#1eFFFFFF"/>
+                android:background="#1eFFFFFF" />
 
             <Button
                 android:id="@+id/home_statistics_btn"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="#FFFFFF"
+                android:background="@drawable/drawer_button_design"
                 android:drawableLeft="@drawable/statistics_ic"
+                android:drawablePadding="5dp"
                 android:drawableStart="@drawable/statistics_ic"
                 android:fontFamily="sans-serif"
-                android:background="@drawable/drawer_button_design"
-                android:text="@string/statistics"
                 android:gravity="start|center_vertical"
                 android:paddingLeft="25dp"
-                android:drawablePadding="5dp"/>
+                android:text="@string/statistics"
+                android:textColor="#FFFFFF" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#1eFFFFFF"/>
+                android:background="#1eFFFFFF" />
 
             <Button
                 android:id="@+id/home_myProfile_btn"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="#FFFFFF"
+                android:background="@drawable/drawer_button_design"
                 android:drawableLeft="@drawable/myprof_icon"
+                android:drawablePadding="5dp"
                 android:drawableStart="@drawable/myprof_icon"
                 android:fontFamily="sans-serif"
                 android:gravity="start|center_vertical"
                 android:paddingLeft="25dp"
-                android:drawablePadding="5dp"
-                android:background="@drawable/drawer_button_design"
-                android:text="@string/my_profile" />
+                android:text="@string/my_profile"
+                android:textColor="#FFFFFF" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#1eFFFFFF"/>
+                android:background="#1eFFFFFF" />
 
             <Button
                 android:id="@+id/home_alarms_btn"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="#FFFFFF"
-                android:gravity="start|center_vertical"
-                android:paddingLeft="25dp"
-                android:drawablePadding="5dp"
+                android:background="@drawable/drawer_button_design"
                 android:drawableLeft="@drawable/alarm_icon"
+                android:drawablePadding="5dp"
                 android:drawableStart="@drawable/alarm_icon"
                 android:fontFamily="sans-serif"
-                android:background="@drawable/drawer_button_design"
-                android:text="@string/reminders" />
+                android:gravity="start|center_vertical"
+                android:paddingLeft="25dp"
+                android:text="@string/reminders"
+                android:textColor="#FFFFFF" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#1eFFFFFF"/>
+                android:background="#1eFFFFFF" />
 
             <Button
                 android:id="@+id/home_add_friend_btn"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="#FFFFFF"
-                android:drawableStart="@drawable/add_friend_icon"
+                android:background="@drawable/drawer_button_design"
                 android:drawableLeft="@drawable/add_friend_icon"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/add_friend_icon"
                 android:fontFamily="sans-serif"
                 android:gravity="start|center_vertical"
                 android:paddingLeft="25dp"
-                android:visibility="invisible"
-                android:drawablePadding="5dp"
-                android:background="@drawable/drawer_button_design"
-                android:text="@string/add_friend" />
+                android:text="@string/add_friend"
+                android:textColor="#FFFFFF"
+                android:visibility="invisible" />
 
 
             <View
                 android:id="@+id/home_view_friend"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:visibility="invisible"
-                android:background="#1eFFFFFF"/>
+                android:background="#1eFFFFFF"
+                android:visibility="invisible" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="4"/>
+                android:layout_weight="4" />
 
             <View
                 android:id="@+id/home_view_logout"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:visibility="invisible"
-                android:background="#1eFFFFFF"/>
+                android:background="#1eFFFFFF"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/home_logout_btn"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="#FFFFFF"
-                android:gravity="start|center_vertical"
-                android:paddingLeft="25dp"
-                android:drawablePadding="5dp"
+                android:background="@drawable/drawer_button_design"
                 android:drawableLeft="@drawable/logout_icon"
+                android:drawablePadding="5dp"
                 android:drawableStart="@drawable/logout_icon"
                 android:fontFamily="sans-serif"
-                android:background="@drawable/drawer_button_design"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="25dp"
                 android:text="@string/log_out"
-                android:visibility="invisible"/>
+                android:textColor="#FFFFFF"
+                android:visibility="invisible" />
         </LinearLayout>
+
     </android.support.v4.widget.DrawerLayout>
+
 
 </LinearLayout>

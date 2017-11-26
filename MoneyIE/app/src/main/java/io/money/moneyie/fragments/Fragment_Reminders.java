@@ -22,11 +22,6 @@ import android.widget.LinearLayout;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -56,7 +51,7 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
     private MonthYearPicker monthYearPicker;
     private LinearLayout layout, layoutAdd;
     private ImageView imgEye, imgQuestion;
-    private AdView mAdView;
+
 
     @Nullable
     @Override
@@ -69,13 +64,7 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
         setInitialStateDateTimeFields();
         onDateEditClickListener();
         keyboardHideListener();
-        banterAdd();
         return view;
-    }
-
-    private void banterAdd() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
     }
 
     private void deleteAlarm(int position) {
@@ -89,7 +78,7 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
     private void initialiseElements() {
         recyclerView = view.findViewById(R.id.recycler_alarms);
         db = DatabaseHelperSQLite.getInstance(view.getContext());
-        user = "moneyiefree";
+        user = "";
         mLastClickTime = SystemClock.elapsedRealtime();
         dateEdit = view.findViewById(R.id.alarm_date_set_edit);
         timeEdit = view.findViewById(R.id.alarm_time_set_edit);
@@ -100,7 +89,6 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
         layoutAdd = view.findViewById(R.id.alarm_add_layout);
         imgEye = view.findViewById(R.id.alarm_eye);
         imgQuestion = view.findViewById(R.id.alarm_question);
-        mAdView = view.findViewById(R.id.adView);
     }
 
     private boolean isRemindersArrayEmpty() {
@@ -112,7 +100,7 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
     }
 
     private void startRecycler() {
-        alarms = db.getUserAlarms(user);
+        alarms = db.getUserAlarms();
         if (isRemindersArrayEmpty()) {
             imgEye.setVisibility(View.INVISIBLE);
         } else {

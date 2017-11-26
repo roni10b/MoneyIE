@@ -22,11 +22,6 @@ public class OnDateChangeReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        //sets database to be persistent
-        if(!Utilities.isFirebasePersistence()){
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-            Utilities.setIsFirebasePersistence(true);
-        }
         DatabaseHelperFirebase fdb = DatabaseHelperFirebase.getInstance(context);
 
         //check for planned income

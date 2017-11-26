@@ -83,10 +83,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         verifyPermissions(this);
     }
 
-    //starting the adds in onStart because if its started in onCreate it may cause FatalError
+    //starting the adds in onResume because if its started in onCreate it may cause FatalError
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onResume() {
+        super.onResume();
         banterAdd();
     }
 

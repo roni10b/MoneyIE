@@ -13,6 +13,16 @@
         <item>English</item>
     </string-array>
 
+    <string name="title_activity_second_activiy">Interstitial</string>
+    <string name="msg_welcome">Welcome to Admob. Click on the below button to launch the Interstitial ad.</string>
+    <string name="btn_fullscreen_ad">Show Fullscreen Ad</string>
+
+    <!-- AdMob ad unit IDs -->
+    <string name="banner_home_footer">ca-app-pub-9292398530618169/3920620912</string>
+
+
+
+
     <string name="combined">Combined</string>
     <string name="friends_stats">Friends stats</string>
     <string name="my_stats_spinner">My stats</string>

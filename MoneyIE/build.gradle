@@ -4,7 +4,7 @@ buildscript {
     repositories {
         jcenter()
         maven {
-                url "https://maven.google.com" // Google's Maven repository
+            url "https://maven.google.com" // Google's Maven repository
         }
         //for 3.0
         //google()

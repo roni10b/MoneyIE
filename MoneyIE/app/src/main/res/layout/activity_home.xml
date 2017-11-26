@@ -228,7 +228,6 @@
                 android:text="@string/log_out"
                 android:visibility="invisible"/>
         </LinearLayout>
-
     </android.support.v4.widget.DrawerLayout>
 
 </LinearLayout>

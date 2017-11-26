@@ -50,7 +50,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             Manifest.permission.INTERNET,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.GET_ACCOUNTS,
-            Manifest.permission.READ_CONTACTS
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.ACCESS_NETWORK_STATE
     };
     private Button btnOutcome, btnIncome, btnProfile, btnStatistics, btnAlarms, btnAddFriend, btnLogOut;
     private ImageView sandwichButton, statisticsButton;
@@ -82,9 +83,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         int permissionWrite = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int permissionAcc = ActivityCompat.checkSelfPermission(activity, Manifest.permission.GET_ACCOUNTS);
         int permissionCon = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_CONTACTS);
+        int permissionNetState = ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_NETWORK_STATE);
 
         if (permissionInternet != PackageManager.PERMISSION_GRANTED || permissionWrite != PackageManager.PERMISSION_GRANTED
-                || permissionAcc != PackageManager.PERMISSION_GRANTED || permissionCon != PackageManager.PERMISSION_GRANTED) {
+                || permissionAcc != PackageManager.PERMISSION_GRANTED || permissionCon != PackageManager.PERMISSION_GRANTED
+                || permissionNetState != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
                     activity,
                     PERMISSIONS,

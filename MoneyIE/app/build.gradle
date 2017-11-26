@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "io.money.moneyie"
         minSdkVersion 17
-        targetSdkVersion 27
+        targetSdkVersion 26 //must update soon when the AdMob update is released!!!
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

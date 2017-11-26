@@ -18,6 +18,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -80,6 +81,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         refreshLanguage();
         clickToolbarHideDrawerListener();
         verifyPermissions(this);
+    }
+
+    //starting the adds in onStart because if its started in onCreate it may cause FatalError
+    @Override
+    protected void onStart() {
+        super.onStart();
         banterAdd();
     }
 

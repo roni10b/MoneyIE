@@ -26,10 +26,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.Locale;
+import java.util.Random;
 
 import io.money.moneyie.R;
 import io.money.moneyie.fragments.Fragment_DataHistory;
@@ -60,6 +63,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Fragment_Income_Expense fragment_incomeExpense;
     private Bundle bundle;
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -308,6 +312,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 drawerMenuButtonsAction(getString(R.string.expense), fragment_incomeExpense);
                 break;
             case R.id.home_statistics_btn:
+                startInterstitialAd();
                 drawerMenuButtonsAction(getString(R.string.statistics), new Fragment_Statistics());
                 break;
             case R.id.home_myProfile_btn:
@@ -320,6 +325,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 drawerMenuButtonsAction(getString(R.string.reminders), new Fragment_Reminders());
                 break;
             case R.id.home_toolbar_statistics_icon_btn:
+                startInterstitialAd();
                 drawerMenuButtonsAction(getString(R.string.my_stats), new Fragment_DataHistory());
                 break;
         }
@@ -330,5 +336,28 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         loadFragment(fragment);
         setCurrentFragment(fragmentTitle);
         hideDrawer();
+    }
+
+    private void startInterstitialAd() {
+        Random r = new Random();
+        int e = r.nextInt(5);
+        if (e == 3) {
+            mInterstitialAd = new InterstitialAd(this);
+            mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+            AdRequest adRequest = new AdRequest.Builder()
+                    .build();
+            mInterstitialAd.loadAd(adRequest);
+            mInterstitialAd.setAdListener(new AdListener() {
+                public void onAdLoaded() {
+                    showInterstitial();
+                }
+            });
+        }
+    }
+
+    private void showInterstitial() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
     }
 }

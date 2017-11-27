@@ -6,11 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.database.Cursor;
-import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -36,12 +32,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 import io.money.moneyie.R;
 import io.money.moneyie.activities.HomeActivity;
@@ -216,14 +213,12 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 intent.putExtra("changeLanguage", "yes");
                 if (i == 1) {
-                    updateResources(view.getContext(), "bg");
+                    saveInFile("bg");
                     getActivity().startActivity(intent);
-                    changeLanguageInSharedPrefs("bg");
                     getActivity().finish();
                 } else if (i == 2) {
-                    updateResources(view.getContext(), "eng");
+                    saveInFile("eng");
                     getActivity().startActivity(intent);
-                    changeLanguageInSharedPrefs("eng");
                     getActivity().finish();
                 }
             }
@@ -235,27 +230,33 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         });
     }
 
-    private boolean updateResources(Context context, String language) {
-        Locale locale = new Locale(language);
-        Locale.setDefault(locale);
+    private void saveInFile(String lang) {
 
-        Resources resources = context.getResources();
-
-        Configuration configuration = resources.getConfiguration();
-        configuration.setLocale(locale);
-
-        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-
-        return true;
+        String FILENAME = "moneyielanguage";
+        File file = new File(android.os.Environment.getExternalStorageDirectory().toString(), FILENAME);
+        if(!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        FileOutputStream stream = null;
+        try {
+            stream = new FileOutputStream(file, false);
+            stream.write(lang.getBytes());
+        } catch (IOException ex){
+            ex.printStackTrace();
+        } finally {
+            try {
+                if(stream !=null) {
+                    stream.close();
+                }
+            } catch (IOException | NullPointerException e) {
+                e.printStackTrace();
+            }
+        }
     }
-
-    private void changeLanguageInSharedPrefs(String newLanguadge){
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(view.getContext());
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("language", newLanguadge);
-        editor.apply();
-    }
-
 
     public void seOnImgEyeClickListener(){
         imgEye.setOnClickListener(new View.OnClickListener() {

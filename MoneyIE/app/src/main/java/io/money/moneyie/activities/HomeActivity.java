@@ -33,6 +33,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Random;
 
@@ -71,7 +75,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        changeLanguage();
         setContentView(R.layout.activity_home);
         initialiseElements();
         removeActionBar();
@@ -115,28 +118,38 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mAdView.loadAd(adRequest);
     }
 
-//    private void changeLanguage (){
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        String language = preferences.getString("language", "nolanguage");
-//
-//        if (!language.equalsIgnoreCase("nolanguage")) {
-//            Locale locale = new Locale(language);
-//            Locale.setDefault(locale);
-//
-//            Resources resources = getResources();
-//
-//            Configuration configuration = resources.getConfiguration();
-//            configuration.setLocale(locale);
-//
-//            resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-//        }
-//    }
-
     @Override
     protected void attachBaseContext(Context newBase) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String language = preferences.getString("language", "nolanguage");
-        if (!language.equalsIgnoreCase("nolanguage")) {
+        String FILENAME = "moneyielanguage";
+        File file = new File(android.os.Environment.getExternalStorageDirectory().toString(), FILENAME);
+
+
+        int length = (int) file.length();
+
+        byte[] bytes = new byte[length];
+
+        FileInputStream in = null;
+        try {
+            if(file.exists()) {
+                in = new FileInputStream(file);
+                in.read(bytes);
+            }
+        } catch (IOException ex){
+            ex.printStackTrace();
+        } finally {
+            try {
+                if(in != null) {
+                    in.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        String language = new String(bytes);
+
+        if (!language.isEmpty()) {
+            Log.e("aadasdas", language);
             super.attachBaseContext(LocaleHelper.wrap(newBase, language));
         } else {
             super.attachBaseContext(newBase);

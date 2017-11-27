@@ -30,6 +30,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
@@ -42,7 +43,7 @@ import java.util.Random;
 
 import io.money.moneyie.R;
 import io.money.moneyie.fragments.Fragment_DataHistory;
-import io.money.moneyie.fragments.Fragment_AddFriend;
+//import io.money.moneyie.fragments.Fragment_AddFriend;
 import io.money.moneyie.fragments.Fragment_Reminders;
 import io.money.moneyie.fragments.Fragment_Income_Expense;
 import io.money.moneyie.fragments.Fragment_Profile;
@@ -71,11 +72,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Bundle bundle;
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
+    AdRequest adRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        verifyPermissions(this);
         initialiseElements();
         removeActionBar();
         loadFragment(fragment_incomeExpense);
@@ -85,14 +88,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         showCaseView();
         refreshLanguage();
         clickToolbarHideDrawerListener();
-        verifyPermissions(this);
     }
 
-    //starting the adds in onResume because if its started in onCreate it may cause FatalError
+    //starting the adds in onStart because if its started in onCreate it may cause FatalError
     @Override
-    protected void onResume() {
-        super.onResume();
-        banterAdd();
+    protected void onStart() {
+        super.onStart();
+        bannerAdd();
     }
 
     public static void verifyPermissions(Activity activity) {
@@ -113,16 +115,24 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void banterAdd() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+    private void bannerAdd() {
+        final AdRequest adRequest = new AdRequest.Builder().build();
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String s = preferences.getString("firstTimeInstall", "NOO");
+        if (s != null && !s.equals("NOO")) {
+            mAdView.loadAd(adRequest);
+        } else {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("firstTimeInstall", "YESS");
+            editor.apply();
+        }
     }
 
     @Override
     protected void attachBaseContext(Context newBase) {
         String FILENAME = "moneyielanguage";
         File file = new File(android.os.Environment.getExternalStorageDirectory().toString(), FILENAME);
-
 
         int length = (int) file.length();
 
@@ -167,7 +177,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         sequence.addSequenceItem(statisticsButton,
                 getString(R.string.tutorial_text2), getString(R.string.tutorial_got_it_btn_text));
-
         sequence.start();
     }
 
@@ -351,7 +360,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 drawerMenuButtonsAction(getString(R.string.my_profile), new Fragment_Profile());
                 break;
             case R.id.home_add_friend_btn:
-                drawerMenuButtonsAction(getString(R.string.add_friend), new Fragment_AddFriend());
+//                drawerMenuButtonsAction(getString(R.string.add_friend), new Fragment_AddFriend());
                 break;
             case R.id.home_alarms_btn:
                 drawerMenuButtonsAction(getString(R.string.reminders), new Fragment_Reminders());
@@ -373,7 +382,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private void startInterstitialAd() {
         Random r = new Random();
         int e = r.nextInt(5);
-        if (e == 3) {
+        if (true) { //TODO fix with random number
             mInterstitialAd = new InterstitialAd(this);
             mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
             AdRequest adRequest = new AdRequest.Builder()
@@ -390,6 +399,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private void showInterstitial() {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
+            bannerAdd(); //TODO remove this method from here
         }
     }
 }

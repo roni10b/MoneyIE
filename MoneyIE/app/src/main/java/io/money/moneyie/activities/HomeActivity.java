@@ -2,6 +2,7 @@ package io.money.moneyie.activities;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -43,6 +44,7 @@ import io.money.moneyie.fragments.Fragment_Income_Expense;
 import io.money.moneyie.fragments.Fragment_Profile;
 import io.money.moneyie.fragments.Fragment_Statistics;
 import io.money.moneyie.model.database.DatabaseHelperFirebase;
+import io.money.moneyie.model.utilities.LocaleHelper;
 import uk.co.deanwild.materialshowcaseview.MaterialShowcaseSequence;
 import uk.co.deanwild.materialshowcaseview.ShowcaseConfig;
 
@@ -69,7 +71,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        changeLanguage();
+//        changeLanguage();
         setContentView(R.layout.activity_home);
         initialiseElements();
         removeActionBar();
@@ -113,20 +115,31 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mAdView.loadAd(adRequest);
     }
 
-    private void changeLanguage (){
+//    private void changeLanguage (){
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        String language = preferences.getString("language", "nolanguage");
+//
+//        if (!language.equalsIgnoreCase("nolanguage")) {
+//            Locale locale = new Locale(language);
+//            Locale.setDefault(locale);
+//
+//            Resources resources = getResources();
+//
+//            Configuration configuration = resources.getConfiguration();
+//            configuration.setLocale(locale);
+//
+//            resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+//        }
+//    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String language = preferences.getString("language", "nolanguage");
-
         if (!language.equalsIgnoreCase("nolanguage")) {
-            Locale locale = new Locale(language);
-            Locale.setDefault(locale);
-
-            Resources resources = getResources();
-
-            Configuration configuration = resources.getConfiguration();
-            configuration.setLocale(locale);
-
-            resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+            super.attachBaseContext(LocaleHelper.wrap(newBase, language));
+        } else {
+            super.attachBaseContext(newBase);
         }
     }
 

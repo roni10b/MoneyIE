@@ -153,7 +153,7 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
                 .setPositiveButton(getString(R.string.delete), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        db.deleteAlarm(user, alarms.get(position).getDate(), alarms.get(position).getHour(),
+                        db.deleteAlarm(alarms.get(position).getDate(), alarms.get(position).getHour(),
                                 alarms.get(position).getMinutes(), alarms.get(position).getMassage());
 
                         deleteAlarm(position);
@@ -236,7 +236,7 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
                 String message = messageEdit.getText().toString().trim();
                 boolean isAdded = false;
                 if (Utilities.checkString(message)) {
-                    isAdded = db.addAlarm(user, date, hour, minute, message);
+                    isAdded = db.addAlarm(date, hour, minute, message);
                     if (isAdded) {
                         Toast.makeText(view.getContext(), getString(R.string.added), Toast.LENGTH_SHORT).show();
                         startRecycler();

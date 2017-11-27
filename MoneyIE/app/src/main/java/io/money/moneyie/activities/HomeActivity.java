@@ -149,7 +149,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         String language = new String(bytes);
 
         if (!language.isEmpty()) {
-            Log.e("aadasdas", language);
             super.attachBaseContext(LocaleHelper.wrap(newBase, language));
         } else {
             super.attachBaseContext(newBase);

@@ -24,7 +24,7 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
     private static DatabaseHelperSQLite instance;
 
     private static final String DATABASE_NAME = "MoneyIЕ.db";
-    private static int DATABASE_VERSION = 1;
+    private static int DATABASE_VERSION = 2;
 
     private static final String TABLE_SETINGS = "user_setings";
     private static final String TABLE_ALARMS = "user_alarms";
@@ -67,11 +67,7 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
                                         T_ALARMS_COL_2 + " INTEGER, " +
                                         T_ALARMS_COL_3 + " INTEGER, " +
                                         T_ALARMS_COL_4 + " INTEGER," +
-                                        T_ALARMS_COL_5 + " TEXT," +
-                                        " PRIMARY KEY (" +
-                                        T_ALARMS_COL_1 + ", " + T_ALARMS_COL_2 + ", " + T_ALARMS_COL_3 +  ", "
-                                        + T_ALARMS_COL_4 +  ", " + T_ALARMS_COL_4 +
-                                        "));";
+                                        T_ALARMS_COL_5 + " TEXT);";
 
     private DatabaseHelperSQLite(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -86,6 +82,8 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        String drop = "DROP TABLE " + TABLE_ALARMS + ";";
+        db.execSQL(drop);
         onCreate(db);
     }
 
@@ -153,10 +151,23 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
         return Collections.unmodifiableList(out);
     }
 
-    public boolean addAlarm(String user, Integer date, Integer hour, Integer minutes, String massage) {
+    public boolean addAlarm(Integer date, Integer hour, Integer minutes, String massage) {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        String myRawQuery = "SELECT * FROM " + TABLE_ALARMS + " WHERE " +
+                T_ALARMS_COL_2 + " = \"" + date + "\" AND " +
+                T_ALARMS_COL_3 + " = \"" + hour + "\" AND " +
+                T_ALARMS_COL_4 + " = \"" + minutes + "\" AND " +
+                T_ALARMS_COL_5 + " = \"" + massage + "\";";
+        Cursor c = db.rawQuery(myRawQuery, null);
+        if (c.getCount()>0) {
+            c.close();
+            return false;
+        }
+        c.close();
+
         ContentValues contentValues = new ContentValues();
-        contentValues.put(T_ALARMS_COL_1, user);
+        contentValues.put(T_ALARMS_COL_1, "");
         contentValues.put(T_ALARMS_COL_2, date);
         contentValues.put(T_ALARMS_COL_3, hour);
         contentValues.put(T_ALARMS_COL_4, minutes);
@@ -166,11 +177,10 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
         return (b != -1);
     }
 
-    public void deleteAlarm(String user, Integer date, Integer hour, Integer minutes, String massage) {
+    public void deleteAlarm(Integer date, Integer hour, Integer minutes, String massage) {
         SQLiteDatabase db = this.getWritableDatabase();
         String myRawQuery = "DELETE FROM " + TABLE_ALARMS
                 + " WHERE " +
-                T_ALARMS_COL_1 + " = \"" + user + "\" AND " +
                 T_ALARMS_COL_2 + " = \"" + date + "\" AND " +
                 T_ALARMS_COL_3 + " = \"" + hour + "\" AND " +
                 T_ALARMS_COL_4 + " = \"" + minutes + "\" AND " +
@@ -179,19 +189,7 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
     }
 
     public List<Alarm> getUserAlarms() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String myRawQuery = "SELECT " +
-                T_ALARMS_COL_2 + ", " + T_ALARMS_COL_3 + ", " + T_ALARMS_COL_4 + ", " + T_ALARMS_COL_5
-                + " FROM " + TABLE_ALARMS + ";";
-        Cursor c = db.rawQuery(myRawQuery, null);
-        c.moveToFirst();
-        ArrayList<Alarm> out = new ArrayList<>();
-        for (int i = 0; i < c.getCount(); i++){
-            c.moveToPosition(i);
-            out.add(new Alarm(c.getInt(0), c.getInt(1), c.getInt(2), c.getString(3)));
-        }
-        c.close();
-        return Collections.unmodifiableList(out);
+        return getAllAlarms();
     }
 
     public List<Alarm> getAllAlarms() {

@@ -4,6 +4,7 @@ package io.money.moneyie.model.utilities;
 import android.content.Context;
 import android.graphics.Color;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,10 +21,13 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.formatter.DefaultValueFormatter;
 import com.github.mikephil.charting.formatter.DefaultXAxisValueFormatter;
 import com.github.mikephil.charting.formatter.LargeValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -145,7 +149,7 @@ public abstract class GraphicUtilities {
             return;
         }
 
-        pieChart.setUsePercentValues(true);
+        pieChart.setUsePercentValues(false);
         pieChart.setHoleColor(Color.YELLOW);
         pieChart.setHoleRadius(5);
         pieChart.setDrawHoleEnabled(true);
@@ -157,14 +161,22 @@ public abstract class GraphicUtilities {
         ArrayList<Entry> pieDataSave = new ArrayList<>();
         ArrayList<String> names = new ArrayList<>();
 
-        //filtering the data
-        for (int z = 0; z < utilitiesArray.size(); z++) {
-            if (structuredData2.containsKey(utilitiesArray.get(z).getExpense())) {
-                structuredData2.put(utilitiesArray.get(z).getExpense(), structuredData2.get(utilitiesArray.get(z).getExpense()) + (float)utilitiesArray.get(z).getSum());
+        float inc = 0;
+        float exp = 0;
+        float ovrallF;
+
+        for (int i = 0; i < utilitiesArray.size(); i++) {
+            if (utilitiesArray.get(i).getExpense().equalsIgnoreCase("ex")) {
+                exp += utilitiesArray.get(i).getSum();
             } else {
-                structuredData2.put(utilitiesArray.get(z).getExpense(), (float)utilitiesArray.get(z).getSum());
+                inc += utilitiesArray.get(i).getSum();
             }
         }
+
+        ovrallF = inc - exp;
+
+        structuredData2.put("in", (ovrallF < 0) ? 0 : ovrallF);
+        structuredData2.put("ex", exp);
 
         int i = 0;
         for (Iterator<Map.Entry<String, Float>> iterator = structuredData2.entrySet().iterator(); iterator.hasNext();) {
@@ -173,13 +185,13 @@ public abstract class GraphicUtilities {
             if (entry.getKey().equalsIgnoreCase("ex")) {
                 names.add("Expense");
             } else {
-                names.add("Income");
+                names.add("Free Money");
             }
             i++;
         }
 
         //set some settings of the pie chart
-        PieDataSet pieDataSet = new PieDataSet(pieDataSave, "- Income/Expense");
+        PieDataSet pieDataSet = new PieDataSet(pieDataSave, "");
         ArrayList<Integer> colors = new ArrayList<>();
         colors.add(Color.RED);
         colors.add(Color.GREEN);
@@ -189,7 +201,12 @@ public abstract class GraphicUtilities {
         pieDataSet.setValueTextSize(15f);
         pieDataSet.setValueTextColor(Color.BLACK);
         PieData pieData = new PieData(names, pieDataSet);
-        pieData.setValueFormatter(new PercentFormatter());
+        pieData.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+                return String.format("%.2f", value);
+            }
+        });
         pieChart.setDescription("");
         pieChart.setData(pieData);
         pieChart.animateY(1000);

@@ -48,7 +48,6 @@ public class TypeRecyclerViewAdapter extends RecyclerView.Adapter<TypeRecyclerVi
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final Type type = types.get(position);
         holder.image.setImageResource(type.getPictureId());
-
         if (TextUtils.isDigitsOnly(type.getType()) && (Integer.parseInt(type.getType()) < typeNames.length)){
             holder.text.setText(typeNames[Integer.parseInt(type.getType())]);
         } else {

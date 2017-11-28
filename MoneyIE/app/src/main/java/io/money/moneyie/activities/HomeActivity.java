@@ -381,8 +381,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void startInterstitialAd() {
         Random r = new Random();
-        int e = r.nextInt(5);
-        if (true) { //TODO fix with random number
+        int e = r.nextInt(555);
+        if (e == 1) { //TODO fix with random number
             mInterstitialAd = new InterstitialAd(this);
             mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
             AdRequest adRequest = new AdRequest.Builder()

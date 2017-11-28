@@ -44,7 +44,7 @@ public class ShowCustomTypesRecyclerViewAdapter extends RecyclerView.Adapter<Sho
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final Type type = types.get(position);
-        holder.image.setImageResource(type.getPictureId());
+        holder.image.setImageResource(R.drawable.custom_type);
         holder.kind.setText(type.getType() + " - " + ((type.getExpense().equalsIgnoreCase("true")) ? "Expense" : "Income"));
     }
 

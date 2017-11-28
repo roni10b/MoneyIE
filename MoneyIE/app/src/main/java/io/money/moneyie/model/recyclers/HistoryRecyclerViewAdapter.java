@@ -87,7 +87,7 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
         }
 
         if(moneyFlow.getUid().equals(uid)){
-            holder.imageFriend.setVisibility(View.INVISIBLE);
+            holder.imageFriend.setVisibility(View.GONE);
         } else {
             holder.imageFriend.setVisibility(View.VISIBLE);
         }

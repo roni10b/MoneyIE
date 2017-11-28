@@ -15,27 +15,31 @@ import io.money.moneyie.model.utilities.PageAdapterGraphic;
 public class Fragment_Statistics extends Fragment {
 
     private View view;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_statistics, container, false);
-
+        initialise();
         startTabView();
-
         return view;
+    }
+
+    private void initialise() {
+        tabLayout = view.findViewById(R.id.tabLayoutGraphics);
+        viewPager = view.findViewById(R.id.viewPagerGraphics);
     }
 
     private void startTabView() {
         //adding names of tabs
-        final TabLayout tabLayout = view.findViewById(R.id.tabLayoutGraphics);
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.DAY)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.MONTH)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.YEAR)));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.PERIOD));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = view.findViewById(R.id.viewPagerGraphics);
         final PageAdapterGraphic adapter = new PageAdapterGraphic(getChildFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

@@ -13,7 +13,8 @@
             android:id="@+id/row_history_img"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="30dp"/>
+            android:layout_height="30dp"
+            android:layout_marginEnd="5dp"/>
 
         <ImageView
             android:id="@+id/row_history_img_friend"

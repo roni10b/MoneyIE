@@ -248,7 +248,10 @@ public abstract class GraphicUtilities {
         int pix = 0;
         for (int z = 0; z < values.size(); z++) {
             horizontalBarChartArr.add(new BarEntry(values.get(z), z));
-            pix+=50;
+            if (z == 0) {
+                pix += 40;
+            }
+            pix += 50;
         }
 
         float pixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, pix, horizontalBarChart.getContext().getResources().getDisplayMetrics());

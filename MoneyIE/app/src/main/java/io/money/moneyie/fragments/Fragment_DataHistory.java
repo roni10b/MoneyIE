@@ -16,28 +16,32 @@ import io.money.moneyie.model.utilities.PageAdapter;
 public class Fragment_DataHistory extends Fragment {
 
     private View view;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_datahistory, container, false);
-
+        initialise();
         startTabView();
-
         return view;
+    }
+
+    private void initialise() {
+        viewPager = view.findViewById(R.id.viewPager);
+        tabLayout = view.findViewById(R.id.tabLayout);
     }
 
     //start tab view
     private void startTabView() {
         //adding names of tabs
-        final TabLayout tabLayout = view.findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.DAY));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.MONTH));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.YEAR));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.PERIOD));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = view.findViewById(R.id.viewPager);
         final PageAdapter adapter = new PageAdapter(getChildFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

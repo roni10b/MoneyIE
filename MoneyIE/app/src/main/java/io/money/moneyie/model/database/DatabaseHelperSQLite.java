@@ -196,7 +196,8 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         String myRawQuery = "SELECT " +
                 T_ALARMS_COL_2 + ", " + T_ALARMS_COL_3 + ", " + T_ALARMS_COL_4 + ", " + T_ALARMS_COL_5
-                + " FROM " + TABLE_ALARMS + ";";
+                + " FROM " + TABLE_ALARMS +
+                " ORDER BY " + T_ALARMS_COL_2 + ", " + T_ALARMS_COL_3 + ", " + T_ALARMS_COL_4 + ";";
         Cursor c = db.rawQuery(myRawQuery, null);
         c.moveToFirst();
         ArrayList<Alarm> out = new ArrayList<>();

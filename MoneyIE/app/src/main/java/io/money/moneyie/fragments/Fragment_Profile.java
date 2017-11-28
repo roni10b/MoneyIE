@@ -340,7 +340,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                     if(plannedFlow != null){
                         db.deletePlanned(plannedFlow.getUserID(), plannedFlow.getDate(), plannedFlow.getType(), plannedFlow.getAmount());
                     }
-                    boolean isAdded = db.addPlanned("", payDay, getString(R.string.Salary),Float.parseFloat(salary.getText().toString()));
+                    boolean isAdded = db.addPlanned("", payDay, Utilities.getTypeNames(view.getContext())[38], Float.parseFloat(salary.getText().toString()));
                     if(isAdded){
                         Toast.makeText(view.getContext(), R.string.saved, Toast.LENGTH_SHORT).show();
                         setTextValues();

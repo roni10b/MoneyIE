@@ -52,13 +52,15 @@ public class DatabaseHelperFirebase extends SQLiteOpenHelper {
     private static final String T_IE_COL_3 = "calendar";
     private static final String T_IE_COL_4 = "comment";
     private static final String T_IE_COL_5 = "sum";
+    private static final String T_IE_COL_6 = "id";
 
     private static final String IE_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + TABLE_IE +
             " (" + T_IE_COL_1 + " TEXT, " +
             T_IE_COL_2 + " TEXT, " +
             T_IE_COL_3 + " INTEGER, " +
-            T_IE_COL_4 + " TEXT," +
-            T_IE_COL_5 + " INTEGER);";
+            T_IE_COL_4 + " TEXT, " +
+            T_IE_COL_5 + " INTEGER, " +
+            T_IE_COL_6 + "INTEGER PRIMARY KEY AUTOINCREMENT);";
 
     @Override
     public void onCreate(SQLiteDatabase db) {

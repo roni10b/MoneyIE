@@ -20,12 +20,13 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/insert_price"
-            android:textColor="#000000"
-            android:layout_marginTop="10dp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="5dp"
             android:textSize="32sp" />
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -36,31 +37,46 @@
             android:id="@+id/outcome_keyboard_1"
             android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
             android:textSize="18sp"
+            android:textColor="#ffffff"
             android:background="@drawable/keyboard_button_design"
             android:text="1"/>
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
 
         <Button
             android:id="@+id/outcome_keyboard_2"
             android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
             android:textSize="18sp"
+            android:textColor="#ffffff"
             android:background="@drawable/keyboard_button_design"
             android:text="2"/>
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
 
         <Button
             android:id="@+id/outcome_keyboard_3"
             android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
             android:textSize="18sp"
+            android:textColor="#ffffff"
             android:background="@drawable/keyboard_button_design"
             android:text="3"/>
 
     </LinearLayout>
 
+    <View
+        android:layout_width="195.2dp"
+        android:layout_height="0.1dp"
+        android:background="#ffffff"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,30 +89,48 @@
             android:id="@+id/outcome_keyboard_4"
             android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:background="@drawable/keyboard_button_design"
             android:text="4" />
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
+
 
         <Button
             android:id="@+id/outcome_keyboard_5"
             android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:background="@drawable/keyboard_button_design"
             android:text="5" />
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
+
 
         <Button
             android:id="@+id/outcome_keyboard_6"
             android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
             android:textSize="18sp"
+            android:textColor="#ffffff"
             android:background="@drawable/keyboard_button_design"
             android:text="6" />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="195.2dp"
+        android:layout_height="0.1dp"
+        android:background="#ffffff"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -109,10 +143,16 @@
             android:id="@+id/outcome_keyboard_7"
             android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
             android:textSize="18sp"
+            android:textColor="#ffffff"
             android:background="@drawable/keyboard_button_design"
             android:text="7"/>
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
+
+
 
         <Button
             android:id="@+id/outcome_keyboard_8"
@@ -120,8 +160,13 @@
             android:layout_height="match_parent"
             android:background="@drawable/keyboard_button_design"
             android:textSize="18sp"
-            android:layout_margin="2dp"
+            android:textColor="#ffffff"
             android:text="8"/>
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
+
 
         <Button
             android:id="@+id/outcome_keyboard_9"
@@ -129,10 +174,16 @@
             android:layout_height="match_parent"
             android:background="@drawable/keyboard_button_design"
             android:textSize="18sp"
-            android:layout_margin="2dp"
+            android:textColor="#ffffff"
             android:text="9"/>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="195.2dp"
+        android:layout_height="0.1dp"
+        android:background="#ffffff"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -145,27 +196,39 @@
             android:id="@+id/outcome_keyboard_dot"
             android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
             android:background="@drawable/keyboard_button_design"
             android:textSize="18sp"
+            android:textColor="#ffffff"
             android:text="@string/dot"/>
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
+
 
         <Button
             android:id="@+id/outcome_keyboard_0"
             android:layout_width="65dp"
             android:background="@drawable/keyboard_button_design"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
             android:textSize="18sp"
+            android:textColor="#ffffff"
             android:text="0"/>
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
+
 
         <Button
             android:id="@+id/outcome_keyboard_del"
             android:layout_width="65dp"
             android:layout_height="match_parent"
             android:background="@drawable/keyboard_button_design"
-            android:layout_margin="2dp"
             android:textSize="18sp"
+            android:textColor="#ffffff"
             android:text="@string/del"/>
 
     </LinearLayout>
@@ -181,7 +244,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="3dp"
-        android:textColorHint="@color/appSilver"
+        android:textColorHint="@color/white"
         android:textCursorDrawable="@drawable/cursor_color_silver"
         android:hint="@string/insert_comment"
         android:gravity="center" />

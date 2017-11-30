@@ -15,6 +15,7 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -82,6 +83,11 @@ public abstract class GraphicUtilities {
         chart.setScaleEnabled(false);
         chart.setDrawBarShadow(false);
         chart.setDrawGridBackground(false);
+        chart.getXAxis().setTextColor(Color.WHITE);
+        chart.getXAxis().setAxisLineColor(Color.WHITE);
+        chart.getXAxis().setGridColor(Color.WHITE);
+        chart.getAxisRight().setTextColor(Color.WHITE);
+        chart.getAxisLeft().setTextColor(Color.WHITE);
 
         ArrayList<String> xVals = new ArrayList();
 
@@ -127,6 +133,8 @@ public abstract class GraphicUtilities {
         set1.setColor(Color.GREEN);
         set2 = new BarDataSet(yVals1, "Expense");
         set2.setColor(Color.RED);
+        set1.setValueTextColor(Color.WHITE);
+        set2.setValueTextColor(Color.WHITE);
 
         ArrayList<IBarDataSet> sets = new ArrayList<>();
         sets.add(set1);
@@ -276,9 +284,20 @@ public abstract class GraphicUtilities {
         params.height = (int) pixels;
         horizontalBarChart.setLayoutParams(params);
 
+        horizontalBarChart.getXAxis().setTextColor(Color.WHITE);
+        horizontalBarChart.getXAxis().setTextSize(12);
+        horizontalBarChart.getXAxis().setAxisLineColor(Color.WHITE);
+        horizontalBarChart.getXAxis().setGridColor(Color.WHITE);
+        horizontalBarChart.getAxisRight().setTextColor(Color.WHITE);
+        horizontalBarChart.getAxisRight().setTextSize(15);
+        horizontalBarChart.getAxisLeft().setTextColor(Color.WHITE);
+        horizontalBarChart.getAxisLeft().setTextSize(15);
+
+
         //set the settings of the horizontal bar char
         BarDataSet bardataset = new BarDataSet(horizontalBarChartArr, "Expenses");
         bardataset.setColor(Color.RED);
+        bardataset.setValueTextColor(Color.WHITE);
         BarData data = new BarData(names, bardataset);
         data.setValueTextSize(12);
         horizontalBarChart.setDoubleTapToZoomEnabled(false);

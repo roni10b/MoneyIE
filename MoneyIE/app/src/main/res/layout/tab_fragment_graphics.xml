@@ -18,13 +18,14 @@
             android:text="@string/from"
             android:gravity="center_horizontal|center_vertical"
             android:layout_gravity="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/white"/>
 
         <EditText
             android:id="@+id/graphics_date_edit"
             android:focusable="false"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/white"
             android:drawableLeft="@drawable/calendar_icon"
             android:drawableStart="@drawable/calendar_icon"
             android:layout_width="0dp"
@@ -54,7 +55,7 @@
             android:text="@string/to"
             android:gravity="center_horizontal|center_vertical"
             android:layout_gravity="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/white"/>
 
         <EditText
             android:id="@+id/graphics_date_edit1"
@@ -62,6 +63,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:visibility="gone"
+            android:textColor="@color/white"
             android:layout_marginTop="-2dp"
             android:drawableLeft="@drawable/calendar_icon"
             android:drawableStart="@drawable/calendar_icon"
@@ -105,7 +107,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="2"
                         android:layout_height="match_parent"
-                        android:textColor="#000000"
+                        android:textColor="@color/white"
                         android:gravity="center|left"/>
                 </LinearLayout>
 
@@ -125,7 +127,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:textColor="#000000"
+                        android:textColor="@color/white"
                         android:gravity="center|left"/>
                 </LinearLayout>
 
@@ -143,7 +145,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="2"
                         android:layout_height="match_parent"
-                        android:textColor="#000000"
+                        android:textColor="@color/white"
                         android:gravity="center|left"/>
                 </LinearLayout>
 
@@ -167,7 +169,7 @@
                     android:text="@string/you_have_no_activity_for_this_period"
                     android:textSize="20sp"
                     android:visibility="gone"
-                    android:textColor="@color/appSilver"
+                    android:textColor="@color/white"
                     android:gravity="center_horizontal|center_vertical"
                     android:layout_gravity="center"/>
             </LinearLayout>

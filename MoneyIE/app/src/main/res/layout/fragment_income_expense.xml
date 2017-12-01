@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/insert_price"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:layout_marginTop="5dp"
             android:textSize="32sp" />
     </LinearLayout>
@@ -38,35 +38,35 @@
             android:layout_width="65dp"
             android:layout_height="match_parent"
             android:textSize="18sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:background="@drawable/keyboard_button_design"
             android:text="1"/>
 
         <View
             android:layout_width="0.1dp"
             android:layout_height="match_parent"
-            android:background="#ffffff"/>
+            android:background="@color/white"/>
 
         <Button
             android:id="@+id/outcome_keyboard_2"
             android:layout_width="65dp"
             android:layout_height="match_parent"
             android:textSize="18sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:background="@drawable/keyboard_button_design"
             android:text="2"/>
 
         <View
             android:layout_width="0.1dp"
             android:layout_height="match_parent"
-            android:background="#ffffff"/>
+            android:background="@color/white"/>
 
         <Button
             android:id="@+id/outcome_keyboard_3"
             android:layout_width="65dp"
             android:layout_height="match_parent"
             android:textSize="18sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:background="@drawable/keyboard_button_design"
             android:text="3"/>
 
@@ -75,7 +75,7 @@
     <View
         android:layout_width="195.2dp"
         android:layout_height="0.1dp"
-        android:background="#ffffff"
+        android:background="@color/white"
         android:layout_gravity="center_horizontal" />
 
     <LinearLayout
@@ -89,7 +89,7 @@
             android:id="@+id/outcome_keyboard_4"
             android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:background="@drawable/keyboard_button_design"
             android:text="4" />
@@ -97,14 +97,14 @@
         <View
             android:layout_width="0.1dp"
             android:layout_height="match_parent"
-            android:background="#ffffff"/>
+            android:background="@color/white"/>
 
 
         <Button
             android:id="@+id/outcome_keyboard_5"
             android:layout_width="65dp"
             android:layout_height="match_parent"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:background="@drawable/keyboard_button_design"
             android:text="5" />
@@ -120,7 +120,7 @@
             android:layout_width="65dp"
             android:layout_height="match_parent"
             android:textSize="18sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:background="@drawable/keyboard_button_design"
             android:text="6" />
 
@@ -129,7 +129,7 @@
     <View
         android:layout_width="195.2dp"
         android:layout_height="0.1dp"
-        android:background="#ffffff"
+        android:background="@color/white"
         android:layout_gravity="center_horizontal" />
 
     <LinearLayout
@@ -144,13 +144,13 @@
             android:layout_width="65dp"
             android:layout_height="match_parent"
             android:textSize="18sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:background="@drawable/keyboard_button_design"
             android:text="7"/>
         <View
             android:layout_width="0.1dp"
             android:layout_height="match_parent"
-            android:background="#ffffff"/>
+            android:background="@color/white"/>
 
 
 
@@ -160,12 +160,12 @@
             android:layout_height="match_parent"
             android:background="@drawable/keyboard_button_design"
             android:textSize="18sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:text="8"/>
         <View
             android:layout_width="0.1dp"
             android:layout_height="match_parent"
-            android:background="#ffffff"/>
+            android:background="@color/white"/>
 
 
         <Button
@@ -174,7 +174,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/keyboard_button_design"
             android:textSize="18sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:text="9"/>
 
     </LinearLayout>
@@ -182,7 +182,7 @@
     <View
         android:layout_width="195.2dp"
         android:layout_height="0.1dp"
-        android:background="#ffffff"
+        android:background="@color/white"
         android:layout_gravity="center_horizontal" />
 
     <LinearLayout
@@ -198,7 +198,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/keyboard_button_design"
             android:textSize="18sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:text="@string/dot"/>
 
         <View
@@ -213,13 +213,13 @@
             android:background="@drawable/keyboard_button_design"
             android:layout_height="match_parent"
             android:textSize="18sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:text="0"/>
 
         <View
             android:layout_width="0.1dp"
             android:layout_height="match_parent"
-            android:background="#ffffff"/>
+            android:background="@color/white"/>
 
 
         <Button
@@ -228,7 +228,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/keyboard_button_design"
             android:textSize="18sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:text="@string/del"/>
 
     </LinearLayout>

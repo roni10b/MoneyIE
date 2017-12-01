@@ -15,7 +15,7 @@
         android:gravity="center"
         android:layout_marginTop="10dp"
         android:text="@string/name"
-        android:textColor="@color/appSilver"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:text="@string/email_two_dots"
         android:gravity="center"
-        android:textColor="@color/appSilver"
+        android:textColor="@color/white"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:textSize="20sp"/>
@@ -33,7 +33,7 @@
         android:id="@+id/profile_l0"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/appSilver"
+        android:background="@color/white"
         android:layout_marginBottom="10dp"/>
 
     <LinearLayout
@@ -55,7 +55,7 @@
             android:text="@string/salary"
             android:textStyle="bold"
             android:fontFamily="serif"
-            android:textColor="@color/appSilver"
+            android:textColor="@color/white"
             android:gravity="center"
             android:textSize="20sp" />
 
@@ -77,9 +77,9 @@
             android:gravity="center"
             android:hint="@string/amount"
             android:maxLength="9"
-            android:textColor="@color/appSilver"
-            android:textColorHint="@color/appSilver"
-            android:textCursorDrawable="@drawable/cursor_color_silver"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textCursorDrawable="@color/white"
             />
 
         <EditText
@@ -88,8 +88,8 @@
             android:textSize="18sp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:textColor="@color/appSilver"
-            android:textColorHint="@color/appSilver"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textCursorDrawable="@drawable/cursor_color_silver"
             android:focusable="false" />
 
@@ -110,7 +110,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/appSilver"
+        android:background="@color/white"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"/>
 
@@ -125,7 +125,7 @@
             android:text="Language"
             android:textStyle="bold"
             android:fontFamily="serif"
-            android:textColor="@color/appSilver"
+            android:textColor="@color/white"
             android:gravity="left"
             android:layout_marginLeft="20dp"
             android:textSize="20sp"/>
@@ -141,7 +141,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/appSilver"
+        android:background="@color/white"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"/>
 
@@ -163,7 +163,7 @@
             android:text="@string/create_your_own_types"
             android:textStyle="bold"
             android:fontFamily="serif"
-            android:textColor="@color/appSilver"
+            android:textColor="@color/white"
             android:gravity="center"
             android:textSize="20sp" />
 
@@ -187,9 +187,9 @@
             android:maxLines="1"
             android:maxLength="10"
             android:hint="@string/your_type"
-            android:textColor="@color/appSilver"
-            android:textColorHint="@color/appSilver"
-            android:textCursorDrawable="@drawable/cursor_color_silver"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textCursorDrawable="@color/white"
             android:textSize="18sp"/>
 
         <RadioGroup
@@ -204,7 +204,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="@color/appSilver"
+                android:textColor="@color/white"
                 android:checked="true"
                 android:text="@string/income"/>
             <RadioButton
@@ -212,7 +212,7 @@
                 android:layout_weight="3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="@color/appSilver"
+                android:textColor="@color/white"
                 android:text="@string/expense"/>
         </RadioGroup>
 
@@ -227,7 +227,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/appSilver"
+        android:background="@color/white"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp"/>
 
@@ -243,15 +243,16 @@
             android:src="@drawable/eye_visible" />
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/your_types"
-            android:textStyle="bold"
+            android:layout_weight="1"
             android:fontFamily="serif"
-            android:textColor="@color/appSilver"
             android:gravity="center"
-            android:textSize="20sp" />
+            android:text="@string/your_types"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -260,7 +261,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textColor="@color/appSilver"
+        android:textColor="@color/white"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="@string/no_added_types"/>

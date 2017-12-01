@@ -1,9 +1,11 @@
 package io.money.moneyie.fragments;
 
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +40,8 @@ public class Fragment_Statistics extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.MONTH)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.YEAR)));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.PERIOD));
+        tabLayout.setTabTextColors(ContextCompat.getColorStateList(view.getContext(), R.color.white));
+        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(view.getContext(), R.color.white));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final PageAdapterGraphic adapter = new PageAdapterGraphic(getChildFragmentManager(), tabLayout.getTabCount());

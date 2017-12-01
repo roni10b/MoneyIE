@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -210,6 +211,10 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         changeLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                TextView selectedText = (TextView) adapterView.getChildAt(0);
+                if (selectedText != null) {
+                    selectedText.setTextColor(Color.WHITE);
+                }
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 intent.putExtra("changeLanguage", "yes");
                 if (i == 1) {

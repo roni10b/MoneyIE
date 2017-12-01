@@ -60,7 +60,7 @@ public class DatabaseHelperFirebase extends SQLiteOpenHelper {
             T_IE_COL_3 + " INTEGER, " +
             T_IE_COL_4 + " TEXT, " +
             T_IE_COL_5 + " INTEGER, " +
-            T_IE_COL_6 + "INTEGER PRIMARY KEY AUTOINCREMENT);";
+            T_IE_COL_6 + " INTEGER PRIMARY KEY AUTOINCREMENT);";
 
     @Override
     public void onCreate(SQLiteDatabase db) {

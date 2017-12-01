@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.yalantis.phoenix.PullToRefreshView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,6 +41,7 @@ public class FragmentTab_Day extends Fragment {
     private long start, end;
     private int spinnerPosition;
     private TextView activityText;
+    private PullToRefreshView refresh;
 
     @Nullable
     @Override
@@ -49,6 +51,7 @@ public class FragmentTab_Day extends Fragment {
         setFilter();
         filterDataOnStart();
         setSpinnerSettings();
+        refresh();
         return view;
     }
 
@@ -63,6 +66,22 @@ public class FragmentTab_Day extends Fragment {
         spinner = view.findViewById(R.id.history_spinner);
         spinnerPosition = 0;
         activityText = view.findViewById(R.id.history_activity_text);
+        refresh = view.findViewById(R.id.pull_to_refresh);
+    }
+
+    private void refresh() {
+        refresh.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //code to check during refresh
+                        refresh.setRefreshing(false);
+                    }
+                }, 250);
+            }
+        });
     }
 
     private void setSpinnerSettings() {

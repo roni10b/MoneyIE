@@ -11,6 +11,7 @@
         <item>Select Language</item>
         <item>Bulgarian</item>
         <item>English</item>
+        <item>Español</item>
     </string-array>
 
     <string name="title_activity_second_activiy">Interstitial</string>
@@ -124,8 +125,8 @@
     <string name="DELETE">DELETE</string>
     <string name="profile_text">You can create your own types of Incomes and Expenses.</string>
     <string name="profile_salary_text">By adding your salary here, each month, on selected date, the added amount of money will be added to your account as Income.</string>
-    <string name="pay_day_">Pay Day: SELECT</string>
-    <string name="PAY_DAY">Pay Day:</string>
+    <string name="pay_day_">Payday: SELECT</string>
+    <string name="PAY_DAY">Payday:</string>
     <string name="Salary">Salary</string>
     <string name="saved">Saved</string>
     <string name="add_salary">Add salary</string>

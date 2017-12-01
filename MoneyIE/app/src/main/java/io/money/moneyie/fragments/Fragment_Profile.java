@@ -227,6 +227,10 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                     saveInFile("eng");
                     getActivity().startActivity(intent);
                     getActivity().finish();
+                }  else if (i == 3) {
+                    saveInFile("es");
+                    getActivity().startActivity(intent);
+                    getActivity().finish();
                 }
             }
 

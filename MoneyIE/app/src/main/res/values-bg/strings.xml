@@ -64,7 +64,7 @@
     <string name="month">месец</string>
     <string name="my_profile">Профил</string>
     <string name="my_stats">Статистики</string>
-    <string name="name">"Име: "</string>
+    <string name="name">Mi perfil</string>
     <string name="no">Не</string>
     <string name="no_added_types">Няма добавени типове</string>
     <string name="no_internet_to_reg">Няма връзка с интернет</string>
@@ -112,7 +112,7 @@
     <string name="yes">Да</string>
     <string name="your_type">Вашият тип</string>
     <string name="your_types">Вашите типове</string>
-    <string name="hello">"Здравейте, "</string>
+    <string name="hello">Gráfica Horizontal</string>
     <string name="pie_chart">"Кръгова диаграма - "</string>
     <string name="set_your_personal_reminders_here">Добавете вашите аларми тук.</string>
     <string name="combined_chart">"Комбинирана диаграма - "</string>
@@ -175,4 +175,5 @@
     <string name="Sport">Спорт</string>
     <string name="Skiing">Ски</string>
     <string name="Shopping">Шопинг</string>
+    <string name="digit_type_error">Типовете не могат да съдържат само цифри</string>
 </resources>

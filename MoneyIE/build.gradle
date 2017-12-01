@@ -6,9 +6,11 @@ buildscript {
         maven {
             url "https://maven.google.com" // Google's Maven repository
         }
+
         //for 3.0
         //google()
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.google.gms:google-services:3.1.1'

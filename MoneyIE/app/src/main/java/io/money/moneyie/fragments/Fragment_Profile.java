@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import es.dmoral.toasty.Toasty;
 import io.money.moneyie.R;
 import io.money.moneyie.activities.HomeActivity;
 import io.money.moneyie.model.PlannedFlow;
@@ -159,7 +160,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                         recyclerView.removeViewAt(position);
                         adapter.notifyItemRemoved(position);
                         adapter.notifyItemRangeChanged(position, typeFilter.size());
-                        Toast.makeText(getContext(), R.string.DELETED, Toast.LENGTH_SHORT).show();
+                        Toasty.success(getContext(), returnResID(R.string.DELETED), Toast.LENGTH_SHORT).show();
                         if (isTypeFilerEmpty()) {
                             noTypes.setVisibility(View.GONE);
                             imgEye.setVisibility(View.VISIBLE);
@@ -361,16 +362,20 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                     }
                     boolean isAdded = db.addPlanned("", payDay, Utilities.getTypeNames(view.getContext())[38], Float.parseFloat(salary.getText().toString()));
                     if(isAdded){
-                        Toast.makeText(view.getContext(), R.string.saved, Toast.LENGTH_SHORT).show();
+                        Toasty.success(view.getContext(), returnResID(R.string.saved), Toast.LENGTH_SHORT).show();
                         setTextValues();
                     } else {
-                        Toast.makeText(view.getContext(), R.string.not_saved_please_try_again, Toast.LENGTH_SHORT).show();
+                        Toasty.error(view.getContext(), returnResID(R.string.not_saved_please_try_again), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(view.getContext(), R.string.add_salary, Toast.LENGTH_SHORT).show();
+                    Toasty.info(view.getContext(), returnResID(R.string.add_salary), Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private String returnResID(int id) {
+        return view.getContext().getResources().getString(id);
     }
 
     public void onDeleteSalaryListener(){
@@ -379,7 +384,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
             public void onClick(View v) {
                 if(plannedFlow != null){
                     db.deletePlanned(plannedFlow.getUserID(), plannedFlow.getDate(), plannedFlow.getType(), plannedFlow.getAmount());
-                    Toast.makeText(view.getContext(), getString(R.string.DELETED), Toast.LENGTH_SHORT).show();
+                    Toasty.success(view.getContext(), getString(R.string.DELETED), Toast.LENGTH_SHORT).show();
                     plannedFlow = null;
                 }
                 salary.setText("");
@@ -430,21 +435,21 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                 String checked = ((RadioButton)view.findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
 
                 if (!Utilities.checkString(typeNew)){
-                    Toast.makeText(getContext(), R.string.invalid_type, Toast.LENGTH_SHORT).show();
+                    Toasty.error(getContext(), returnResID(R.string.invalid_type), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isDigitsOnly(typeNew)) {
-                    Toast.makeText(getContext(), R.string.digit_type_error, Toast.LENGTH_SHORT).show();
+                    Toasty.error(getContext(), returnResID(R.string.digit_type_error), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 boolean ch = db.addType("", checked.equalsIgnoreCase(getString(R.string.income))? getString(R.string.FALSE) : getString(R.string.TRUE), typeNew, R.drawable.custom_type);
                 if(ch) {
-                    Toast.makeText(view.getContext(), R.string.type_added, Toast.LENGTH_SHORT).show();
+                    Toasty.success(view.getContext(), returnResID(R.string.type_added), Toast.LENGTH_SHORT).show();
                     startRecycler();
                     type.setText("");
                 } else {
-                    Toast.makeText(view.getContext(), R.string.already_exists, Toast.LENGTH_SHORT).show();
+                    Toasty.error(view.getContext(), returnResID(R.string.already_exists), Toast.LENGTH_SHORT).show();
                 }
             }
         });

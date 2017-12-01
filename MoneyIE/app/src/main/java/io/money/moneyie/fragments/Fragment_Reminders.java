@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import es.dmoral.toasty.Toasty;
 import io.money.moneyie.R;
 import io.money.moneyie.model.recyclers.AlarmsRecyclerViewAdapter;
 import io.money.moneyie.model.Alarm;
@@ -158,7 +159,7 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
                         recyclerView.removeViewAt(position);
                         adapter.notifyItemRemoved(position);
                         adapter.notifyItemRangeChanged(position, alarms.size());
-                        Toast.makeText(getContext(), getString(R.string.DELETED), Toast.LENGTH_SHORT).show();
+                        Toasty.success(getContext(), getString(R.string.DELETED), Toast.LENGTH_SHORT).show();
                         startRecycler();
                     }
                 })
@@ -173,6 +174,9 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
         alert.show();
         }
 
+    private String returnResID(int id) {
+        return view.getContext().getResources().getString(id);
+    }
 
     public void onTimeEditClickListener(){
         timeEdit.setOnClickListener(new View.OnClickListener() {
@@ -236,12 +240,12 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
                 if (Utilities.checkString(message)) {
                     isAdded = db.addAlarm(date, hour, minute, message);
                     if (isAdded) {
-                        Toast.makeText(view.getContext(), getString(R.string.added), Toast.LENGTH_SHORT).show();
+                        Toasty.success(view.getContext(), getString(R.string.added), Toast.LENGTH_SHORT).show();
                         startRecycler();
                         AlarmUtilities.setAlarm(view.getContext(), new Alarm(date, hour, minute, message));
                         setInitialStateDateTimeFields();
                     } else {
-                        Toast.makeText(view.getContext(), getString(R.string.already_exists), Toast.LENGTH_SHORT).show();
+                        Toasty.error(view.getContext(), getString(R.string.already_exists), Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     messageEdit.setError(getString(R.string.message_is_required));

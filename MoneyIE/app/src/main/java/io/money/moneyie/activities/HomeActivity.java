@@ -72,7 +72,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Bundle bundle;
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
-    AdRequest adRequest;
+    private AdRequest adRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

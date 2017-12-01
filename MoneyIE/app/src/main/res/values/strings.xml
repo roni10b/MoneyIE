@@ -9,7 +9,7 @@
 
     <string-array name="languages">
         <item>Select Language</item>
-        <item>Bulgarian</item>
+        <item>Български</item>
         <item>English</item>
         <item>Español</item>
     </string-array>

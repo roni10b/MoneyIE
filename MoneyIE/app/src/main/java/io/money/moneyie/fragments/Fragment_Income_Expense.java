@@ -24,6 +24,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.dmoral.toasty.Toasty;
 import io.money.moneyie.R;
 import io.money.moneyie.model.MoneyFlow;
 import io.money.moneyie.model.Type;
@@ -229,10 +230,14 @@ public class Fragment_Income_Expense extends Fragment implements View.OnClickLis
             }
             moneyView.setText(getString(R.string.insert_price));
             comment.setText("");
-            Toast.makeText(view.getContext(), R.string.ADDED, Toast.LENGTH_SHORT).show();
+            Toasty.success(view.getContext(), returnResID(R.string.ADDED), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(view.getContext(), R.string.price_not_added, Toast.LENGTH_SHORT).show();
+            Toasty.error(view.getContext(), returnResID(R.string.price_not_added), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private String returnResID(int id) {
+        return view.getContext().getResources().getString(id);
     }
 
     public void keyboardHideListener(){

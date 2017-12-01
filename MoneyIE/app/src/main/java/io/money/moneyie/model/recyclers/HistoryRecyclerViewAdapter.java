@@ -78,7 +78,7 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
 
         if (moneyFlow.getExpense().equals("ex")) {
             holder.imageIE.setImageResource(R.drawable.outcome_icon);//outcome
-            holder.price.setTextColor(Color.argb(255,255,85,85));
+            holder.price.setTextColor(Color.argb(255,204,0,0));
             holder.imageFriend.setImageResource(R.drawable.friend_expence);
         } else {
             holder.imageIE.setImageResource(R.drawable.income_icon);//income

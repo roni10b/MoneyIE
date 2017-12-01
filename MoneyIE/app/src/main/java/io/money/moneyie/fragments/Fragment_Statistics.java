@@ -40,8 +40,7 @@ public class Fragment_Statistics extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.MONTH)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.YEAR)));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.PERIOD));
-        tabLayout.setTabTextColors(ContextCompat.getColorStateList(view.getContext(), R.color.white));
-        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(view.getContext(), R.color.white));
+        tabLayout.setSelectedTabIndicatorColor(Color.WHITE);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final PageAdapterGraphic adapter = new PageAdapterGraphic(getChildFragmentManager(), tabLayout.getTabCount());

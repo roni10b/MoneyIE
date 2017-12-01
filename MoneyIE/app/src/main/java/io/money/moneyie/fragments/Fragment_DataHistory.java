@@ -1,5 +1,6 @@
 package io.money.moneyie.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.annotation.Nullable;
@@ -40,6 +41,7 @@ public class Fragment_DataHistory extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText(R.string.MONTH));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.YEAR));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.PERIOD));
+        tabLayout.setSelectedTabIndicatorColor(Color.WHITE);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final PageAdapter adapter = new PageAdapter(getChildFragmentManager(), tabLayout.getTabCount());

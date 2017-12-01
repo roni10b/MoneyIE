@@ -68,6 +68,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
     private LinearLayout layout;
     private Spinner changeLanguage;
     private String UserEmailId;
+    private boolean flagHaveProfile;
 
 
     @Nullable
@@ -200,6 +201,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         imgQuestionSalary = view.findViewById(R.id.profile_salary_question);
         changeLanguage = view.findViewById(R.id.change_language_spinner);
         UserEmailId = getEmailID(view.getContext().getApplicationContext());
+        flagHaveProfile = true;
         setTextValues();
     }
 
@@ -274,9 +276,16 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                     view.findViewById(R.id.profile_l1).setVisibility(View.GONE);
                     view.findViewById(R.id.profile_l2).setVisibility(View.GONE);
                     imgEye.setImageResource(R.drawable.eye_invisible);
+                } else if (!flagHaveProfile && view.findViewById(R.id.profile_l0).getVisibility() == View.VISIBLE) {
+                    view.findViewById(R.id.profile_l0).setVisibility(View.GONE);
+                    view.findViewById(R.id.profile_l1).setVisibility(View.GONE);
+                    view.findViewById(R.id.profile_l2).setVisibility(View.GONE);
+                    imgEye.setImageResource(R.drawable.eye_invisible);
                 } else {
-                    name.setVisibility(View.VISIBLE);
-                    email.setVisibility(View.VISIBLE);
+                    if (flagHaveProfile) {
+                        name.setVisibility(View.VISIBLE);
+                        email.setVisibility(View.VISIBLE);
+                    }
                     view.findViewById(R.id.profile_l0).setVisibility(View.VISIBLE);
                     view.findViewById(R.id.profile_l1).setVisibility(View.VISIBLE);
                     view.findViewById(R.id.profile_l2).setVisibility(View.VISIBLE);
@@ -310,6 +319,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
             c = getActivity().getApplication().getContentResolver().query(ContactsContract.Profile.CONTENT_URI, null, null, null, null);
         } catch (SecurityException e) {
             e.printStackTrace();
+            flagHaveProfile = false;
             name.setVisibility(View.GONE);
             email.setVisibility(View.GONE);
         }

@@ -42,7 +42,7 @@
     <string name="add">add</string>
     <string name="message">Message</string>
     <string name="reminders">Reminders</string>
-    <string name="day">day</string>
+    <string name="day">Day:</string>
     <string name="month">month</string>
     <string name="year">year</string>
     <string name="insert_price">Insert price</string>
@@ -152,7 +152,7 @@
     <string name="PERIOD">PERIOD</string>
     <string name="Alcohol">Alcohol</string>
     <string name="Bar">Bar</string>
-    <string name="Balling">Balling</string>
+    <string name="Balling">Bowling</string>
     <string name="Bike">Bike</string>
     <string name="Books">Books</string>
     <string name="Boy">Boy</string>

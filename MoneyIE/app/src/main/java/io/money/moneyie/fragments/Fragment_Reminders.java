@@ -40,7 +40,6 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
     private View view;
     private RecyclerView recyclerView;
     private DatabaseHelperSQLite db;
-    private String user;
     private long mLastClickTime;
     private AlarmsRecyclerViewAdapter adapter;
     private List<Alarm> alarms;
@@ -78,7 +77,6 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
     private void initialiseElements() {
         recyclerView = view.findViewById(R.id.recycler_alarms);
         db = DatabaseHelperSQLite.getInstance(view.getContext());
-        user = "";
         mLastClickTime = SystemClock.elapsedRealtime();
         dateEdit = view.findViewById(R.id.alarm_date_set_edit);
         timeEdit = view.findViewById(R.id.alarm_time_set_edit);
@@ -190,7 +188,7 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
                         calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
                         hour = calendar.get(Calendar.HOUR_OF_DAY);
                         minute = calendar.get(Calendar.MINUTE);
-                        timeEdit.setText(getString(R.string.time) + " " + calendar.get(Calendar.HOUR_OF_DAY) + " : " +
+                        timeEdit.setText("" + calendar.get(Calendar.HOUR_OF_DAY) + " : " +
                                 ((calendar.get(Calendar.MINUTE) < 10)? "0" : "") + calendar.get(Calendar.MINUTE));
                     }
                 }, hour, minute, true);//Yes 24 hour time
@@ -210,7 +208,7 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
                     public void onClick(DialogInterface dialog, int which) {
                         date = monthYearPicker.getSelectedDay();
 
-                        dateEdit.setText(getString(R.string.Day) + date);
+                        dateEdit.setText("" + date);
                         monthYearPicker = new MonthYearPicker(view.getContext());
                     }
                 };
@@ -255,13 +253,14 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
 
     private void setInitialStateDateTimeFields(){
         calendar = Calendar.getInstance();
-        dateEdit.setText(getString(R.string.Day) + calendar.get(Calendar.DAY_OF_MONTH));
-        timeEdit.setText(getString(R.string.time) + calendar.get(Calendar.HOUR_OF_DAY) + " : " + calendar.get(Calendar.MINUTE));
+        dateEdit.setText("" + calendar.get(Calendar.DAY_OF_MONTH));
+        timeEdit.setText(((calendar.get(Calendar.MINUTE) < 10)? "0" : "") + calendar.get(Calendar.HOUR_OF_DAY) + " : " + calendar.get(Calendar.MINUTE));
         messageEdit.setText("");
         hour = calendar.get(Calendar.HOUR_OF_DAY);
         minute = calendar.get(Calendar.MINUTE);
         date = calendar.get(Calendar.DAY_OF_MONTH);
     }
+
 
     private void keyboardHideListener(){
         layout.setOnClickListener(new View.OnClickListener() {

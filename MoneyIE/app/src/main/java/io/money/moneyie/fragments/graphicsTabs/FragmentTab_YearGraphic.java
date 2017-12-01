@@ -36,7 +36,7 @@ public class FragmentTab_YearGraphic extends Fragment {
     private DatabaseHelperFirebase fdb;
     private List<MoneyFlow> filteredArr;
     private PieChart pieChart;
-    private BarChart chart;
+    private HorizontalBarChart chart;
     private HorizontalBarChart horizontalBarChart;
     private Calendar calendar;
     private MonthYearPicker monthYearPicker;

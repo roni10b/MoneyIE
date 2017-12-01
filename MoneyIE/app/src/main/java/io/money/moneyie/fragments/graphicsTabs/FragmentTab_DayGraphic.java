@@ -36,7 +36,7 @@ public class FragmentTab_DayGraphic extends Fragment {
     private EditText editDate;
     private List<MoneyFlow> filteredArr;
     private PieChart pieChart;
-    private BarChart chart;
+    private HorizontalBarChart chart;
     private HorizontalBarChart horizontalBarChart;
     private Calendar calendar;
     private Spinner spinner;

@@ -69,7 +69,7 @@ public abstract class GraphicUtilities {
     }
 
     //creating and setting data to the combined chart in the tab fragment FragmentTab_YearGraphic
-    public static void combinedBarChart(BarChart chart, List<MoneyFlow> filteredArr, ImageView questionImg){
+    public static void combinedBarChart(HorizontalBarChart chart, List<MoneyFlow> filteredArr, ImageView questionImg){
 
         if (filteredArr.size() == 0) {
             chart.setVisibility(View.GONE);
@@ -89,23 +89,18 @@ public abstract class GraphicUtilities {
         chart.getAxisRight().setTextColor(Color.WHITE);
         chart.getAxisLeft().setTextColor(Color.WHITE);
 
-        ArrayList<String> xVals = new ArrayList();
+        chart.getXAxis().setTextColor(Color.WHITE);
+        chart.getXAxis().setTextSize(12);
+        chart.getXAxis().setAxisLineColor(Color.WHITE);
+        chart.getXAxis().setGridColor(Color.WHITE);
+        chart.getAxisRight().setTextColor(Color.WHITE);
+        chart.getAxisRight().setTextSize(15);
+        chart.getAxisLeft().setTextColor(Color.WHITE);
+        chart.getAxisLeft().setTextSize(15);
 
-        xVals.add("Jan");
-        xVals.add("Feb");
-        xVals.add("Mar");
-        xVals.add("Apr");
-        xVals.add("May");
-        xVals.add("Jun");
-        xVals.add("Jul");
-        xVals.add("Aug");
-        xVals.add("Sep");
-        xVals.add("Oct");
-        xVals.add("Nov");
-        xVals.add("Dec");
-
-        float [] income = {0,0,0,0,0,0,0,0,0,0,0,0};
-        float [] expense = {0,0,0,0,0,0,0,0,0,0,0,0};
+        float[] income = {0,0,0,0,0,0,0,0,0,0,0,0};
+        float[] expense = {0,0,0,0,0,0,0,0,0,0,0,0};
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
         //filter the database array to monthly incomes and expenses
         Calendar cal = Calendar.getInstance();
@@ -121,11 +116,22 @@ public abstract class GraphicUtilities {
 
         ArrayList<BarEntry> yVals1 = new ArrayList(); //expense
         ArrayList<BarEntry> yVals2 = new ArrayList(); //income
+        ArrayList<String> xVals = new ArrayList(); //names
 
-        for(int i =0; i<income.length; i++){
-            yVals1.add(new BarEntry((float) expense[i], i));
-            yVals2.add(new BarEntry((float) income[i], i));
+        int pix = 0;
+        for(int i = 0; i < income.length; i++){
+//            if (expense[i] > 0 || income[i] > 0) {
+                yVals1.add(new BarEntry( expense[i], i));
+                yVals2.add(new BarEntry(income[i], i));
+                xVals.add(months[i]);
+//            }
+            pix += 50;
         }
+
+        final float pixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, pix, chart.getContext().getResources().getDisplayMetrics());
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) chart.getLayoutParams();
+        params.height = (int) pixels;
+        chart.setLayoutParams(params);
 
         //draw the graph
         BarDataSet set1, set2;
@@ -142,6 +148,7 @@ public abstract class GraphicUtilities {
 
         BarData data = new BarData(xVals, sets);
         data.setValueFormatter(new LargeValueFormatter());
+        data.setValueTextSize(12);
         chart.setData(data);
         chart.getXAxis().setValueFormatter(new DefaultXAxisValueFormatter());
         chart.animateY(1000);
@@ -274,9 +281,9 @@ public abstract class GraphicUtilities {
         for (int z = 0; z < values.size(); z++) {
             horizontalBarChartArr.add(new BarEntry(values.get(z), z));
             if (z == 0) {
-                pix += 40;
+                pix += 20;
             }
-            pix += 50;
+            pix += 35;
         }
 
         float pixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, pix, horizontalBarChart.getContext().getResources().getDisplayMetrics());

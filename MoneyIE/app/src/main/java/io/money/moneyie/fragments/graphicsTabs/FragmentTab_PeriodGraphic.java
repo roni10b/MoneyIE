@@ -37,7 +37,7 @@ public class FragmentTab_PeriodGraphic extends Fragment {
     private DatabaseHelperFirebase fdb;
     private List<MoneyFlow> filteredArr;
     private PieChart pieChart;
-    private BarChart chart;
+    private HorizontalBarChart chart;
     private HorizontalBarChart horizontalBarChart;
     private Calendar calendar;
     private Spinner spinner;

@@ -193,10 +193,10 @@
                 android:layout_margin="5dp"
                 android:src="@drawable/question_mark" />
 
-            <com.github.mikephil.charting.charts.BarChart
+            <com.github.mikephil.charting.charts.HorizontalBarChart
                 android:id="@+id/statistics_income_expense_year_combined"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"/>
+                android:layout_height="100dp"/>
 
             <ImageView
                 android:id="@+id/statistics_question_horizontal_bar"

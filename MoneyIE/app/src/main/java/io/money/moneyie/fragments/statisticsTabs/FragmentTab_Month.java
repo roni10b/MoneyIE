@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ import io.money.moneyie.R;
 import io.money.moneyie.model.MoneyFlow;
 import io.money.moneyie.model.database.DatabaseHelperFirebase;
 import io.money.moneyie.model.recyclers.HistoryRecyclerViewAdapter;
+import io.money.moneyie.model.utilities.GraphicUtilities;
 import io.money.moneyie.model.utilities.MonthYearPicker;
 
 public class FragmentTab_Month extends Fragment {
@@ -38,7 +40,8 @@ public class FragmentTab_Month extends Fragment {
     private long start, end;
     private int spinnerPosition;
     private int year, month;
-    private TextView activityText;
+    private TextView activityText, plusMin;
+    private ImageView plusMinImg;
 
     @Nullable
     @Override
@@ -64,6 +67,8 @@ public class FragmentTab_Month extends Fragment {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         activityText = view.findViewById(R.id.history_activity_text);
+        plusMin = view.findViewById(R.id.history_overall_bar);
+        plusMinImg = view.findViewById(R.id.history_plusminus);
     }
 
     private void setSpinnerSettings() {
@@ -158,6 +163,7 @@ public class FragmentTab_Month extends Fragment {
             activityText.setVisibility(View.VISIBLE);
             return;
         }
+        GraphicUtilities.plusMinusHistory(plusMin, data, plusMinImg);
         recyclerView.setVisibility(View.VISIBLE);
         activityText.setVisibility(View.GONE);
         HistoryRecyclerViewAdapter adapter = new HistoryRecyclerViewAdapter(view.getContext(), data);

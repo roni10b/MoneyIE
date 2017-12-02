@@ -35,10 +35,31 @@
 
         <Spinner
             android:id="@+id/history_spinner"
-            android:layout_width="0dp"
+            android:layout_width="0.1dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
             android:visibility="invisible"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/history_plusminus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ie_progres"/>
+
+            <TextView
+                android:id="@+id/history_overall_bar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:gravity="center"/>
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout

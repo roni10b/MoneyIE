@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -24,12 +25,14 @@ import io.money.moneyie.R;
 import io.money.moneyie.model.MoneyFlow;
 import io.money.moneyie.model.database.DatabaseHelperFirebase;
 import io.money.moneyie.model.recyclers.HistoryRecyclerViewAdapter;
+import io.money.moneyie.model.utilities.GraphicUtilities;
 
 public class FragmentTab_Period extends Fragment {
 
     private View view;
     private EditText calendarFrom, calendarTo;
-    private TextView from, to, activityText;
+    private TextView from, to, activityText, plusMin;
+    private ImageView plusMinImg;
     private DatabaseHelperFirebase fdb;
     private RecyclerView recyclerView;
     private Calendar calendar;
@@ -65,6 +68,8 @@ public class FragmentTab_Period extends Fragment {
         from = view.findViewById(R.id.history_text_from);
         to = view.findViewById(R.id.history_text_to);
         activityText = view.findViewById(R.id.history_activity_text);
+        plusMin = view.findViewById(R.id.history_overall_bar);
+        plusMinImg = view.findViewById(R.id.history_plusminus);
         setVisibility();
     }
 
@@ -158,6 +163,7 @@ public class FragmentTab_Period extends Fragment {
             activityText.setVisibility(View.VISIBLE);
             return;
         }
+        GraphicUtilities.plusMinusHistory(plusMin, data, plusMinImg);
         recyclerView.setVisibility(View.VISIBLE);
         activityText.setVisibility(View.GONE);
         HistoryRecyclerViewAdapter adapter = new HistoryRecyclerViewAdapter(view.getContext(), data);

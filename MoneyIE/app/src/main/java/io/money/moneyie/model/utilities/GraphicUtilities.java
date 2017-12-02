@@ -68,6 +68,28 @@ public abstract class GraphicUtilities {
         overall.setText(String.format("%.2f", ovrallF));
     }
 
+    public static void plusMinusHistory(TextView overall, List<MoneyFlow> filtererArray, ImageView imgPlusMinus) {
+        double inc = 0;
+        double exp = 0;
+        double ovrallF;
+
+        for (int i = 0; i < filtererArray.size(); i++) {
+            if (filtererArray.get(i).getExpense().equalsIgnoreCase("ex")) {
+                exp += filtererArray.get(i).getSum();
+            } else {
+                inc += filtererArray.get(i).getSum();
+            }
+        }
+
+        ovrallF = inc - exp;
+        if(ovrallF > 0){
+            imgPlusMinus.setImageResource(R.drawable.ie_progres);
+        } else {
+            imgPlusMinus.setImageResource(R.drawable.ie_progres_low);
+        }
+        overall.setText(String.format("%.2f", ovrallF));
+    }
+
     //creating and setting data to the combined chart in the tab fragment FragmentTab_YearGraphic
     public static void combinedBarChart(HorizontalBarChart chart, List<MoneyFlow> filteredArr, ImageView questionImg){
 

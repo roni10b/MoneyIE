@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ import io.money.moneyie.R;
 import io.money.moneyie.model.MoneyFlow;
 import io.money.moneyie.model.database.DatabaseHelperFirebase;
 import io.money.moneyie.model.recyclers.HistoryRecyclerViewAdapter;
+import io.money.moneyie.model.utilities.GraphicUtilities;
 
 public class FragmentTab_Day extends Fragment {
 
@@ -40,7 +42,8 @@ public class FragmentTab_Day extends Fragment {
     private Spinner spinner;
     private long start, end;
     private int spinnerPosition;
-    private TextView activityText;
+    private TextView activityText, plusMin;
+    private ImageView plusMinImg;
     private PullToRefreshView refresh;
 
     @Nullable
@@ -67,6 +70,8 @@ public class FragmentTab_Day extends Fragment {
         spinnerPosition = 0;
         activityText = view.findViewById(R.id.history_activity_text);
         refresh = view.findViewById(R.id.pull_to_refresh);
+        plusMin = view.findViewById(R.id.history_overall_bar);
+        plusMinImg = view.findViewById(R.id.history_plusminus);
     }
 
     private void refresh() {
@@ -149,6 +154,7 @@ public class FragmentTab_Day extends Fragment {
             activityText.setVisibility(View.VISIBLE);
             return;
         }
+        GraphicUtilities.plusMinusHistory(plusMin, data, plusMinImg);
         recyclerView.setVisibility(View.VISIBLE);
         activityText.setVisibility(View.GONE);
         HistoryRecyclerViewAdapter adapter = new HistoryRecyclerViewAdapter(view.getContext(), data);

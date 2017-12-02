@@ -69,7 +69,7 @@ public class FragmentTab_Day extends Fragment {
         spinner = view.findViewById(R.id.history_spinner);
         spinnerPosition = 0;
         activityText = view.findViewById(R.id.history_activity_text);
-        refresh = view.findViewById(R.id.pull_to_refresh);
+//        refresh = view.findViewById(R.id.pull_to_refresh);
         plusMin = view.findViewById(R.id.history_overall_bar);
         plusMinImg = view.findViewById(R.id.history_plusminus);
     }

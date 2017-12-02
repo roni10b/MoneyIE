@@ -232,6 +232,10 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                     saveInFile("es");
                     getActivity().startActivity(intent);
                     getActivity().finish();
+                } else if (i == 4) {
+                    saveInFile("ru");
+                    getActivity().startActivity(intent);
+                    getActivity().finish();
                 }
             }
 

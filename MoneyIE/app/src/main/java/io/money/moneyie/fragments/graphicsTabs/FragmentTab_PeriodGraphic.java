@@ -110,7 +110,7 @@ public class FragmentTab_PeriodGraphic extends Fragment {
         questionHorizontal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utilities.displayPopupWindow(v, getString(R.string.horizontal_bar_chart) + getString(R.string.hbc_day_text));
+                Utilities.displayPopupWindow(v, getString(R.string.horizontal_bar_chart) + getString(R.string.hbc_period_text));
             }
         });
     }

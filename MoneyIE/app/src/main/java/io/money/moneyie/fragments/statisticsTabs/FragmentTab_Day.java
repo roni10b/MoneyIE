@@ -54,7 +54,6 @@ public class FragmentTab_Day extends Fragment {
         setFilter();
         filterDataOnStart();
         setSpinnerSettings();
-        refresh();
         return view;
     }
 

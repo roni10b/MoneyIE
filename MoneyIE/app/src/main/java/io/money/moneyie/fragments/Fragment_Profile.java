@@ -220,15 +220,15 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                 }
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 intent.putExtra("changeLanguage", "yes");
-                if (i == 1) {
+                if (i == 3) {
                     saveInFile("bg");
                     getActivity().startActivity(intent);
                     getActivity().finish();
-                } else if (i == 2) {
+                } else if (i == 1) {
                     saveInFile("eng");
                     getActivity().startActivity(intent);
                     getActivity().finish();
-                }  else if (i == 3) {
+                }  else if (i == 2) {
                     saveInFile("es");
                     getActivity().startActivity(intent);
                     getActivity().finish();

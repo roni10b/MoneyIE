@@ -207,7 +207,7 @@ public class FragmentTab_MonthGraphic extends Fragment {
         GraphicUtilities.pieChart(pieChart, filteredArr, questionPie);
         GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionHorizontal, view.getContext());
 
-        if (filteredArr.isEmpty()) {
+        if (!filteredArr.isEmpty()) {
             activityText.setVisibility(View.VISIBLE);
         } else {
             activityText.setVisibility(View.GONE);

@@ -206,7 +206,7 @@ public class FragmentTab_YearGraphic extends Fragment {
         GraphicUtilities.combinedBarChart(chart, filteredArr, questionHorizontal);
         GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionCombined, view.getContext());
 
-        if (filteredArr.isEmpty()) {
+        if (!filteredArr.isEmpty()) {
             activityText.setVisibility(View.VISIBLE);
         } else {
             activityText.setVisibility(View.GONE);

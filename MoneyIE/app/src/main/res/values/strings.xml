@@ -9,9 +9,10 @@
 
     <string-array name="languages">
         <item>Select Language</item>
-        <item>Български</item>
         <item>English</item>
         <item>Español</item>
+        <item>Български</item>
+        <item>Русский</item>
     </string-array>
 
     <string name="title_activity_second_activiy">Interstitial</string>

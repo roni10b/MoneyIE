@@ -51,7 +51,6 @@ public class FragmentTab_Day extends Fragment {
         setFilter();
         filterDataOnStart();
         setSpinnerSettings();
-        refresh();
         return view;
     }
 
@@ -66,7 +65,7 @@ public class FragmentTab_Day extends Fragment {
         spinner = view.findViewById(R.id.history_spinner);
         spinnerPosition = 0;
         activityText = view.findViewById(R.id.history_activity_text);
-        refresh = view.findViewById(R.id.pull_to_refresh);
+//        refresh = view.findViewById(R.id.pull_to_refresh);
     }
 
     private void refresh() {

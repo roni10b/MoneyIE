@@ -38,9 +38,10 @@ dependencies {
     compile 'com.android.support:design:27.0.1'
     compile 'com.android.support:support-v4:27.0.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.yalantis:phoenix:1.2.3'
-    compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
-    compile 'com.github.GrenderG:Toasty:1.2.5'
+    compile 'com.yalantis:phoenix:1.2.3' //loading chart
+    compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar' //view pager rotation library
+    compile 'com.github.GrenderG:Toasty:1.2.5' //toasty library
+   //ripple effect
 //      for 3.0
 //    implementation 'com.android.support:appcompat-v7:26.0.2'
 //    implementation 'com.android.support:recyclerview-v7:26.0.2'

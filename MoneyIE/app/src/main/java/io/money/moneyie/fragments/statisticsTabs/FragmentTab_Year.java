@@ -80,7 +80,7 @@ public class FragmentTab_Year extends Fragment {
 
                 spinnerPosition = position;
 
-                calendar.set(year, 1, 1, 0, 0, 0);
+                calendar.set(year, 0, 1, 0, 0, 0);
 
                 long start = calendar.getTimeInMillis();
 
@@ -89,7 +89,7 @@ public class FragmentTab_Year extends Fragment {
                 long end = calendar.getTimeInMillis();
                 filteredArr = fdb.filterData(start, end, position);
                 startRecycler(filteredArr);
-                calendar.set(year, 1, 1, 0, 0, 0);
+                calendar.set(year, 0, 1, 0, 0, 0);
                 editDate.setText("" + year);
             }
 
@@ -107,14 +107,14 @@ public class FragmentTab_Year extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 year = monthYearPicker.getSelectedYear();
-                                calendar.set(year, 1, 1, 0, 0, 0);
+                                calendar.set(year, 0, 1, 0, 0, 0);
 
                                 start = calendar.getTimeInMillis();
 
                                 calendar.set(Calendar.YEAR, year + 1);
 
                                 end = calendar.getTimeInMillis();
-                                calendar.set(year, 1, 1, 0, 0, 0);
+                                calendar.set(year, 0, 1, 0, 0, 0);
                                 filteredArr = fdb.filterData(start, end, spinnerPosition);
                                 startRecycler(filteredArr);
                                 calendar = Calendar.getInstance();
@@ -159,5 +159,4 @@ public class FragmentTab_Year extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(adapter);
     }
-
 }

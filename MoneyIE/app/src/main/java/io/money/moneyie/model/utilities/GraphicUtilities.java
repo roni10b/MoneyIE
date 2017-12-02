@@ -97,6 +97,9 @@ public abstract class GraphicUtilities {
             chart.setVisibility(View.GONE);
             questionImg.setVisibility(View.GONE);
             return;
+        } else {
+            chart.setVisibility(View.VISIBLE);
+            questionImg.setVisibility(View.VISIBLE);
         }
 
         chart.setDescription(null);
@@ -184,6 +187,9 @@ public abstract class GraphicUtilities {
             pieChart.setVisibility(View.GONE);
             questionImg.setVisibility(View.GONE);
             return;
+        } else {
+            pieChart.setVisibility(View.VISIBLE);
+            questionImg.setVisibility(View.VISIBLE);
         }
 
         pieChart.setUsePercentValues(false);
@@ -257,6 +263,9 @@ public abstract class GraphicUtilities {
             horizontalBarChart.setVisibility(View.GONE);
             questionImg.setVisibility(View.GONE);
             return;
+        } else {
+            horizontalBarChart.setVisibility(View.VISIBLE);
+            questionImg.setVisibility(View.VISIBLE);
         }
 
         //map used to filter the data
@@ -303,9 +312,9 @@ public abstract class GraphicUtilities {
         for (int z = 0; z < values.size(); z++) {
             horizontalBarChartArr.add(new BarEntry(values.get(z), z));
             if (z == 0) {
-                pix += 20;
+                pix += 35;
             }
-            pix += 35;
+                pix += 35;
         }
 
         float pixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, pix, horizontalBarChart.getContext().getResources().getDisplayMetrics());

@@ -110,7 +110,7 @@ public class FragmentTab_PeriodGraphic extends Fragment {
         questionHorizontal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Utilities.displayPopupWindow(v, getString(R.string.horizontal_bar_chart) + getString(R.string.hbc_period_text));
+                Utilities.displayPopupWindow(v, getString(R.string.horizontal_bar_chart) + getString(R.string.hbc_period_text));
             }
         });
     }
@@ -171,7 +171,7 @@ public class FragmentTab_PeriodGraphic extends Fragment {
                 calendar.set(year, monthOfYear, dayOfMonth, 23, 59, 59);
                 end = calendar.getTimeInMillis();
                 filteredArr = fdb.filterData(start, end, spinnerPosition);
-                calendarFrom.setText(year + " / " + (monthOfYear + 1) + " / " + dayOfMonth);
+                calendarTo.setText(year + " / " + (monthOfYear + 1) + " / " + dayOfMonth);
                 calendar = Calendar.getInstance();
                 incomeExpensePeriod();
             }
@@ -193,7 +193,7 @@ public class FragmentTab_PeriodGraphic extends Fragment {
     private void incomeExpensePeriod() {
         GraphicUtilities.dataFilerForCurrentTab(income, expense, overall, filteredArr, plusMinus);
         GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionHorizontal, view.getContext());
-        if (!filteredArr.isEmpty()) {
+        if (filteredArr.isEmpty()) {
             activityText.setVisibility(View.VISIBLE);
         } else {
             activityText.setVisibility(View.GONE);

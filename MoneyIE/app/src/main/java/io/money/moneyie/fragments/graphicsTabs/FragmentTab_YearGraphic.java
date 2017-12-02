@@ -131,7 +131,7 @@ public class FragmentTab_YearGraphic extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //date picker settings
-                calendar.set(year, 1, 1, 0, 0, 0);
+                calendar.set(year, 0, 1, 0, 0, 0);
 
                 long start = calendar.getTimeInMillis();
 
@@ -139,7 +139,7 @@ public class FragmentTab_YearGraphic extends Fragment {
 
                 long end = calendar.getTimeInMillis();
                 filteredArr = fdb.filterData(start, end, position);
-                calendar.set(year, 1, 1, 0, 0, 0);
+                calendar.set(year, 0, 1, 0, 0, 0);
                 editDate.setText("" + year);
                 incomeExpenseYear();
             }
@@ -206,7 +206,7 @@ public class FragmentTab_YearGraphic extends Fragment {
         GraphicUtilities.combinedBarChart(chart, filteredArr, questionHorizontal);
         GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionCombined, view.getContext());
 
-        if (!filteredArr.isEmpty()) {
+        if (filteredArr.isEmpty()) {
             activityText.setVisibility(View.VISIBLE);
         } else {
             activityText.setVisibility(View.GONE);

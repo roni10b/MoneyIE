@@ -165,7 +165,7 @@ public class FragmentTab_DayGraphic extends Fragment {
         GraphicUtilities.dataFilerForCurrentTab(income, expense, overall, filteredArr, plusMinus);
         GraphicUtilities.horizontalBarChart(horizontalBarChart, filteredArr, questionHorizontal, view.getContext());
 
-        if (!filteredArr.isEmpty()) {
+        if (filteredArr.isEmpty()) {
             activityText.setVisibility(View.VISIBLE);
         } else {
             activityText.setVisibility(View.GONE);

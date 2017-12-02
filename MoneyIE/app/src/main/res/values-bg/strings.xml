@@ -28,7 +28,7 @@
     <string name="could_not_register_successfully">Неуспешна регистрация.</string>
     <string name="create_your_own_types">Създайте собствен тип</string>
     <string name="date">Дата:</string>
-    <string name="day">ден</string>
+    <string name="day">Ден:</string>
     <string name="del">DEL</string>
     <string name="delete">Изтрии</string>
     <string name="deleted">Изтрито</string>
@@ -64,7 +64,7 @@
     <string name="month">месец</string>
     <string name="my_profile">Профил</string>
     <string name="my_stats">Статистики</string>
-    <string name="name">Mi perfil</string>
+    <string name="name">Име:</string>
     <string name="no">Не</string>
     <string name="no_added_types">Няма добавени типове</string>
     <string name="no_internet_to_reg">Няма връзка с интернет</string>
@@ -112,13 +112,13 @@
     <string name="yes">Да</string>
     <string name="your_type">Вашият тип</string>
     <string name="your_types">Вашите типове</string>
-    <string name="hello">Gráfica Horizontal</string>
+    <string name="hello">"Здравейте, "</string>
     <string name="pie_chart">"Кръгова диаграма - "</string>
     <string name="set_your_personal_reminders_here">Добавете вашите аларми тук.</string>
     <string name="combined_chart">"Комбинирана диаграма - "</string>
     <string name="leva">лв</string>
     <string name="TRUE">TRUE</string>
-    <string name="money_io">MoneyIO</string>
+    <string name="money_io">MoneyIЕ</string>
     <string name="combined">Общи</string>
     <string name="friends_stats">Приятел</string>
     <string name="my_stats_spinner">Моите</string>
@@ -139,7 +139,7 @@
     <string name="CarRepair">Ремонт</string>
     <string name="Cinema">Кино</string>
     <string name="Clothes">Дрехи</string>
-    <string name="Codding">Кодене</string>
+    <string name="Codding">Програмиране</string>
     <string name="Coffee">Кафе</string>
     <string name="Concert">Концерт</string>
     <string name="Couple">Гадже</string>

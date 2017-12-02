@@ -39,9 +39,9 @@
     <!--<string name="repeat_password">Repeat Password</string>-->
     <!--<string name="first_name">First Name</string>-->
     <!--<string name="second_name">Second Name</string>-->
-    <string name="set_time">Set time:</string>
+    <string name="set_time">"Set time: "</string>
     <string name="add">add</string>
-    <string name="message">Message</string>
+    <string name="message">Adding message is required.</string>
     <string name="reminders">Reminders</string>
     <string name="day">Day:</string>
     <string name="month">month</string>
@@ -51,7 +51,7 @@
     <string name="del">DEL</string>
     <string name="insert_comment">Insert comment</string>
     <string name="email_two_dots">Email: </string>
-    <string name="personal_name">Personal name: </string>
+    <string name="personal_name">"Personal name:  "</string>
     <string name="salary">Salary:</string>
     <string name="create_your_own_types">Create type</string>
     <string name="your_type">Your type</string>
@@ -97,7 +97,7 @@
     <string name="amount">Amount</string>
     <string name="no_added_types">No added types.</string>
     <string name="text">Text</string>
-    <string name="money_io">MoneyIE</string>
+    <string name="money_io">MoneyIЕ</string>
     <!--<string name="sorry_internet_problem_please_try_again">Sorry, internet problem. Please try again.</string>-->
     <string name="hello">Hello,</string>
     <string name="horizontal_bar_chart">Horizontal Bar Chart \n</string>
@@ -117,7 +117,7 @@
     <string name="MONTH">MONTH</string>
     <string name="YEAR">YEAR</string>
     <string name="ADDED">ADDED</string>
-    <string name="price_not_added">Price not added</string>
+    <string name="price_not_added">Shows your yearly incomes and expenses.</string>
     <string name="are_you_sure">Are you sure?</string>
     <string name="delete">Delete</string>
     <string name="DELETED">DELETED</string>
@@ -138,7 +138,7 @@
     <string name="FALSE">FALSE</string>
     <string name="set_your_personal_reminders_here">Set your personal reminders here! \n</string>
     <string name="reminders_text">The reminders will pop-up in your notification bar on the chosen day and hour every month.</string>
-    <string name="time">Time:   </string>
+    <string name="time">"Time: "</string>
     <string name="select_time">Select Time</string>
     <string name="Day">Day:  </string>
     <string name="message_is_required">Adding message is required.</string>
@@ -201,4 +201,5 @@
     <string name="TV">TV</string>
     <string name="Tabacco">Tabacco</string>
     <string name="digit_type_error">Types cannot contain only digits</string>
+    <string name="email">Email</string>
 </resources>

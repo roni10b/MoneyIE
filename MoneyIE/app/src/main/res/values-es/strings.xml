@@ -12,7 +12,7 @@
     <string name="Boy">Chico</string>
     <string name="DAY">DIA</string>
     <string name="Business">Negocio</string>
-    <string name="Day">Día</string>
+    <string name="Day">Día:</string>
     <string name="Bar">Bar</string>
     <string name="Coffee">Café</string>
     <string name="FALSE">FALSE</string>
@@ -90,7 +90,6 @@
     <string name="hello">"Hola "</string>
     <string name="your_types">Tus tipos</string>
     <string name="statistics">Estadísticas</string>
-    <string name="you_have_no_activity_for_this_period"></string>
     <string name="yes">Sí</string>
     <string name="PhoneApps"></string>
     <string name="combined_chart">Gráfica Combinada</string>
@@ -104,7 +103,7 @@
     <string name="log_out"></string>
     <string name="message">Mensaje</string>
     <string name="message_is_required">Es nesesario añadir mensaje.</string>
-    <string name="money_io">MoneyIO</string>
+    <string name="money_io">MoneyIЕ</string>
     <string name="month">mes</string>
     <string name="msg_welcome"></string>
     <string name="my_profile">Mi perfil</string>
@@ -125,11 +124,13 @@
     <string name="saved">Salvado</string>
     <string name="select_time">Seleccionar hora</string>
     <string name="set_time">\"Establecer tiempo: \"</string>
-    <string name="remember"></string>
+    <string name="remember">Recuerda</string>
     <string name="reminders">Recordatorio</string>
     <string name="quit">Salir</string>
     <string name="please_select">Seleccionar, por favor</string>
     <string name="price_not_added">Precio no añadido</string>
     <string name="pay_day_">Día de pago: elegir</string>
     <string name="PAY_DAY">Día de pago:</string>
+    <string name="my_stats_spinner">Me</string>
+    <string name="you_have_no_activity_for_this_period">No tienes actividad para este período.</string>
 </resources>

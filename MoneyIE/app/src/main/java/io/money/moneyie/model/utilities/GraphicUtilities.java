@@ -108,6 +108,7 @@ public abstract class GraphicUtilities {
         chart.setScaleEnabled(false);
         chart.setDrawBarShadow(false);
         chart.setDrawGridBackground(false);
+
         chart.getXAxis().setTextColor(Color.WHITE);
         chart.getXAxis().setAxisLineColor(Color.WHITE);
         chart.getXAxis().setGridColor(Color.WHITE);

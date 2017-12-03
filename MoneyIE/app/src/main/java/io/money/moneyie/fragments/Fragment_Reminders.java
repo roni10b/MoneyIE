@@ -242,7 +242,8 @@ public class Fragment_Reminders extends Fragment implements AlarmsRecyclerViewAd
                     if (isAdded) {
                         Toasty.success(view.getContext(), getString(R.string.added), Toast.LENGTH_SHORT).show();
                         startRecycler();
-                        AlarmUtilities.setAlarm(view.getContext(), new Alarm(date, hour, minute, message));
+                        Alarm alarm = db.getLastAlarm();
+                        AlarmUtilities.setAlarm(view.getContext(), alarm);
                         setInitialStateDateTimeFields();
                     } else {
                         Toasty.error(view.getContext(), getString(R.string.already_exists), Toast.LENGTH_SHORT).show();

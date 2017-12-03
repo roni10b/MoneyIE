@@ -18,6 +18,5 @@ public class OnAppUpdateReceiver extends BroadcastReceiver {
         DatabaseHelperSQLite db = DatabaseHelperSQLite.getInstance(context);
         List<Alarm> alarms = db.getUserAlarms();
         AlarmUtilities.setAlarms(context, alarms);
-        Log.e("ivan", "test");
     }
 }

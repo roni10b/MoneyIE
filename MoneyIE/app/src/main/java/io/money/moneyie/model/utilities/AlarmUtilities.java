@@ -20,7 +20,7 @@ import io.money.moneyie.model.receivers.AlarmReceiver;
 public class AlarmUtilities {
 
     //fires notification
-    public static void notifyMe (Context context, String message){
+    public static void notifyMe (Context context, String message, Integer id){
 
         String CHANNEL_ID = "my_channel_01";
         NotificationCompat.Builder mBuilder =
@@ -45,7 +45,7 @@ public class AlarmUtilities {
         NotificationManager mNotificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        mNotificationManager.notify(Utilities.gnerateID(), mBuilder.build());
+        mNotificationManager.notify(id, mBuilder.build());
     }
 
     //sets list of alarms
@@ -61,10 +61,14 @@ public class AlarmUtilities {
         Calendar calendar = Calendar.getInstance();
         int currentMonth = calendar.get(Calendar.MONTH);
         int curentDay = calendar.get(Calendar.DAY_OF_MONTH);
+        int curentHour = calendar.get(Calendar.HOUR_OF_DAY);
+        int curentMin = calendar.get(Calendar.MINUTE);
         calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), alarm.getDate(), alarm.getHour(), alarm.getMinutes());
 
         int day = calendar.get(Calendar.DAY_OF_MONTH);
-        if(curentDay<=day) {
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        if(curentDay <= day && curentHour <= hour && curentMin < min) {
             switch (currentMonth){
                 case 1:
                     if(day == 29 || day == 30 || day == 31) {
@@ -90,7 +94,8 @@ public class AlarmUtilities {
             AlarmManager am =( AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
             Intent myIntent = new Intent(context, AlarmReceiver.class);
             myIntent.putExtra("message", alarm.getMassage());
-            PendingIntent pi = PendingIntent.getBroadcast(context, Utilities.gnerateID(), myIntent, 0);
+            myIntent.putExtra("id", alarm.getId());
+            PendingIntent pi = PendingIntent.getBroadcast(context, alarm.getId(), myIntent, 0);
             am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
         }
     }

@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -24,7 +25,7 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
     private static DatabaseHelperSQLite instance;
 
     private static final String DATABASE_NAME = "MoneyIЕ.db";
-    private static int DATABASE_VERSION = 2;
+    private static int DATABASE_VERSION = 1;
 
     private static final String TABLE_SETINGS = "user_setings";
     private static final String TABLE_ALARMS = "user_alarms";
@@ -35,7 +36,7 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
     private static final String T_SETTINGS_COL_3 = "type";
     private static final String T_SETTINGS_COL_4 = "imageid";
 
-    private static final String T_ALARMS_COL_1 = "user";
+    private static final String T_ALARMS_COL_1 = "id";
     private static final String T_ALARMS_COL_2 = "date";
     private static final String T_ALARMS_COL_3 = "hour";
     private static final String T_ALARMS_COL_4 = "minutes";
@@ -63,10 +64,10 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
                                         "));";
 
     private static final String ALARMS_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + TABLE_ALARMS +
-                                        " (" + T_ALARMS_COL_1 + " TEXT, " +
+                                        " (" + T_ALARMS_COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                         T_ALARMS_COL_2 + " INTEGER, " +
                                         T_ALARMS_COL_3 + " INTEGER, " +
-                                        T_ALARMS_COL_4 + " INTEGER," +
+                                        T_ALARMS_COL_4 + " INTEGER, " +
                                         T_ALARMS_COL_5 + " TEXT);";
 
     private DatabaseHelperSQLite(Context context) {
@@ -167,7 +168,6 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
         c.close();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(T_ALARMS_COL_1, "");
         contentValues.put(T_ALARMS_COL_2, date);
         contentValues.put(T_ALARMS_COL_3, hour);
         contentValues.put(T_ALARMS_COL_4, minutes);
@@ -195,7 +195,7 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
     public List<Alarm> getAllAlarms() {
         SQLiteDatabase db = this.getWritableDatabase();
         String myRawQuery = "SELECT " +
-                T_ALARMS_COL_2 + ", " + T_ALARMS_COL_3 + ", " + T_ALARMS_COL_4 + ", " + T_ALARMS_COL_5
+                T_ALARMS_COL_1 + ", " + T_ALARMS_COL_2 + ", " + T_ALARMS_COL_3 + ", " + T_ALARMS_COL_4 + ", " + T_ALARMS_COL_5
                 + " FROM " + TABLE_ALARMS +
                 " ORDER BY " + T_ALARMS_COL_2 + ", " + T_ALARMS_COL_3 + ", " + T_ALARMS_COL_4 + ";";
         Cursor c = db.rawQuery(myRawQuery, null);
@@ -203,10 +203,21 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
         ArrayList<Alarm> out = new ArrayList<>();
         for (int i = 0; i < c.getCount(); i++){
             c.moveToPosition(i);
-            out.add(new Alarm(c.getInt(0), c.getInt(1), c.getInt(2), c.getString(3)));
+            out.add(new Alarm(c.getInt(0), c.getInt(1), c.getInt(2), c.getInt(3), c.getString(4)));
         }
         c.close();
         return Collections.unmodifiableList(out);
+    }
+
+    public Alarm getLastAlarm (){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String myRawQuery = "SELECT * FROM " + TABLE_ALARMS +
+                " ORDER BY " + T_ALARMS_COL_1 + " DESC;";
+        Cursor c = db.rawQuery(myRawQuery, null);
+        c.moveToFirst();
+        Alarm out = new Alarm(c.getInt(0), c.getInt(1), c.getInt(2), c.getInt(3), c.getString(4));
+        c.close();
+        return out;
     }
 
     //add custom income/expense type

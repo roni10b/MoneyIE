@@ -44,7 +44,7 @@ public class AlarmsRecyclerViewAdapter extends RecyclerView.Adapter<AlarmsRecycl
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Alarm alarm = alarms.get(position);
         holder.massage.setText(alarm.getMassage());
-        holder.dateTime.setText(context.getString(R.string.date) + alarm.getDate() + " / " + alarm.getHour() + ":" + alarm.getMinutes() + " h.");
+        holder.dateTime.setText(context.getString(R.string.date) + alarm.getDate() + " / " + alarm.getHour() + ":" + ((alarm.getMinutes()<10)? "0" : "") + alarm.getMinutes() + " h.");
     }
 
     @Override

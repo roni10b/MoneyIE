@@ -52,7 +52,7 @@ public final class Utilities {
                 t.getString(R.string.Sallary), t.getString(R.string.Savings), t.getString(R.string.Shoes),
                 t.getString(R.string.Shopping), t.getString(R.string.Skiing), t.getString(R.string.Sport),
                 t.getString(R.string.Theatre), t.getString(R.string.Trip), t.getString(R.string.TV),
-                t.getString(R.string.Wedding), t.getString(R.string.Tabacco)};
+                t.getString(R.string.Wedding), t.getString(R.string.Tabacco), t.getString(R.string.add)};
 
         return names;
     }

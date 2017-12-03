@@ -312,6 +312,8 @@ public class DatabaseHelperSQLite extends SQLiteOpenHelper {
         out.add(new Type("true", "46", R.drawable.tv));
         out.add(new Type("true", "47", R.drawable.wedding));
         out.add(new Type("true", "48", R.drawable.weed));
+        out.add(new Type("true", "49", R.drawable.plus));
+        out.add(new Type("false", "49", R.drawable.plus));
 
         c.close();
         return Collections.unmodifiableList(out);

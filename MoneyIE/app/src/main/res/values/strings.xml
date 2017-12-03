@@ -42,7 +42,7 @@
     <!--<string name="first_name">First Name</string>-->
     <!--<string name="second_name">Second Name</string>-->
     <string name="set_time">"Set time: "</string>
-    <string name="add">add</string>
+    <string name="add">Add</string>
     <string name="message">Adding message is required.</string>
     <string name="reminders">Reminders</string>
     <string name="day">Day:</string>

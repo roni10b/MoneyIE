@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -222,7 +224,14 @@ public class Fragment_Income_Expense extends Fragment implements View.OnClickLis
         String com = comment.getText().toString().trim();
         String uid = "moneyie";
 
-        if (!price.equalsIgnoreCase(getString(R.string.insert_price)) && Float.parseFloat(price) != 0) {
+        if(type.getPictureId() == R.drawable.plus){
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            if(fm != null) {
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.home_main, new Fragment_Profile());
+                ft.commit();
+            }
+        } else if (!price.equalsIgnoreCase(getString(R.string.insert_price)) && Float.parseFloat(price) != 0) {
             if (isExpense) {
                 fdb.addData(uid, new MoneyFlow(uid, "ex", type.getType(), com, Double.parseDouble(price)));
             } else {

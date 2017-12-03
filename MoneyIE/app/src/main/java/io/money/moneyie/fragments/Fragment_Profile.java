@@ -220,22 +220,23 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                 }
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 intent.putExtra("changeLanguage", "yes");
-                if (i == 3) {
-                    saveInFile("bg");
-                    getActivity().startActivity(intent);
-                    getActivity().finish();
-                } else if (i == 1) {
-                    saveInFile("eng");
-                    getActivity().startActivity(intent);
-                    getActivity().finish();
-                }  else if (i == 2) {
-                    saveInFile("es");
-                    getActivity().startActivity(intent);
-                    getActivity().finish();
-                } else if (i == 4) {
-                    saveInFile("ru");
-                    getActivity().startActivity(intent);
-                    getActivity().finish();
+
+                switch (i) {
+                    case 1:
+                        changeLanguageStuff("eng", intent);
+                        break;
+                    case 2:
+                        changeLanguageStuff("es", intent);
+                        break;
+                    case 3:
+                        changeLanguageStuff("de", intent);
+                        break;
+                    case 4:
+                        changeLanguageStuff("bg", intent);
+                        break;
+                    case 5:
+                        changeLanguageStuff("ru", intent);
+                        break;
                 }
             }
 
@@ -244,6 +245,12 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
 
             }
         });
+    }
+
+    private void changeLanguageStuff(String language, Intent intent) {
+        saveInFile(language);
+        getActivity().startActivity(intent);
+        getActivity().finish();
     }
 
     private void saveInFile(String lang) {

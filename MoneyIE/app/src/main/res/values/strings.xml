@@ -11,6 +11,7 @@
         <item>Select Language</item>
         <item>English</item>
         <item>Español</item>
+        <item>Deutsch</item>
         <item>Български</item>
         <item>Русский</item>
     </string-array>
@@ -29,7 +30,7 @@
     <!--<string name="friends_stats">Friends stats</string>-->
     <string name="my_stats_spinner">My stats</string>
     <!--<string name="hello_blank_fragment">Hello blank fragment</string>-->
-    <string name="username">UserName</string>
+    <string name="username">Username</string>
     <!--<string name="login">Login</string>-->
     <!--<string name="enter_password">Enter Password</string>-->
     <!--<string name="login_with_e_mail">login with e-mail</string>-->
@@ -204,4 +205,18 @@
     <string name="Tabacco">Tabacco</string>
     <string name="digit_type_error">Types cannot contain only digits</string>
     <string name="email">Email</string>
+    <string name="free_money">Free Money</string>
+    <string name="jan">Jan</string>
+    <string name="feb">Feb</string>
+    <string name="mar">Mar</string>
+    <string name="apr">Apr</string>
+    <string name="may">May</string>
+    <string name="jun">Jun</string>
+    <string name="Jul">Jul</string>
+    <string name="aug">Aug</string>
+    <string name="sep">Sep</string>
+    <string name="oct">Oct</string>
+    <string name="dec">Dec</string>
+    <string name="nov">Nov</string>
+    <string name="or">OR</string>
 </resources>

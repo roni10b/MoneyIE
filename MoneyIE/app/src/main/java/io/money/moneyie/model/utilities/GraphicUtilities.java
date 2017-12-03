@@ -91,7 +91,7 @@ public abstract class GraphicUtilities {
     }
 
     //creating and setting data to the combined chart in the tab fragment FragmentTab_YearGraphic
-    public static void combinedBarChart(HorizontalBarChart chart, List<MoneyFlow> filteredArr, ImageView questionImg){
+    public static void combinedBarChart(HorizontalBarChart chart, List<MoneyFlow> filteredArr, ImageView questionImg, Context context){
 
         if (filteredArr.size() == 0) {
             chart.setVisibility(View.GONE);
@@ -126,7 +126,18 @@ public abstract class GraphicUtilities {
 
         float[] income = {0,0,0,0,0,0,0,0,0,0,0,0};
         float[] expense = {0,0,0,0,0,0,0,0,0,0,0,0};
-        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        String[] months = {context.getString(R.string.jan),
+                context.getString(R.string.feb), 
+                context.getString(R.string.mar), 
+                context.getString(R.string.apr),
+                context.getString(R.string.may),
+                context.getString(R.string.jun),
+                context.getString(R.string.Jul), 
+                context.getString(R.string.aug),
+                context.getString(R.string.sep),
+                context.getString(R.string.oct),
+                context.getString(R.string.nov),
+                context.getString(R.string.dec)};
 
         //filter the database array to monthly incomes and expenses
         Calendar cal = Calendar.getInstance();
@@ -161,9 +172,9 @@ public abstract class GraphicUtilities {
 
         //draw the graph
         BarDataSet set1, set2;
-        set1 = new BarDataSet(yVals2, "Income");
+        set1 = new BarDataSet(yVals2, context.getString(R.string.income));
         set1.setColor(Color.GREEN);
-        set2 = new BarDataSet(yVals1, "Expense");
+        set2 = new BarDataSet(yVals1, context.getString(R.string.expense));
         set2.setColor(Color.RED);
         set1.setValueTextColor(Color.WHITE);
         set2.setValueTextColor(Color.WHITE);
@@ -182,7 +193,7 @@ public abstract class GraphicUtilities {
     }
 
     //setting the data to the pie chart used in the tab fragments in the folder graphicsTabs
-    public static void pieChart(PieChart pieChart, List<MoneyFlow> utilitiesArray, ImageView questionImg){
+    public static void pieChart(PieChart pieChart, List<MoneyFlow> utilitiesArray, ImageView questionImg, Context context){
 
         if (utilitiesArray.size() == 0) {
             pieChart.setVisibility(View.GONE);
@@ -227,9 +238,9 @@ public abstract class GraphicUtilities {
             Map.Entry<String, Float> entry = iterator.next();
             pieDataSave.add(new Entry(entry.getValue(), i));
             if (entry.getKey().equalsIgnoreCase("ex")) {
-                names.add("Expense");
+                names.add(context.getString(R.string.expense));
             } else {
-                names.add("Free Money");
+                names.add(context.getString(R.string.free_money));
             }
             i++;
         }

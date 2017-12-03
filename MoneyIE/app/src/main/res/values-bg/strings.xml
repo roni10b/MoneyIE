@@ -177,4 +177,17 @@
     <string name="Shopping">Шопинг</string>
     <string name="digit_type_error">Типовете не могат да съдържат само цифри</string>
     <string name="hbc_period_text">Графика, която ви показва разходите за период. Ако кликнете на иконката с календара, можете да видите вашите статистики за всеки един период, който изберете.</string>
+    <string name="nov">Ноем.</string>
+    <string name="Jul">Юли</string>
+    <string name="apr">Апр.</string>
+    <string name="aug">Авг.</string>
+    <string name="dec">Дек.</string>
+    <string name="feb">Февр.</string>
+    <string name="jan">Ян.</string>
+    <string name="jun">Юни</string>
+    <string name="mar">Март</string>
+    <string name="may">Май</string>
+    <string name="oct">Окт.</string>
+    <string name="sep">Септ.</string>
+    <string name="free_money">Свободни пари</string>
 </resources>

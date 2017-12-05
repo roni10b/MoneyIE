@@ -9,6 +9,9 @@ import android.content.SharedPreferences;
 
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
@@ -23,16 +26,20 @@ import android.widget.TextView;
 import io.money.moneyie.R;
 import io.money.moneyie.activities.HomeActivity;
 
+import static android.content.Context.VIBRATOR_SERVICE;
+
 
 public final class Utilities {
     private static boolean isFirebasePersistence = false;
     private static boolean hasFriend = false;
     private static int idGeneratorNotifications = 0;
 
-    //id generator for notifications
-    public static int gnerateID(){
-        idGeneratorNotifications++;
-        return idGeneratorNotifications;
+    public static void VibrateClick(Context con){
+        if (Build.VERSION.SDK_INT >= 26) {
+            ((Vibrator) con.getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(40,10));
+        } else {
+            ((Vibrator) con.getSystemService(VIBRATOR_SERVICE)).vibrate(40);
+        }
     }
 
     public static String[] getTypeNames(Context con){

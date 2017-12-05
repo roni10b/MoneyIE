@@ -120,11 +120,18 @@
     <string name="time">"Время: "</string>
     <string name="to">Для</string>
     <string name="tutorial_got_it_btn_text">Понял</string>
-    <string name="tutorial_text2"></string>
     <string name="type_added">Тип добавлен</string>
     <string name="year">год</string>
     <string name="yes">Да</string>
     <string name="you_have_no_activity_for_this_period">У вас нет активности за этот период.</string>
     <string name="your_type">Ваш тип</string>
     <string name="your_types">Ваши типы</string>
+    <string name="horizontal_year_text">Графика, показывающая ваши ежегодные расходы. Нажимая на значок календаря, вы можете проверить свою статистику о году, который вы хотите увидеть.</string>
+    <string name="not_saved_please_try_again">НЕ сохранено, повторите попытку.</string>
+    <string name="pc_text">Показывает ваши ежемесячные доходы и расходы.</string>
+    <string name="pie_year_text">Показывает годовые доходы и расходы.</string>
+    <string name="profile_salary_text">Добавляя зарплату здесь, каждый месяц, на выбранную дату, добавленное количество денег будет добавлен в ваш счет в качестве дохода.</string>
+    <string name="profile_text">Вы можете создавать свои собственные виды доходов и расходов.</string>
+    <string name="tutorial_text1">Нажимая эту кнопку, вы открываете меню приложения и добавляете новых друзей, проверяете статистику, задаете свои напоминания ...</string>
+    <string name="tutorial_text2">Нажимая эту кнопку, вы можете проверить статистику о доходах и расходах.</string>
 </resources>

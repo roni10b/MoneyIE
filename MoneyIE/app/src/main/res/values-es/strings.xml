@@ -153,4 +153,6 @@
     <string name="may">May</string>
     <string name="oct">Oct</string>
     <string name="sep">Sep</string>
+    <string name="tutorial_text2">Al hacer clic en este botón, puede consultar algunas estadísticas sobre sus ingresos y gastos.</string>
+    <string name="tutorial_text1">Al hacer clic en este botón, abre el menú de la aplicación y agrega nuevos amigos, verifica sus estadísticas, establece sus recordatorios ...</string>
 </resources>

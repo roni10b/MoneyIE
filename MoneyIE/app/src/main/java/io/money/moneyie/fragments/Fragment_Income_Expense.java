@@ -1,6 +1,10 @@
 package io.money.moneyie.fragments;
 
 import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +13,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +38,9 @@ import io.money.moneyie.model.Type;
 import io.money.moneyie.model.database.DatabaseHelperFirebase;
 import io.money.moneyie.model.recyclers.TypeRecyclerViewAdapter;
 import io.money.moneyie.model.database.DatabaseHelperSQLite;
+import io.money.moneyie.model.utilities.Utilities;
+
+import static android.content.Context.VIBRATOR_SERVICE;
 
 public class Fragment_Income_Expense extends Fragment implements View.OnClickListener, TypeRecyclerViewAdapter.ItemClickListener {
 
@@ -119,50 +127,62 @@ public class Fragment_Income_Expense extends Fragment implements View.OnClickLis
         int i;
         switch (v.getId()) {
             case R.id.outcome_keyboard_1:
+                Utilities.VibrateClick(view.getContext());
                 i = 1;
                 addNumber(i);
                 break;
             case R.id.outcome_keyboard_2:
+                Utilities.VibrateClick(view.getContext());
                 i = 2;
                 addNumber(i);
                 break;
             case R.id.outcome_keyboard_3:
+                Utilities.VibrateClick(view.getContext());
                 i = 3;
                 addNumber(i);
                 break;
             case R.id.outcome_keyboard_4:
+                Utilities.VibrateClick(view.getContext());
                 i = 4;
                 addNumber(i);
                 break;
             case R.id.outcome_keyboard_5:
+                Utilities.VibrateClick(view.getContext());
                 i = 5;
                 addNumber(i);
                 break;
             case R.id.outcome_keyboard_6:
+                Utilities.VibrateClick(view.getContext());
                 i = 6;
                 addNumber(i);
                 break;
             case R.id.outcome_keyboard_7:
+                Utilities.VibrateClick(view.getContext());
                 i = 7;
                 addNumber(i);
                 break;
             case R.id.outcome_keyboard_8:
+                Utilities.VibrateClick(view.getContext());
                 i = 8;
                 addNumber(i);
                 break;
             case R.id.outcome_keyboard_9:
+                Utilities.VibrateClick(view.getContext());
                 i = 9;
                 addNumber(i);
                 break;
             case R.id.outcome_keyboard_0:
+                Utilities.VibrateClick(view.getContext());
                 i = 0;
                 addNumber(i);
                 break;
             case R.id.outcome_keyboard_dot:
+                Utilities.VibrateClick(view.getContext());
                 char dot = '.';
                 addDot(dot);
                 break;
             case R.id.outcome_keyboard_del:
+                Utilities.VibrateClick(view.getContext());
                 deleteOneChar();
                 break;
         }
@@ -226,6 +246,7 @@ public class Fragment_Income_Expense extends Fragment implements View.OnClickLis
 
         if(type.getPictureId() == R.drawable.plus){
             FragmentManager fm = getActivity().getSupportFragmentManager();
+
             if(fm != null) {
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.home_main, new Fragment_Profile());
@@ -266,12 +287,14 @@ public class Fragment_Income_Expense extends Fragment implements View.OnClickLis
                 return false;
             }
         });
+
     }
 
     private void hideKeyboard(){
         InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         layout.requestFocus();
+            Log.e("sss", "s");
     }
 }
 

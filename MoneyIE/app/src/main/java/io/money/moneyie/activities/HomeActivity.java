@@ -83,14 +83,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         showCaseView();
         refreshLanguage();
         clickToolbarHideDrawerListener();
-
     }
 
     //starting the adds in onStart because if its started in onCreate it may cause FatalError
     @Override
     protected void onStart() {
         super.onStart();
-//        bannerAdd();
+        bannerAdd();
     }
 
     public static void verifyPermissions(Activity activity) {

@@ -24,7 +24,7 @@
     <string name="cancel">Отказ</string>
     <string name="cancel_registration">Искате ли да отмените регистрацията?</string>
     <string name="cancel_registration_btn_text">Отказ на регистрацията</string>
-    <string name="combined_year_text">Тук може да видите вашите приходи и разходи за месеца, който сте избрали по-горе.</string>
+    <string name="combined_year_text">Тук може да видите вашите приходи и разходи за годината, която сте избрали по-горе.</string>
     <string name="could_not_register_successfully">Неуспешна регистрация.</string>
     <string name="create_your_own_types">Създайте собствен тип</string>
     <string name="date">Дата:</string>

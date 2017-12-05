@@ -70,7 +70,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
     private Spinner changeLanguage;
     private String UserEmailId;
     private boolean flagHaveProfile;
-
+    private String setFocus;
 
     @Nullable
     @Override

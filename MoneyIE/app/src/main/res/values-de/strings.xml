@@ -8,7 +8,7 @@
     <string name="DAY">TAG</string>
     <string name="ADDED">HINZUGEFÜGT</string>
     <string name="Day">TAG:</string>
-    <string name="MONTH">MONAT:</string>
+    <string name="MONTH">MONAT</string>
     <string name="PAY_DAY">BEZAHLEN:</string>
     <string name="Salary">GEHALT</string>
     <string name="YEAR">JAHRE</string>
@@ -186,5 +186,8 @@
     <string name="oct">Oktober</string>
     <string name="sep">September</string>
     <string name="free_money">Freies Geld</string>
+    <string name="del">DEL</string>
+    <string name="dot">.</string>
+    <string name="FALSE">FALSE</string>
 
 </resources>

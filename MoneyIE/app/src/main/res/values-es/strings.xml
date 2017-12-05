@@ -68,7 +68,7 @@
     <string name="amount">Cantidad</string>
     <string name="cancel">Cancelar</string>
     <string name="are_you_sure">¿Estás seguro?</string>
-    <string name="combined">Combinado</string>
+    <string name="combined">"Diagrama Combinado - "</string>
     <string name="date">Fecha:</string>
     <string name="day">Día:</string>
     <string name="delete">Borrar</string>
@@ -82,7 +82,7 @@
     <string name="add_new_reminder">Añadir una nueva alarma</string>
     <string name="already_exists">Ya existe</string>
     <string name="create_your_own_types">Crea tu propio tipo</string>
-    <string name="combined_year_text">Aquí puedes ver tus gastos y beneficios por el mes cuál elegiste arriba.</string>
+    <string name="combined_year_text">Aquí puede ver sus ingresos y gastos para el año antes seleccionado.</string>
     <string name="first_name">Nombre</string>
     <string name="email">Correo electrónico</string>
     <string name="email_two_dots">Correo electrónico:</string>
@@ -92,10 +92,10 @@
     <string name="statistics">Estadísticas</string>
     <string name="yes">Sí</string>
     <string name="PhoneApps"></string>
-    <string name="combined_chart">Gráfica Combinada</string>
+    <string name="combined_chart">"Gráfica Combinada - "</string>
     <string name="digit_type_error">Los tipos no pueden contener solo dígitos</string>
     <string name="do_you_want_to_exit">¿Quieres Salir?</string>
-    <string name="horizontal_bar_chart">Gráfica Horizontal</string>
+    <string name="horizontal_bar_chart">"Gráfica Horizontal - "</string>
     <string name="insert_price">Insertar precio</string>
     <string name="invalid_symbols">Símbolos inválidos</string>
     <string name="invalid_type">Tipo inválido</string>
@@ -112,7 +112,7 @@
     <string name="no">No</string>
     <string name="no_added_types">No tipos añadidos.</string>
     <string name="personal_name">"Nombre: "</string>
-    <string name="pie_chart">Gráfico Circular</string>
+    <string name="pie_chart">"Diagrama Circular - "</string>
     <string name="your_type">Tus tipo</string>
     <string name="year">año</string>
     <string name="to">a</string>
@@ -133,4 +133,24 @@
     <string name="PAY_DAY">Día de pago:</string>
     <string name="my_stats_spinner">Me</string>
     <string name="you_have_no_activity_for_this_period">No tienes actividad para este período.</string>
+    <string name="profile_salary_text">Ingresando aquí su salario cada mes en la fecha elegida, la cantidad de dinero agredada será añadida a su cuenta.</string>
+    <string name="profile_text">Puede crear sus propios tipos de ingresos y gastos.</string>
+    <string name="hbc_day_text">Gráfico que contiene los gastos diarios. Si marca el ícono del calendario, puede ver sus estadísticas para cualquier día que seleccione.</string>
+    <string name="pc_text">contiene sus ingresos y gastos mensuales.</string>
+    <string name="hbc_month_text">Gráfico que contiene los gastos mensuales. Si marca el ícono del calendario, puede ver sus estadísticas para cualquier mes que seleccione.</string>
+    <string name="pie_year_text">contiene sus ingresos y gastos anuales.</string>
+    <string name="horizontal_year_text">Gráfico que contiene los gastos anuales. Si marca el ícono del calendario, puede ver sus estadísticas para cualquier año que seleccione.</string>
+    <string name="hbc_period_text">Gráfico que contiene los g astos para un período determinado. Si marca el ícono del calendario, puede ver las estadísticas para cualquier período que seleccione.</string>
+    <string name="nov">Nov</string>
+    <string name="Jul">Jul</string>
+    <string name="apr">Abr</string>
+    <string name="aug">Ago</string>
+    <string name="dec">Dic</string>
+    <string name="feb">Feb</string>
+    <string name="jan">Ene</string>
+    <string name="jun">Jun</string>
+    <string name="mar">Mar</string>
+    <string name="may">May</string>
+    <string name="oct">Oct</string>
+    <string name="sep">Sep</string>
 </resources>

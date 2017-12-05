@@ -307,7 +307,6 @@ public abstract class GraphicUtilities {
         }
         //filter the names and values of the expenses
         String[] typeNames = Utilities.getTypeNames(context);
-        int i = 0;
         ArrayList<Float> values = new ArrayList<>();
         for (Iterator<Map.Entry<String, Float>> iterator = structuredData.entrySet().iterator(); iterator.hasNext();) {
             Map.Entry<String, Float> entry = iterator.next();
@@ -345,7 +344,7 @@ public abstract class GraphicUtilities {
 
 
         //set the settings of the horizontal bar char
-        BarDataSet bardataset = new BarDataSet(horizontalBarChartArr, "Expenses");
+        BarDataSet bardataset = new BarDataSet(horizontalBarChartArr, context.getString(R.string.expense));
         bardataset.setColor(Color.RED);
         bardataset.setValueTextColor(Color.WHITE);
         BarData data = new BarData(names, bardataset);

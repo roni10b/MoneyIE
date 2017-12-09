@@ -3,11 +3,9 @@ package io.money.moneyie.model.database;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -18,7 +16,6 @@ import io.money.moneyie.R;
 import io.money.moneyie.model.Alarm;
 import io.money.moneyie.model.Type;
 import io.money.moneyie.model.PlannedFlow;
-import io.money.moneyie.model.utilities.Utilities;
 
 public class DatabaseHelperSQLite extends SQLiteOpenHelper {
 

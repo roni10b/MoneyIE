@@ -1,6 +1,5 @@
 package io.money.moneyie.model;
 
-
 public class Type {
 
     private String isExpense;

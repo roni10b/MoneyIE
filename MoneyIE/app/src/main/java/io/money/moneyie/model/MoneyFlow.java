@@ -1,6 +1,5 @@
 package io.money.moneyie.model;
 
-
 import java.util.Calendar;
 
 public class MoneyFlow {

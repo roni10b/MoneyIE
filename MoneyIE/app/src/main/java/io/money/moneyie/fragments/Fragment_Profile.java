@@ -446,11 +446,11 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                 String checked = ((RadioButton)view.findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
 
                 if (!Utilities.checkString(typeNew)){
-                    Toasty.error(getContext(), returnResID(R.string.invalid_type), Toast.LENGTH_SHORT).show();
+                    Toasty.error(view.getContext(), returnResID(R.string.invalid_type), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isDigitsOnly(typeNew)) {
-                    Toasty.error(getContext(), returnResID(R.string.digit_type_error), Toast.LENGTH_SHORT).show();
+                    Toasty.error(view.getContext(), returnResID(R.string.digit_type_error), Toast.LENGTH_SHORT).show();
                     return;
                 }
 

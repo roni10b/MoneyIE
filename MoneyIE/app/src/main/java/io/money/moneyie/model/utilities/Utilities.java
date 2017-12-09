@@ -1,19 +1,12 @@
 package io.money.moneyie.model.utilities;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.preference.PreferenceManager;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +14,7 @@ import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-//import com.google.firebase.auth.FirebaseAuth;
-
 import io.money.moneyie.R;
-import io.money.moneyie.activities.HomeActivity;
 
 import static android.content.Context.VIBRATOR_SERVICE;
 

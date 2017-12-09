@@ -1,6 +1,5 @@
 package io.money.moneyie.model;
 
-
 public class PlannedFlow {
     private String userID;
     private int date;

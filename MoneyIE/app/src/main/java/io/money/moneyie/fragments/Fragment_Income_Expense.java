@@ -1,10 +1,6 @@
 package io.money.moneyie.fragments;
 
 import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,7 +9,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +19,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-//import com.google.firebase.auth.FirebaseAuth;
-//import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +31,6 @@ import io.money.moneyie.model.database.DatabaseHelperFirebase;
 import io.money.moneyie.model.recyclers.TypeRecyclerViewAdapter;
 import io.money.moneyie.model.database.DatabaseHelperSQLite;
 import io.money.moneyie.model.utilities.Utilities;
-
-import static android.content.Context.VIBRATOR_SERVICE;
 
 public class Fragment_Income_Expense extends Fragment implements View.OnClickListener, TypeRecyclerViewAdapter.ItemClickListener {
 

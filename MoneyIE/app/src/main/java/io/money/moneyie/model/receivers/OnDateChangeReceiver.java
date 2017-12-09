@@ -4,8 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-//import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Calendar;
 import java.util.List;
 
@@ -13,7 +11,6 @@ import io.money.moneyie.model.Alarm;
 import io.money.moneyie.model.MoneyFlow;
 import io.money.moneyie.model.database.DatabaseHelperFirebase;
 import io.money.moneyie.model.database.DatabaseHelperSQLite;
-import io.money.moneyie.model.utilities.Utilities;
 import io.money.moneyie.model.PlannedFlow;
 import io.money.moneyie.model.utilities.AlarmUtilities;
 

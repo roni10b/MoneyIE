@@ -17,7 +17,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -30,15 +29,14 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Random;
 
 import io.money.moneyie.R;
 import io.money.moneyie.fragments.Fragment_DataHistory;
-//import io.money.moneyie.fragments.Fragment_AddFriend;
 import io.money.moneyie.fragments.Fragment_Reminders;
 import io.money.moneyie.fragments.Fragment_Income_Expense;
 import io.money.moneyie.fragments.Fragment_Profile;
@@ -192,6 +190,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initialiseElements(){
+        MobileAds.initialize(this, getString(R.string.admob_app_id));
         fdb = DatabaseHelperFirebase.getInstance(this);
         fragment_incomeExpense = new Fragment_Income_Expense();
         bundle = new Bundle();
@@ -354,9 +353,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.home_myProfile_btn:
                 drawerMenuButtonsAction(getString(R.string.my_profile), new Fragment_Profile());
                 break;
-            case R.id.home_add_friend_btn:
-//                drawerMenuButtonsAction(getString(R.string.add_friend), new Fragment_AddFriend());
-                break;
             case R.id.home_alarms_btn:
                 drawerMenuButtonsAction(getString(R.string.reminders), new Fragment_Reminders());
                 break;
@@ -375,26 +371,22 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void startInterstitialAd() {
-        Random r = new Random();
-        int e = r.nextInt(555);
-        if (e == 1) { //TODO fix with random number
-            mInterstitialAd = new InterstitialAd(this);
-            mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-            AdRequest adRequest = new AdRequest.Builder()
-                    .build();
-            mInterstitialAd.loadAd(adRequest);
-            mInterstitialAd.setAdListener(new AdListener() {
-                public void onAdLoaded() {
-                    showInterstitial();
-                }
-            });
-        }
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_statistics));
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mInterstitialAd.loadAd(adRequest);
+        mInterstitialAd.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                showInterstitial();
+            }
+        });
     }
 
     private void showInterstitial() {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
-            bannerAdd(); //TODO remove this method from here
+            bannerAdd();
         }
     }
 }

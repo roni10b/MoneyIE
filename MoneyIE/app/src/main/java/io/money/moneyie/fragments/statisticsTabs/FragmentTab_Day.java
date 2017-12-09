@@ -17,8 +17,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.yalantis.phoenix.PullToRefreshView;
 
 import java.util.ArrayList;

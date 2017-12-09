@@ -119,7 +119,7 @@ public class Fragment_Income_Expense extends Fragment implements View.OnClickLis
         delete.setOnClickListener(this);
         moneyView = view.findViewById(R.id.outcome_keyboard_result);
         comment = view.findViewById(R.id.outcome_comment);
-        layout = view.findViewById(R.id.fragment_outcome);
+        layout = view.findViewById(R.id.fragment_outcome1);
     }
 
     @Override
@@ -294,7 +294,6 @@ public class Fragment_Income_Expense extends Fragment implements View.OnClickLis
         InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         layout.requestFocus();
-            Log.e("sss", "s");
     }
 }
 

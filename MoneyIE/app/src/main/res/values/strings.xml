@@ -21,9 +21,11 @@
     <string name="btn_fullscreen_ad">Show Fullscreen Ad</string>
 
     <!-- AdMob ad unit IDs -->
-    <string name="banner_home_footer">ca-app-pub-3940256099942544/6300978111</string>
-
-
+    <string name="banner_home_footer">ca-app-pub-3532736192097860/8239546397</string>
+    <!--ca-app-pub-3940256099942544/6300978111  test banner-->
+    <string name="interstitial_statistics">ca-app-pub-3532736192097860/5481521111</string>
+    <!--ca-app-pub-3940256099942544/1033173712 - test interstitial-->
+    <string name="admob_app_id">ca-app-pub-3532736192097860/8239546397</string>
 
 
     <string name="combined">Combined</string>

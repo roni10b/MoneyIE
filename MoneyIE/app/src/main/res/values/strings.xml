@@ -221,4 +221,5 @@
     <string name="dec">Dec</string>
     <string name="nov">Nov</string>
     <string name="or">OR</string>
+    <string name="vibration">Vibration</string>
 </resources>

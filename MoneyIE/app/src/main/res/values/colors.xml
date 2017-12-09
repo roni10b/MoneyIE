@@ -5,4 +5,7 @@
     <color name="colorAccent">#0E549A</color>
     <color name="white">#ffffff</color>
     <color name="appSilver">#607d8b</color>
+    <color name="red">#EA0001</color>
+    <color name="green">#039F00</color>
+
 </resources>

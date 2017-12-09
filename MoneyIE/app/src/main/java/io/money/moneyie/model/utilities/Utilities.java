@@ -2,11 +2,13 @@ package io.money.moneyie.model.utilities;
 
 import android.content.Context;
 
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,10 +27,14 @@ public final class Utilities {
     private static int idGeneratorNotifications = 0;
 
     public static void VibrateClick(Context con){
-        if (Build.VERSION.SDK_INT >= 26) {
-            ((Vibrator) con.getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(40,10));
-        } else {
-            ((Vibrator) con.getSystemService(VIBRATOR_SERVICE)).vibrate(40);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(con);
+        String s = prefs.getString("vibration", "Yes");
+        if(s.equals("Yes")) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                ((Vibrator) con.getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(30, 10));
+            } else {
+                ((Vibrator) con.getSystemService(VIBRATOR_SERVICE)).vibrate(30);
+            }
         }
     }
 

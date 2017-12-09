@@ -134,4 +134,21 @@
     <string name="profile_text">Вы можете создавать свои собственные виды доходов и расходов.</string>
     <string name="tutorial_text1">Нажимая эту кнопку, вы открываете меню приложения и добавляете новых друзей, проверяете статистику, задаете свои напоминания ...</string>
     <string name="tutorial_text2">Нажимая эту кнопку, вы можете проверить статистику о доходах и расходах.</string>
+    <string name="Jul">Июль</string>
+    <string name="Services">Сервиз</string>
+    <string name="apr">Апр</string>
+    <string name="aug">Авг</string>
+    <string name="dec">Дек</string>
+    <string name="feb">Февр</string>
+    <string name="friends_stats"></string>
+    <string name="jan">Янв</string>
+    <string name="jun">Июни</string>
+    <string name="mar">Марш</string>
+    <string name="may">Майя</string>
+    <string name="nov">Нояб</string>
+    <string name="oct">Окт</string>
+    <string name="hbc_day_text">График, который показывает ваши ежедневные расходы. Нажимая на значок календаря, вы можете проверить свою статистику в тот день, который вы хотите увидеть.</string>
+    <string name="hbc_month_text">График, который показывает ваши ежемесячные расходы. Нажимая на значок календаря, вы можете проверить свою статистику о месяце, который хотите увидеть.</string>
+    <string name="hbc_period_text">График, который показывает ваши расходы периода. Нажимая на значок календаря, вы можете проверить свою статистику о периоде, который хотите увидеть.</string>
+    <string name="vibration">Вибрация</string>
 </resources>

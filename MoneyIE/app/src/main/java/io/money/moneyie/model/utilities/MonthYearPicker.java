@@ -21,7 +21,7 @@ public class MonthYearPicker {
 
     private static final int MAX_YEAR = 2099;
 
-    private static final String[] PICKER_DISPLAY_MONTHS_NAMES = new String[]
+    private static String[] PICKER_DISPLAY_MONTHS_NAMES = new String[]
             { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 
     private static final String[] MONTHS = new String[]
@@ -48,6 +48,18 @@ public class MonthYearPicker {
         dayLinear = view.findViewById(R.id.dayNumberPickerLinear);
         monthLinear = view.findViewById(R.id.monthNumberPickerLinear);
         yearLinear = view.findViewById(R.id.yearNumberPickerLinear);
+        PICKER_DISPLAY_MONTHS_NAMES =  new String[] {activity.getString(R.string.jan),
+                activity.getString(R.string.feb),
+                activity.getString(R.string.mar),
+                activity.getString(R.string.apr),
+                activity.getString(R.string.may),
+                activity.getString(R.string.jun),
+                activity.getString(R.string.Jul),
+                activity.getString(R.string.aug),
+                activity.getString(R.string.sep),
+                activity.getString(R.string.oct),
+                activity.getString(R.string.nov),
+                activity.getString(R.string.dec)};
     }
 
     //builds the month year alert dialog. Must be build before showing!

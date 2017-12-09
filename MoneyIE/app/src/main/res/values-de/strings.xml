@@ -189,5 +189,6 @@
     <string name="del">DEL</string>
     <string name="dot">.</string>
     <string name="FALSE">FALSE</string>
+    <string name="vibration">Vibration</string>
 
 </resources>

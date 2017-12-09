@@ -6,16 +6,24 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.StateListDrawable;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -24,12 +32,14 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,7 +65,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
 
     private View view;
     private DatabaseHelperSQLite db;
-    private TextView email, name, noTypes;
+    private TextView noTypes;
     private EditText salary, type, dayOfSalary;
     private RadioGroup radioGroup;
     private RecyclerView recyclerView;
@@ -70,7 +80,8 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
     private Spinner changeLanguage;
     private String UserEmailId;
     private boolean flagHaveProfile;
-    private String setFocus;
+    private SwitchCompat vibrationSwiitch;
+    private SharedPreferences prefs;
 
     @Nullable
     @Override
@@ -88,6 +99,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         seOnImgQuestionTypeClickListener();
         seOnImgQuestionSalaryClickListener();
         setSpinnerChangeLanguage();
+        switchListener();
         return view;
     }
 
@@ -143,7 +155,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
     }
 
     @Override
-    public void onItemClick(View view, int pos) {
+    public void onItemClick(View v, int pos) {
         final int position = pos;
         if (SystemClock.elapsedRealtime() - mLastClickTime < 700){
             return;
@@ -160,7 +172,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
                         recyclerView.removeViewAt(position);
                         adapter.notifyItemRemoved(position);
                         adapter.notifyItemRangeChanged(position, typeFilter.size());
-                        Toasty.success(getContext(), returnResID(R.string.DELETED), Toast.LENGTH_SHORT).show();
+                        Toasty.success(view.getContext(), returnResID(R.string.DELETED), Toast.LENGTH_SHORT).show();
                         if (isTypeFilerEmpty()) {
                             noTypes.setVisibility(View.GONE);
                             imgEye.setVisibility(View.VISIBLE);
@@ -185,8 +197,6 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         recyclerView = view.findViewById(R.id.recycler_profile);
         db = DatabaseHelperSQLite.getInstance(view.getContext());
         monthYearPicker = new MonthYearPicker(view.getContext());
-        email = view.findViewById(R.id.profile_email);
-        name = view.findViewById(R.id.profile_name);
         salary = view.findViewById(R.id.profile_salary);
         type = view.findViewById(R.id.profile_type);
         radioGroup = view.findViewById(R.id.profile_radiogr_kind);
@@ -203,7 +213,38 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         changeLanguage = view.findViewById(R.id.change_language_spinner);
         UserEmailId = getEmailID(view.getContext().getApplicationContext());
         flagHaveProfile = true;
+        prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+
+        vibrationSwiitch = view.findViewById(R.id.profile_vibration_switch);
+
+        String s = prefs.getString("vibration", "Yes");
+        if(s.equals("Yes")){
+            vibrationSwiitch.setChecked(true);
+            vibrationSwiitch.getTrackDrawable().setColorFilter(ContextCompat.getColor(view.getContext(), R.color.green), PorterDuff.Mode.SRC_IN);
+        } else {
+            vibrationSwiitch.setChecked(false);
+            vibrationSwiitch.getTrackDrawable().setColorFilter(ContextCompat.getColor(view.getContext(), R.color.red), PorterDuff.Mode.SRC_IN);
+        }
         setTextValues();
+    }
+
+    public void switchListener(){
+        vibrationSwiitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("vibration", "Yes");
+                    editor.apply();
+                    vibrationSwiitch.getTrackDrawable().setColorFilter(ContextCompat.getColor(view.getContext(), R.color.green), PorterDuff.Mode.SRC_IN);
+                } else {
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("vibration", "No");
+                    editor.apply();
+                    vibrationSwiitch.getTrackDrawable().setColorFilter(ContextCompat.getColor(view.getContext(), R.color.red), PorterDuff.Mode.SRC_IN);
+                }
+            }
+        });
     }
 
     private void setSpinnerChangeLanguage() {
@@ -285,26 +326,34 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         imgEye.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(name.getVisibility() == View.VISIBLE){
-                    name.setVisibility(View.GONE);
-                    email.setVisibility(View.GONE);
+//                if(name.getVisibility() == View.VISIBLE){
+////                    name.setVisibility(View.GONE);
+////                    email.setVisibility(View.GONE);
+//                    view.findViewById(R.id.profile_l0).setVisibility(View.GONE);
+//                    view.findViewById(R.id.profile_l1).setVisibility(View.GONE);
+//                    view.findViewById(R.id.profile_l2).setVisibility(View.GONE);
+//                    imgEye.setImageResource(R.drawable.eye_invisible);
+                if (view.findViewById(R.id.profile_l0).getVisibility() == View.VISIBLE) {
                     view.findViewById(R.id.profile_l0).setVisibility(View.GONE);
                     view.findViewById(R.id.profile_l1).setVisibility(View.GONE);
                     view.findViewById(R.id.profile_l2).setVisibility(View.GONE);
-                    imgEye.setImageResource(R.drawable.eye_invisible);
-                } else if (!flagHaveProfile && view.findViewById(R.id.profile_l0).getVisibility() == View.VISIBLE) {
-                    view.findViewById(R.id.profile_l0).setVisibility(View.GONE);
-                    view.findViewById(R.id.profile_l1).setVisibility(View.GONE);
-                    view.findViewById(R.id.profile_l2).setVisibility(View.GONE);
+                    view.findViewById(R.id.profile_l3).setVisibility(View.GONE);
+                    view.findViewById(R.id.profile_l4).setVisibility(View.GONE);
+                    view.findViewById(R.id.profile_l5).setVisibility(View.GONE);
+                    view.findViewById(R.id.profile_l6).setVisibility(View.GONE);
                     imgEye.setImageResource(R.drawable.eye_invisible);
                 } else {
                     if (flagHaveProfile) {
-                        name.setVisibility(View.VISIBLE);
-                        email.setVisibility(View.VISIBLE);
+//                        name.setVisibility(View.VISIBLE);
+//                        email.setVisibility(View.VISIBLE);
                     }
                     view.findViewById(R.id.profile_l0).setVisibility(View.VISIBLE);
                     view.findViewById(R.id.profile_l1).setVisibility(View.VISIBLE);
                     view.findViewById(R.id.profile_l2).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.profile_l3).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.profile_l4).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.profile_l5).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.profile_l6).setVisibility(View.VISIBLE);
                     imgEye.setImageResource(R.drawable.eye_visible);
                 }
             }
@@ -330,25 +379,25 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
     }
 
     private void setTextValues() {
-        Cursor c = null;
-        try {
-            c = getActivity().getApplication().getContentResolver().query(ContactsContract.Profile.CONTENT_URI, null, null, null, null);
-        } catch (SecurityException e) {
-            e.printStackTrace();
-            flagHaveProfile = false;
-            name.setVisibility(View.GONE);
-            email.setVisibility(View.GONE);
-        }
-
-        email.setText(getString(R.string.email_two_dots) + " " + UserEmailId);
-
-         if(c != null && c.getCount()>0) {
-            c.moveToFirst();
-            name.setText(getString(R.string.hello) + " " + c.getString(c.getColumnIndex("display_name")));
-            c.close();
-        } else {
-            name.setText(getString(R.string.hello));
-        }
+//        Cursor c = null;
+//        try {
+//            c = getActivity().getApplication().getContentResolver().query(ContactsContract.Profile.CONTENT_URI, null, null, null, null);
+//        } catch (SecurityException e) {
+//            e.printStackTrace();
+//            flagHaveProfile = false;
+////            name.setVisibility(View.GONE);
+////            email.setVisibility(View.GONE);
+//        }
+//
+////        email.setText(getString(R.string.email_two_dots) + " " + UserEmailId);
+//
+//         if(c != null && c.getCount()>0) {
+//            c.moveToFirst();
+//            name.setText(getString(R.string.hello) + " " + c.getString(c.getColumnIndex("display_name")));
+//            c.close();
+//        } else {
+//            name.setText(getString(R.string.hello));
+//        }
 
         //name.setText(getString(R.string.hello) + " " + user.getDisplayName());
         //plannedFlow = db.getUserPlanned(user.getUid());

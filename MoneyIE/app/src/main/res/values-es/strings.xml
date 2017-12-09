@@ -91,7 +91,7 @@
     <string name="your_types">Tus tipos</string>
     <string name="statistics">Estadísticas</string>
     <string name="yes">Sí</string>
-    <string name="PhoneApps"></string>
+    <string name="PhoneApps">Apps</string>
     <string name="combined_chart">"Gráfica Combinada - "</string>
     <string name="digit_type_error">Los tipos no pueden contener solo dígitos</string>
     <string name="do_you_want_to_exit">¿Quieres Salir?</string>
@@ -155,4 +155,5 @@
     <string name="sep">Sep</string>
     <string name="tutorial_text2">Al hacer clic en este botón, puede consultar algunas estadísticas sobre sus ingresos y gastos.</string>
     <string name="tutorial_text1">Al hacer clic en este botón, abre el menú de la aplicación y agrega nuevos amigos, verifica sus estadísticas, establece sus recordatorios ...</string>
+    <string name="vibration">Vibración</string>
 </resources>

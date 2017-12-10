@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string-array name="languages">
+        <item>Select Language</item>
+        <item>English</item>
+        <item>Español</item>
+        <item>Deutsch</item>
+        <item>Български</item>
+        <item>Русский</item>
+    </string-array>
     <string name="app_name">MoneyIЕ</string>
     <string name="add_salary">BITTE GEHALT ERGÄNZEN</string>
     <string name="are_you_sure">SIND SIE SICHER?</string>
@@ -13,34 +22,34 @@
     <string name="Salary">GEHALT</string>
     <string name="YEAR">JAHRE</string>
     <string name="add">Hinzufügen</string>
-    <string name="add_friend">FREUND</string>
+    <!--<string name="add_friend">FREUND</string>-->
     <string name="add_new_reminder">FÜGE EINEN NEUEN ALARM HINZU</string>
     <string name="added">HINZUGEFÜGT</string>
     <string name="alarms">ALARMEN</string>
     <string name="already_exists">EXISTIERT BEREITS</string>
     <string name="amount">SUMME</string>
-    <string name="auth_failed_try_later">UNERFOLGLOSER EINTRAG, BITTE VERSUCHEN SIE ES SPÄTER</string>
+    <!--<string name="auth_failed_try_later">UNERFOLGLOSER EINTRAG, BITTE VERSUCHEN SIE ES SPÄTER</string>-->
     <string name="cancel">VERWEIGERUNG</string>
-    <string name="cancel_registration">MÖCHTEN SIE DIE REGISTRIERUNG ABBRECHEN?</string>
-    <string name="cancel_registration_btn_text">ABBRECHUNG DER REGISTRATION</string>
+    <!--<string name="cancel_registration">MÖCHTEN SIE DIE REGISTRIERUNG ABBRECHEN?</string>-->
+    <!--<string name="cancel_registration_btn_text">ABBRECHUNG DER REGISTRATION</string>-->
     <string name="combined_year_text">Hier können Sie ihre Einnahmen und Ausgaben für den Monat, der sie gewählt haben, sehen</string>
-    <string name="could_not_register_successfully">Unerfolgreiche Registration</string>
+    <!--<string name="could_not_register_successfully">Unerfolgreiche Registration</string>-->
     <string name="create_your_own_types">Erstellen Sie einen benutzerdefinierten Typ</string>
     <string name="date">Datum:</string>
     <string name="day">Tag:</string>
     <string name="delete">Löschen</string>
     <string name="deleted">Gelöscht</string>
-    <string name="do_you_have_an_account_sign_in">Sie haben schön ein Konto? Treten Sie ein</string>
+    <!--<string name="do_you_have_an_account_sign_in">Sie haben schön ein Konto? Treten Sie ein</string>-->
     <string name="do_you_want_to_exit">Möchten sie von dem Applikation ausgehen?</string>
-    <string name="do_you_want_to_log_out">Möchten Sie von ihrem Konto ausgehen?</string>
-    <string name="don_t_have_an_account_sign_up">Kein Konto? Schaff ein!</string>
+    <!--<string name="do_you_want_to_log_out">Möchten Sie von ihrem Konto ausgehen?</string>-->
+    <!--<string name="don_t_have_an_account_sign_up">Kein Konto? Schaff ein!</string>-->
     <string name="email">Email</string>
     <string name="email_two_dots">Email:</string>
-    <string name="enter_password">Ergänzen Sie Parole</string>
-    <string name="enter_valid_mail">Ergänzen Sie gültiges Email</string>
+    <!--<string name="enter_password">Ergänzen Sie Parole</string>-->
+    <!--<string name="enter_valid_mail">Ergänzen Sie gültiges Email</string>-->
     <string name="expense">Ausgabe</string>
     <string name="first_name">Name</string>
-    <string name="friend_e_mail">Email von dem gesuchten Freund</string>
+    <!--<string name="friend_e_mail">Email von dem gesuchten Freund</string>-->
     <string name="hbc_day_text">Grafik mit täglichen Ausgaben. Klicken Sie auf dem Kalendersymbol um Statistik für jeder Tag zu sehen.</string>
     <string name="hbc_month_text">Grafik mit monatlichen Ausgaben. Klicken Sie auf dem Kalenersymbol um Statistik für jeder Monat zu sehen.</string>
     <string name="horizontal_bar_chart">"Horizontales Diagramm - "</string>
@@ -48,14 +57,14 @@
     <string name="income">Aufnahme</string>
     <string name="insert_comment">Komentar</string>
     <string name="insert_price">Summe vorstellen</string>
-    <string name="invalid_email">Ungültiges Email</string>
+    <!--<string name="invalid_email">Ungültiges Email</string>-->
     <string name="invalid_symbols">Ungültige Symbole</string>
     <string name="invalid_type">Ungültiges Typ</string>
-    <string name="invalid_user_or_password">Ungültiges Email oder Parole</string>
-    <string name="loading">Laden...</string>
-    <string name="log_out">Ausgehen</string>
-    <string name="login">Eintrag</string>
-    <string name="login_with_e_mail">Eintrag mit Email</string>
+    <!--<string name="invalid_user_or_password">Ungültiges Email oder Parole</string>-->
+    <!--<string name="loading">Laden...</string>-->
+    <!--<string name="log_out">Ausgehen</string>-->
+    <!--<string name="login">Eintrag</string>-->
+    <!--<string name="login_with_e_mail">Eintrag mit Email</string>-->
     <string name="message">Nachricht</string>
     <string name="message_is_required">Nachricht hinzufügen</string>
     <string name="month">Monat</string>
@@ -64,13 +73,13 @@
     <string name="name">Name:</string>
     <string name="no">Nein</string>
     <string name="no_added_types">Keine hinzugefügten typen</string>
-    <string name="no_internet_to_reg">Keine Internetverbindung</string>
-    <string name="not_saved_please_try_again">Fehler! Versuche noch einmal!</string>
-    <string name="notify_me_about_friend_activity">"Nachrichten für Aktivität"</string>
-    <string name="or">ODER</string>
-    <string name="password">Parole</string>
-    <string name="password_does_not_match">Parolen fällen nicht zusammen</string>
-    <string name="password_must_be_six_sym">Parole soll mindestens 6 Symbole sein</string>
+    <!--<string name="no_internet_to_reg">Keine Internetverbindung</string>-->
+    <!--<string name="not_saved_please_try_again">Fehler! Versuche noch einmal!</string>-->
+    <!--<string name="notify_me_about_friend_activity">"Nachrichten für Aktivität"</string>-->
+    <!--<string name="or">ODER</string>-->
+    <!--<string name="password">Parole</string>-->
+    <!--<string name="password_does_not_match">Parolen fällen nicht zusammen</string>-->
+    <!--<string name="password_must_be_six_sym">Parole soll mindestens 6 Symbole sein</string>-->
     <string name="pay_day_">Bezahlung von: </string>
     <string name="pc_text">Zeigt ihre monatliche Einnahme und Ausgben</string>
     <string name="personal_name">"Name: "</string>
@@ -80,43 +89,43 @@
     <string name="profile_salary_text">Falls Sie ihre Gehalt hier ergänzen, die Summe wird jeder Monat auf das gewählte Datum als Einnahme hinzugefügt sein.</string>
     <string name="profile_text">Sie können eigene Typen Einnahme und Ausgabe ergänzen.</string>
     <string name="quit">Geh aus</string>
-    <string name="refreshing">Aufladung...</string>
-    <string name="register">Registration</string>
-    <string name="register_with_e_mail">Registration mit Email</string>
+    <!--<string name="refreshing">Aufladung...</string>-->
+    <!--<string name="register">Registration</string>-->
+    <!--<string name="register_with_e_mail">Registration mit Email</string>-->
     <string name="remember">Erinnern</string>
     <string name="reminders">Alarmen</string>
     <string name="reminders_text">Diese Alarme wird als Mitteilung auf dem ausgewählten Tag jeder Monat zeigen.</string>
-    <string name="repeat_password">Parole noch einmal ergänzen</string>
+    <!--<string name="repeat_password">Parole noch einmal ergänzen</string>-->
     <string name="salary">Gehalt:</string>
     <string name="save">Erinnern</string>
     <string name="saved">Erinnert</string>
-    <string name="second_name">Familie</string>
+    <!--<string name="second_name">Familie</string>-->
     <string name="select_time">Uhr gewählen</string>
     <string name="set_time">"Zeit gewählen: "</string>
-    <string name="sign_in">Eintritt </string>
-    <string name="sign_in_with">Eintritt mit</string>
-    <string name="sign_up">Registration</string>
-    <string name="sorry_internet_problem_please_try_again">Fehler mit der Internetverbindung. Versuchen Sie bitte später</string>
+    <!--<string name="sign_in">Eintritt </string>-->
+    <!--<string name="sign_in_with">Eintritt mit</string>-->
+    <!--<string name="sign_up">Registration</string>-->
+    <!--<string name="sorry_internet_problem_please_try_again">Fehler mit der Internetverbindung. Versuchen Sie bitte später</string>-->
     <string name="statistics">Statistik</string>
-    <string name="successfully_registered">Erfolgreiche Registration</string>
+    <!--<string name="successfully_registered">Erfolgreiche Registration</string>-->
     <string name="time">"Uhr: "</string>
     <string name="tutorial_got_it_btn_text">Okay</string>
     <string name="tutorial_text1">Wenn sie dieser Druckknopf drücken, werden Sie das Menü öffnen. Da können Sie eure Statistik sehen, und ein Freund einzuladen.</string>
     <string name="tutorial_text2">Wenn Sie dieser Druckknopf drücken, können sie eure Statistik in Tag, Monat und Jahr sortiert sehen.</string>
     <string name="type_added">Der Typ is hinzugefügt </string>
-    <string name="username">Username</string>
+    <!--<string name="username">Username</string>-->
     <string name="year">Jahre</string>
     <string name="yes">Ja</string>
     <string name="your_type">Euren Typ</string>
     <string name="your_types">Euren Typen</string>
-    <string name="hello">"Hallo, "</string>
+    <!--<string name="hello">"Hallo, "</string>-->
     <string name="pie_chart">"Kreissdiagram - "</string>
     <string name="set_your_personal_reminders_here">Ergänzen sie ihre Alarmen hier.</string>
     <string name="combined_chart">"Kombiniert Diagramm - "</string>
-    <string name="leva">Levs</string>
+    <!--<string name="leva">Levs</string>-->
     <string name="money_io">MoneyIЕ</string>
     <string name="combined">Gemeinsam</string>
-    <string name="friends_stats">Freund</string>
+    <!--<string name="friends_stats">Freund</string>-->
     <string name="my_stats_spinner">Meine</string>
     <string name="you_have_no_activity_for_this_period">Sie waren nicht aktiv in diesem Zeitperiode!</string>
     <string name="to">Bis</string>
@@ -190,5 +199,6 @@
     <string name="dot">.</string>
     <string name="FALSE">FALSE</string>
     <string name="vibration">Vibration</string>
+    <string name="TRUE">TRUE</string>
 
 </resources>

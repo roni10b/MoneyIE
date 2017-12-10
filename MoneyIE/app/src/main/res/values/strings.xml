@@ -16,36 +16,35 @@
         <item>Русский</item>
     </string-array>
 
-    <string name="title_activity_second_activiy">Interstitial</string>
-    <string name="msg_welcome">Welcome to Admob. Click on the below button to launch the Interstitial ad.</string>
-    <string name="btn_fullscreen_ad">Show Fullscreen Ad</string>
+    <string name="title_activity_second_activiy" translatable="false">Interstitial</string>
+    <string name="msg_welcome" translatable="false">Welcome to Admob. Click on the below button to launch the Interstitial ad.</string>
+    <string name="btn_fullscreen_ad" translatable="false">Show Fullscreen Ad</string>
 
     <!-- AdMob ad unit IDs -->
-    <string name="banner_home_footer">ca-app-pub-3532736192097860/8239546397</string>
+    <string name="banner_home_footer" translatable="false">ca-app-pub-3532736192097860/8239546397</string>
     <!--ca-app-pub-3940256099942544/6300978111  test banner-->
-    <string name="interstitial_statistics">ca-app-pub-3532736192097860/5481521111</string>
+    <string name="interstitial_statistics" translatable="false">ca-app-pub-3532736192097860/5481521111</string>
     <!--ca-app-pub-3940256099942544/1033173712 - test interstitial-->
-    <string name="admob_app_id">ca-app-pub-3532736192097860/8239546397</string>
+    <string name="admob_app_id" translatable="false">ca-app-pub-3532736192097860/8239546397</string>
 
 
     <string name="combined">Combined</string>
-    <!--<string name="friends_stats">Friends stats</string>-->
+    <string name="friends_stats" translatable="false">Friends stats</string>
     <string name="my_stats_spinner">My stats</string>
-    <!--<string name="hello_blank_fragment">Hello blank fragment</string>-->
-    <string name="username">Username</string>
-    <!--<string name="login">Login</string>-->
-    <!--<string name="enter_password">Enter Password</string>-->
-    <!--<string name="login_with_e_mail">login with e-mail</string>-->
-    <!--<string name="register_with_e_mail">register with e-mail</string>-->
-    <!--<string name="register">Register</string>-->
-    <!--<string name="email">Email</string>-->
-    <!--<string name="password">Password</string>-->
-    <!--<string name="repeat_password">Repeat Password</string>-->
-    <!--<string name="first_name">First Name</string>-->
-    <!--<string name="second_name">Second Name</string>-->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="username" translatable="false">Username</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="enter_password" translatable="false">Enter Password</string>
+    <string name="login_with_e_mail" translatable="false">login with e-mail</string>
+    <string name="register_with_e_mail" translatable="false">register with e-mail</string>
+    <string name="register" translatable="false">Register</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="repeat_password" translatable="false">Repeat Password</string>
+    <string name="first_name">First Name</string>
+    <string name="second_name" translatable="false">Second Name</string>
     <string name="set_time">"Set time: "</string>
     <string name="add">Add</string>
-    <string name="message">Adding message is required.</string>
+    <string name="message">Message</string>
     <string name="reminders">Reminders</string>
     <string name="day">Day:</string>
     <string name="month">month</string>
@@ -66,44 +65,43 @@
     <string name="tutorial_text2">By clicking this button, you can check some statistics about you incomes and expenses.</string>
     <string name="tutorial_got_it_btn_text">GOT IT</string>
     <string name="tutorial_text1">By clicking this button, you open the application menu and add new friends, check your statistics, set your reminders…</string>
-    <!--<string name="do_you_want_to_log_out">Do you want to Log Out</string>-->
+    <string name="do_you_want_to_log_out" translatable="false">Do you want to Log Out</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <!--<string name="log_out">Log Out</string>-->
+    <string name="log_out" translatable="false">Log Out</string>
     <string name="do_you_want_to_exit">Do you want to Exit?</string>
     <string name="quit">Quit</string>
     <string name="statistics">Statistics</string>
     <string name="my_profile">My Profile</string>
     <string name="alarms">Alarms</string>
     <string name="my_stats">My Stats</string>
-    <!--<string name="no_internet_to_reg">Sorry no internet to register</string>-->
-    <!--<string name="invalid_email">Invalid email</string>-->
+    <string name="no_internet_to_reg" translatable="false">Sorry no internet to register</string>
+    <string name="invalid_email" translatable="false">Invalid email</string>
     <string name="invalid_symbols">Invalid symbols</string>
-    <!--<string name="invalid_user_or_password">Invalid user or password</string>-->
-    <!--<string name="auth_failed_try_later">Authentication failed. Please try again.</string>-->
-    <!--<string name="password_must_be_six_sym">Password must be 6 symbols minimum</string>-->
-    <!--<string name="password_does_not_match">Passwords does not match</string>-->
-    <!--<string name="successfully_registered">Successfully Registered</string>-->
-    <!--<string name="could_not_register_successfully">Could not register successfully</string>-->
-    <!--<string name="cancel_registration">Do you want to cancel registration?</string>-->
-    <!--<string name="cancel_registration_btn_text">Cancel registration</string>-->
-    <!--<string name="add_friend">add friend</string>-->
-    <!--<string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>-->
-    <!--<string name="sign_in">Sign in</string>-->
-    <!--<string name="or">OR</string>-->
-    <!--<string name="sign_in_with">sign in with</string>-->
-    <!--<string name="sign_up">Sign up</string>-->
-    <!--<string name="do_you_have_an_account_sign_in">Do you have an account? Sign in</string>-->
-    <!--<string name="friend_e_mail">Friend e-mail</string>-->
-    <!--<string name="notify_me_about_friend_activity">Notify me about friend activity:   </string>-->
+    <string name="invalid_user_or_password" translatable="false">Invalid user or password</string>
+    <string name="auth_failed_try_later" translatable="false">Authentication failed. Please try again.</string>
+    <string name="password_must_be_six_sym" translatable="false">Password must be 6 symbols minimum</string>
+    <string name="password_does_not_match" translatable="false">Passwords does not match</string>
+    <string name="successfully_registered" translatable="false">Successfully Registered</string>
+    <string name="could_not_register_successfully" translatable="false">Could not register successfully</string>
+    <string name="cancel_registration" translatable="false">Do you want to cancel registration?</string>
+    <string name="cancel_registration_btn_text" translatable="false">Cancel registration</string>
+    <string name="add_friend" translatable="false">add friend</string>
+    <string name="don_t_have_an_account_sign_up" translatable="false">Don\'t have an account? Sign Up</string>
+    <string name="sign_in" translatable="false">Sign in</string>
+    <string name="sign_in_with" translatable="false">sign in with</string>
+    <string name="sign_up" translatable="false">Sign up</string>
+    <string name="do_you_have_an_account_sign_in" translatable="false">Do you have an account? Sign in</string>
+    <string name="friend_e_mail" translatable="false">Friend e-mail</string>
+    <string name="notify_me_about_friend_activity" translatable="false">Notify me about friend activity:   </string>
     <string name="add_new_reminder">Add new reminder</string>
     <string name="name">Name: </string>
     <string name="amount">Amount</string>
     <string name="no_added_types">No added types.</string>
-    <string name="text">Text</string>
+    <string name="text" translatable="false">Text</string>
     <string name="money_io">MoneyIЕ</string>
-    <!--<string name="sorry_internet_problem_please_try_again">Sorry, internet problem. Please try again.</string>-->
-    <string name="hello">Hello,</string>
+    <string name="sorry_internet_problem_please_try_again" translatable="false">Sorry, internet problem. Please try again.</string>
+    <string name="hello" translatable="false">Hello,</string>
     <string name="horizontal_bar_chart">Horizontal Bar Chart \n</string>
     <string name="hbc_day_text">Graphic that shows your daily expenses. By clicking on the calendar icon you can check your statistics about the day you want to see.</string>
     <string name="hbc_period_text">Graphic that shows your period expenses. By clicking on the calendar icon you can check your statistics about the period you want to see.</string>
@@ -114,10 +112,10 @@
     <string name="pie_year_text">Shows your yearly incomes and expenses.</string>
     <string name="combined_year_text">Chart that shows your incomes and expenses during the months in the chosen year.</string>
     <string name="horizontal_year_text">Graphic that shows your yearly expenses. By clicking on the calendar icon, you can check your statistics about the year you want to see.\"</string>
-    <!--<string name="enter_valid_mail">Enter valid email</string>-->
+    <string name="enter_valid_mail" translatable="false">Enter valid email</string>
     <string name="added">added</string>
     <string name="deleted">Deleted</string>
-    <!--<string name="refreshing">Refreshing...</string>-->
+    <string name="refreshing" translatable="false">Refreshing...</string>
     <string name="DAY">DAY</string>
     <string name="MONTH">MONTH</string>
     <string name="YEAR">YEAR</string>
@@ -135,7 +133,7 @@
     <string name="Salary">Salary</string>
     <string name="saved">Saved</string>
     <string name="add_salary">Add salary</string>
-    <string name="not_saved_please_try_again">NOT saved, please try again</string>
+    <string name="not_saved_please_try_again" translatable="false">NOT saved, please try again</string>
     <string name="invalid_type">Invalid type</string>
     <string name="type_added">Type added</string>
     <string name="already_exists">Already exists</string>
@@ -147,11 +145,11 @@
     <string name="select_time">Select Time</string>
     <string name="Day">Day:  </string>
     <string name="message_is_required">Adding message is required.</string>
-    <!--<string name="loading">Loading...</string>-->
+    <string name="loading" translatable="false">Loading...</string>
     <string name="date">Date:</string>
     <string name="remember">Remember</string>
     <string name="please_select">Please select</string>
-    <string name="leva">lv</string>
+    <string name="leva" translatable="false">lv</string>
     <string name="to">TO</string>
     <string name="from">FROM</string>
     <string name="you_have_no_activity_for_this_period">You have no activity for this period.</string>
@@ -220,6 +218,6 @@
     <string name="oct">Oct</string>
     <string name="dec">Dec</string>
     <string name="nov">Nov</string>
-    <string name="or">OR</string>
+    <string name="or" translatable="false">OR</string>
     <string name="vibration">Vibration</string>
 </resources>

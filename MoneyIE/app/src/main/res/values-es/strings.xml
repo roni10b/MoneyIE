@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="languages">
+        <item>Select Language</item>
+        <item>English</item>
+        <item>Español</item>
+        <item>Deutsch</item>
+        <item>Български</item>
+        <item>Русский</item>
+    </string-array>
     <string name="app_name">MoneyIЕ</string>
     <string name="ADDED">Añadido</string>
     <string name="del">DEL</string>
@@ -62,13 +70,13 @@
     <string name="Shopping">Compras</string>
     <string name="Tabacco">Tabacco</string>
     <string name="Wedding">Boda</string>
-    <string name="add_friend">Amigo</string>
+    <!--<string name="add_friend">Amigo</string>-->
     <string name="add_salary">Añadir Salario</string>
     <string name="alarms">Alarmas</string>
     <string name="amount">Cantidad</string>
     <string name="cancel">Cancelar</string>
     <string name="are_you_sure">¿Estás seguro?</string>
-    <string name="combined">"Diagrama Combinado - "</string>
+    <string name="combined">\"Combinado - \"</string>
     <string name="date">Fecha:</string>
     <string name="day">Día:</string>
     <string name="delete">Borrar</string>
@@ -86,8 +94,8 @@
     <string name="first_name">Nombre</string>
     <string name="email">Correo electrónico</string>
     <string name="email_two_dots">Correo electrónico:</string>
-    <string name="friends_stats">Amigo</string>
-    <string name="hello">"Hola "</string>
+    <!--<string name="friends_stats">Amigo</string>-->
+    <!--<string name="hello">"Hola "</string>-->
     <string name="your_types">Tus tipos</string>
     <string name="statistics">Estadísticas</string>
     <string name="yes">Sí</string>
@@ -99,13 +107,13 @@
     <string name="insert_price">Insertar precio</string>
     <string name="invalid_symbols">Símbolos inválidos</string>
     <string name="invalid_type">Tipo inválido</string>
-    <string name="leva">lv</string>
-    <string name="log_out"></string>
+    <!--<string name="leva">lv</string>-->
+    <!--<string name="log_out"></string>-->
     <string name="message">Mensaje</string>
     <string name="message_is_required">Es nesesario añadir mensaje.</string>
     <string name="money_io">MoneyIЕ</string>
     <string name="month">mes</string>
-    <string name="msg_welcome"></string>
+    <!--<string name="msg_welcome"></string>-->
     <string name="my_profile">Mi perfil</string>
     <string name="my_stats">Estadísticas</string>
     <string name="name">Nombre:</string>
@@ -156,4 +164,7 @@
     <string name="tutorial_text2">Al hacer clic en este botón, puede consultar algunas estadísticas sobre sus ingresos y gastos.</string>
     <string name="tutorial_text1">Al hacer clic en este botón, abre el menú de la aplicación y agrega nuevos amigos, verifica sus estadísticas, establece sus recordatorios ...</string>
     <string name="vibration">Vibración</string>
+    <string name="free_money">Dinero Restante</string>
+    <string name="set_your_personal_reminders_here">Configura tus recordatorios personales aquí</string>
+    <string name="reminders_text">Los recordatorios aparecerán en su barra de notificaciones el día y la hora elegidos cada mes.</string>
 </resources>

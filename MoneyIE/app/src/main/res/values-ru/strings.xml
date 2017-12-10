@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="languages">
+        <item>Select Language</item>
+        <item>English</item>
+        <item>Español</item>
+        <item>Deutsch</item>
+        <item>Български</item>
+        <item>Русский</item>
+    </string-array>
     <string name="app_name">MoneyIЕ</string>
     <string name="ADDED">добавленной</string>
     <string name="Alcohol">Алкоголь</string>
@@ -73,7 +81,7 @@
     <string name="are_you_sure">Ты уверен?</string>
     <string name="cancel">Отмена</string>
     <string name="combined">Комбинированный</string>
-    <string name="combined_chart">Комбинированный график</string>
+    <string name="combined_chart">"Комбинированный график - "</string>
     <string name="create_your_own_types">Создать тип</string>
     <string name="combined_year_text">Диаграмма, которая показывает ваши доходы и расходы в течение месяцев в выбранном году.</string>
     <string name="Fuel">Топливо</string>
@@ -92,19 +100,19 @@
     <string name="insert_comment">Вставить комментарий</string>
     <string name="income">Доход</string>
     <string name="first_name">Имя</string>
-    <string name="horizontal_bar_chart">Горизонтальная диаграмма</string>
+    <string name="horizontal_bar_chart">"Горизонтальная диаграмма - "</string>
     <string name="message">Сообщение</string>
     <string name="message_is_required">Необходимо добавить сообщение.</string>
     <string name="money_io">MoneyIЕ</string>
     <string name="month">месяц</string>
-    <string name="my_profile">Мой профайл</string>
+    <string name="my_profile">Профайл</string>
     <string name="my_stats">Статистика</string>
     <string name="my_stats_spinner">Моя</string>
     <string name="name">Имя:</string>
     <string name="no">Нет</string>
     <string name="no_added_types">Нет добавленных типов.</string>
     <string name="please_select">Пожалуйста выберите</string>
-    <string name="pie_chart">Круговая диаграмма</string>
+    <string name="pie_chart">"Круговая диаграмма - "</string>
     <string name="personal_name">"Имя: "</string>
     <string name="price_not_added">Показывает годовые доходы и расходы.</string>
     <string name="quit">Уволиться</string>
@@ -127,7 +135,7 @@
     <string name="your_type">Ваш тип</string>
     <string name="your_types">Ваши типы</string>
     <string name="horizontal_year_text">Графика, показывающая ваши ежегодные расходы. Нажимая на значок календаря, вы можете проверить свою статистику о году, который вы хотите увидеть.</string>
-    <string name="not_saved_please_try_again">НЕ сохранено, повторите попытку.</string>
+    <!--<string name="not_saved_please_try_again">НЕ сохранено, повторите попытку.</string>-->
     <string name="pc_text">Показывает ваши ежемесячные доходы и расходы.</string>
     <string name="pie_year_text">Показывает годовые доходы и расходы.</string>
     <string name="profile_salary_text">Добавляя зарплату здесь, каждый месяц, на выбранную дату, добавленное количество денег будет добавлен в ваш счет в качестве дохода.</string>
@@ -140,7 +148,7 @@
     <string name="aug">Авг</string>
     <string name="dec">Дек</string>
     <string name="feb">Февр</string>
-    <string name="friends_stats"></string>
+    <!--<string name="friends_stats"></string>-->
     <string name="jan">Янв</string>
     <string name="jun">Июни</string>
     <string name="mar">Марш</string>
@@ -151,4 +159,8 @@
     <string name="hbc_month_text">График, который показывает ваши ежемесячные расходы. Нажимая на значок календаря, вы можете проверить свою статистику о месяце, который хотите увидеть.</string>
     <string name="hbc_period_text">График, который показывает ваши расходы периода. Нажимая на значок календаря, вы можете проверить свою статистику о периоде, который хотите увидеть.</string>
     <string name="vibration">Вибрация</string>
+    <string name="sep">Сент</string>
+    <string name="free_money">Оставшиеся деньги</string>
+    <string name="pay_day_">Оплата:</string>
+    <string name="set_your_personal_reminders_here">Укажите свои личные напоминания здесь.</string>
 </resources>

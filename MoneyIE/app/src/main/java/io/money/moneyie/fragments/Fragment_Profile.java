@@ -103,27 +103,27 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         return view;
     }
 
-    @Nullable
-    private String getEmailID(Context context) {
-        AccountManager accountManager = AccountManager.get(context);
-        Account account = getAccount(accountManager);
-        if (account == null) {
-            return null;
-        } else {
-            return account.name;
-        }
-    }
+//    @Nullable
+//    private String getEmailID(Context context) {
+//        AccountManager accountManager = AccountManager.get(context);
+//        Account account = getAccount(accountManager);
+//        if (account == null) {
+//            return null;
+//        } else {
+//            return account.name;
+//        }
+//    }
 
-    private static Account getAccount(AccountManager accountManager) {
-        Account[] accounts = accountManager.getAccountsByType("com.google");
-        Account account;
-        if (accounts.length > 0) {
-            account = accounts[0];
-        } else {
-            account = null;
-        }
-        return account;
-    }
+//    private static Account getAccount(AccountManager accountManager) {
+//        Account[] accounts = accountManager.getAccountsByType("com.google");
+//        Account account;
+//        if (accounts.length > 0) {
+//            account = accounts[0];
+//        } else {
+//            account = null;
+//        }
+//        return account;
+//    }
 
     private void startRecycler() {
         final List<Type> types = DatabaseHelperSQLite.getInstance(view.getContext()).getUserTypes("");
@@ -211,7 +211,7 @@ public class Fragment_Profile extends Fragment implements ShowCustomTypesRecycle
         imgQuestionType = view.findViewById(R.id.profile_add_type_question);
         imgQuestionSalary = view.findViewById(R.id.profile_salary_question);
         changeLanguage = view.findViewById(R.id.change_language_spinner);
-        UserEmailId = getEmailID(view.getContext().getApplicationContext());
+//        UserEmailId = getEmailID(view.getContext().getApplicationContext());
         flagHaveProfile = true;
         prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
 

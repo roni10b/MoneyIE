@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.1'
+    buildToolsVersion '27.0.2'
     defaultConfig {
         applicationId "io.money.moneyie"
         minSdkVersion 17
         targetSdkVersion 26 //must update soon when the AdMob update is released!!!
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -26,17 +26,17 @@ dependencies {
     })
 
     compile 'com.google.android.gms:play-services-ads:11.6.0'
-    compile 'com.android.support:appcompat-v7:27.0.1'
-    compile 'com.android.support:recyclerview-v7:27.0.1'
-    compile 'com.android.support:design:27.0.1'
+    compile 'com.android.support:appcompat-v7:27.0.2'
+    compile 'com.android.support:recyclerview-v7:27.0.2'
+    compile 'com.android.support:design:27.0.2'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 //    compile 'com.google.firebase:firebase-auth:11.4.2'
 //    compile 'com.google.android.gms:play-services-auth:11.4.2'
 //    compile 'com.google.firebase:firebase-database:11.4.2'
 	compile 'com.github.deano2390:MaterialShowcaseView:1.2.0'
-    compile 'com.android.support:design:27.0.1'
-    compile 'com.android.support:support-v4:27.0.1'
+    compile 'com.android.support:design:27.0.2'
+    compile 'com.android.support:support-v4:27.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.yalantis:phoenix:1.2.3' //loading chart
     compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar' //view pager rotation library

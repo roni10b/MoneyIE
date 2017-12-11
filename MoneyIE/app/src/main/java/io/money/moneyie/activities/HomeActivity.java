@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
@@ -52,9 +54,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private static String[] PERMISSIONS= {
             Manifest.permission.INTERNET,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.GET_ACCOUNTS,
-            Manifest.permission.READ_CONTACTS,
-            Manifest.permission.ACCESS_NETWORK_STATE
+            Manifest.permission.ACCESS_NETWORK_STATE,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
     };
     private Button btnOutcome, btnIncome, btnProfile, btnStatistics, btnAlarms, btnAddFriend, btnLogOut;
     private ImageView sandwichButton, statisticsButton;
@@ -65,13 +67,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Bundle bundle;
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
-    private AdRequest adRequest;
+    private long mLastClickTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         verifyPermissions(this);
+        mLastClickTime = 0;
         initialiseElements();
         removeActionBar();
         loadFragment(fragment_incomeExpense);
@@ -93,13 +96,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public static void verifyPermissions(Activity activity) {
         int permissionInternet = ActivityCompat.checkSelfPermission(activity, Manifest.permission.INTERNET);
         int permissionWrite = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int permissionAcc = ActivityCompat.checkSelfPermission(activity, Manifest.permission.GET_ACCOUNTS);
-        int permissionCon = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_CONTACTS);
         int permissionNetState = ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_NETWORK_STATE);
+        int permissionLocation = ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION);
+        int permissionLocation1 = ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION);
 
         if (permissionInternet != PackageManager.PERMISSION_GRANTED || permissionWrite != PackageManager.PERMISSION_GRANTED
-                || permissionAcc != PackageManager.PERMISSION_GRANTED || permissionCon != PackageManager.PERMISSION_GRANTED
-                || permissionNetState != PackageManager.PERMISSION_GRANTED) {
+                || permissionNetState != PackageManager.PERMISSION_GRANTED || permissionLocation != PackageManager.PERMISSION_GRANTED ||
+                permissionLocation1 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
                     activity,
                     PERMISSIONS,
@@ -190,7 +193,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initialiseElements(){
-        MobileAds.initialize(this, getString(R.string.admob_app_id));
+        MobileAds.initialize(this, "ca-app-pub-3532736192097860~2009890400");
         fdb = DatabaseHelperFirebase.getInstance(this);
         fragment_incomeExpense = new Fragment_Income_Expense();
         bundle = new Bundle();
@@ -371,10 +374,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void startInterstitialAd() {
+        if (mLastClickTime != 0) {
+            if (SystemClock.elapsedRealtime() - mLastClickTime < 3*60*1000){
+                return;
+            }
+        }
+        mLastClickTime = SystemClock.elapsedRealtime();
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_statistics));
-        AdRequest adRequest = new AdRequest.Builder()
-                .build();
+        mInterstitialAd.setAdUnitId("ca-app-pub-3532736192097860/5481521111");
+        AdRequest adRequest = new AdRequest.Builder().build();
         mInterstitialAd.loadAd(adRequest);
         mInterstitialAd.setAdListener(new AdListener() {
             public void onAdLoaded() {
